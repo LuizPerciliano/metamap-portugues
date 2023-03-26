@@ -26,8 +26,30 @@ lib/
 lib64/
 
 
+
+#Others
+node_modules
+.env
+.DS_Store
+data
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# ignora quaisquer diretórios chamados "metadata"
+.metadata/
+.recommenders/
+
+# ignore the file literally named foo[01].txt
+foo\[01\].txt
+
 #### MetaMap ####
-metamap/
+
 metamap/lvg2023/
 
 # public_mm
@@ -51,27 +73,6 @@ metamap/public_mm/sourceData/2022AB-PORTUGUES/01metawordindex/Filter/ALLFILES.st
 *.nlm
 *.src/
 
-
-#Others
-node_modules
-.env
-.DS_Store
-data
-
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
-
-# ignora quaisquer diretórios chamados "metadata"
-.metadata/
-.recommenders/
-
-# ignore the file literally named foo[01].txt
-foo\[01\].txt
 
 ############### Arquivos acima de 100MB ###############
 
@@ -117,3 +118,7 @@ foo\[01\].txt
 ./metamap/UMLS-2022AB-full/2022AB/LEX/LRAGR
 ./metamap/UMLS-2022AB-full/2022AB/META/MRSAT.RRF
 ./metamap/UMLS-2022AB-full/2022AB/META/MRCUI.RRF
+
+metamap/public_mm/sourceData/2022AB-PORTUGUES/umls/MRSAT.RRF 
+
+## dando 276 arquivos na pasta metamap para subir xxzzzz
