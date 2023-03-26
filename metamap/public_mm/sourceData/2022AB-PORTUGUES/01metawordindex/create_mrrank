@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w
+
+my $SUBSET = $ARGV[0];
+
+my $Line;
+my ( $Rank, $SAB, $TTY );
+
+while (<>) {
+   chomp;
+   $Line = $_;
+   ( $Rank, $SAB, $TTY, $SUPPRESS ) = split /\|/, $Line;
+   printf "mrrank('%s', '%s', %d, '%s').\n", $SAB, $TTY, $Rank, $SUPPRESS;
+
+}

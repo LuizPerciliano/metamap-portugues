@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# originally MWI/data.10/0doit8.one by Francois Lang
+#
+# mv file to wide names
+
+MODEL=$1
+cd $MODEL
+
+/bin/rm -rf sui_nmstr_str.txt.sorted cui_concept.txt.sorted
+
+ALL_WORD_TABLES="first_words_of_one first_words_of_two first_wordsb first_words all_words"
+
+for WORD_TABLE in $ALL_WORD_TABLES
+do
+   echo in $MODEL deleting ${WORD_TABLE}.sorted ${WORD_TABLE}.WithStr.sorted ${WORD_TABLE}_WIDE.txt
+   /bin/rm -f ${WORD_TABLE}.sorted ${WORD_TABLE}.WithStr.sorted ${WORD_TABLE}_WIDE.txt
+   echo in $MODEL DONE
+
+   echo in $MODEL renaming ${WORD_TABLE}.WithStrAndConc to ${WORD_TABLE}_WIDE.txt
+   mv ${WORD_TABLE}.WithStrAndConc ${WORD_TABLE}_WIDE.txt
+   echo in $MODEL DONE
+   # chmod -w ${WORD_TABLE}_WIDE.txt
+done
+

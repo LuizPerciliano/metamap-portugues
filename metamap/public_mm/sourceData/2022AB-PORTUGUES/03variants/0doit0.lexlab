@@ -1,0 +1,123 @@
+#!/bin/sh 
+#
+# updated using
+# /nfsvol/nls/specialist/metamap/tools/mm_variants/data.TEMPLATE/WordLabs/LexLab/0doit0
+#
+PATH=$BASEDIR/bin:$PATH
+
+if [ -z "$LEXICON_VERSION" ]; then 
+    export LEXICON_VERSION=2014
+fi
+INFL_VARS=${BASEDIR}/data/dfbuilder/${LEXICON_VERSION}/inflVars.data.ascii
+export LEXICON_DATA=${BASEDIR}/lexicon/data
+export MORPH_DATA=${BASEDIR}/lexicon/morph
+export DEFAULT_LEXICON_FLAT_FILE=$LEXICON_DATA/lexiconStatic${LEXICON_VERSION}
+export DEFAULT_LEXICON_INDEX_FILE=${DEFAULT_LEXICON_FLAT_FILE}Ind
+export LM_TRANSLATED_RULES_FILE=${MORPH_DATA}/lm_translated_rules
+LEX_L=${DEFAULT_LEXICON_FLAT_FILE}
+LEX_I=${DEFAULT_LEXICON_INDEX_FILE}
+
+if [ ! -e $INFL_VARS ]
+then
+    echo ERROR: $INFL_VARS file does not exist
+    exit 1
+fi
+
+# /bin/rm -f words.meta bases.0 bases.1 bases inflections.0a inflections.1a inflections.2a
+
+# /bin/rm -f inflections.0b inflections.1b inflections.2b inflections.diff inflections.3 inflections.3.chars
+
+# /bin/rm -f bases*.gz inflections.??.gz
+
+date
+
+# ln -s ../MetaLab/words.meta
+
+echo creating bases.0 and spvars.0
+# lcat -l ${LEX_L} -i ${LEX_I} -pb > bases.0
+grep '^{base=' ${DEFAULT_LEXICON_FLAT_FILE} | cut -c7- > bases.0 &
+grep '^spelling_variant=' ${DEFAULT_LEXICON_FLAT_FILE} | cut -c18- > spvars.0 &
+wait
+echo DONE
+
+echo creating bases.1 and spvars.1
+lc bases.0 bases.1 &
+lc spvars.0 spvars.1 &
+wait
+echo DONE
+
+echo creating bases and spvars
+sort -u bases.1 > bases
+sort -u spvars.1 > spvars &
+wait
+echo DONE
+
+echo creating inflections.0a from $INFL_VARS
+cut -d'|' -f1 $INFL_VARS > inflections.0a
+
+# lcat -l ${LEX_L} -i ${LEX_I} -pk > inflections.0a
+echo DONE
+
+echo creating inflections.1a
+lc inflections.0a inflections.1a
+echo DONE
+
+echo creating inflections.2a
+sort -u inflections.1a > inflections.2a
+echo DONE
+
+# echo creating inflections.0b
+# lcat -l ${LEX_L} -i ${LEX_I} | lvar | cut -f2 -d '|' > inflections.0b
+# echo DONE
+
+# echo creating inflections.1b
+# lc inflections.0b inflections.1b
+# echo DONE
+
+# echo creating inflections.2b
+# sort -u inflections.1b > inflections.2b
+# echo DONE
+
+# echo creating inflections.diff
+# diff inflections.2a inflections.2b > inflections.diff
+# echo DONE
+
+# echo 'inflections.diff should be empty'
+# echo ' '
+
+# if [ -s inflections.diff ]
+# then
+#    echo Trouble in paradise: inflections.diff is NOT empty.
+# else
+#    echo All is well: inflections.diff IS empty.
+# fi
+
+# sed "s/\(.\)'s/\1s/" inflections.2a | sort -u > inflections.3
+
+# echo creating inflections.3
+cp inflections.2a inflections.3
+# echo DONE
+
+echo calling chartally on inflections.2a
+${AWK} -f $BASEDIR/bin/chartally.awk inflections.2a
+echo DONE
+
+grep -v ":" inflections.3 | sort -u > inflections
+
+# chmod -w bases*
+# chmod -w inflections*
+
+# gzip bases*
+# gzip inflections.??*
+# gunzip inflections.3.chars.gz
+# gunzip inflections.diff.gz
+
+# echo 'Now manually edit inflections.3'
+# echo ' by, e.g., removing embedded colons.'
+# echo 'This year, I removed polyinosinic:polycytidylic acid.'
+# echo 'This is done automatically now by grep -v ":".'
+# echo 'Then uniqely sort inflections.3 to produce inflections (probably not necessary)'
+echo
+
+date
+

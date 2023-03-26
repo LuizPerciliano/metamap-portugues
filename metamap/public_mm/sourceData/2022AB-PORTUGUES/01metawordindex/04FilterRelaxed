@@ -1,0 +1,124 @@
+#!/bin/sh
+# change MAX_PROCESSES to run on a machine with less or more processors
+
+date
+
+. ../dfbuilder.profile
+
+# Input file name
+FILEBASE=mrconso.eng
+
+# Model: Either strict or relaxed
+MODEL=relaxed
+# "-sEN" for strict; "-N" for relaxed
+FLAGS=-N
+
+# How many simultaneous filter_mrconso processes to run
+MAX_PROCESSES=1
+
+# Ask user about number of processes to run.
+OSTYPE=`uname`
+if [ $OSTYPE = "Linux" ]; then
+    NO_PROCESSORS=`grep processor /proc/cpuinfo  | wc -l`
+    if [ $NO_PROCESSORS -gt "1" ]; then
+	resp_valid="false"
+	until [ "$resp_valid" = "true" ]
+	do
+	    echo "This system has $NO_PROCESSORS available, would you like to use more"
+	    echo "than one process for the relaxed filtering? [no]:"
+	    read response
+	    if [ "$response" = "no" -o "$response" = "yes" -o "$response" = "" ] ; then
+		resp_valid=true
+	    fi
+	done
+	if [ "$response" = "yes" ]; then
+	    resp_valid="false"
+	    # use half the processors by default
+	    DEFAULT_NO_PROCESSORS=`expr $NO_PROCESSORS / 2`
+	    until [ "$resp_valid" = "true" ]
+	    do
+		echo "Specify the number of processes to use: [default: $DEFAULT_NO_PROCESSORS]"
+	    	read response
+		if [ "$response" = "" ] ; then
+		    response=$DEFAULT_NO_PROCESSORS
+		fi
+		# make sure response contains only digits
+		expr $response : '\([0-9]*\)$'
+		if [ $? -eq "0" ]; then 
+		    resp_valid="true"
+		    MAX_PROCESSES=$response
+		else
+		    echo "The response must contain integers only."
+		fi
+	    done
+	    echo "MAX_PROCESSES=$MAX_PROCESSES"
+	fi
+    fi
+fi
+
+echo ' '
+echo "The script is configured to run on an ${MAX_PROCESSES}-processor Linux box."
+echo ' '
+echo 'Note using more than one processes could overwhelm tagger server when using strict model.'
+echo ' '
+echo 'Change MAX_PROCESSES to reduce or increase number of simulataneous processes.'
+echo ' '
+echo 'Sleeping for 5 seconds.'
+sleep 5
+
+./04FilterShared relaxed N mrconso.eng 1000 $MAX_PROCESSES
+
+date
+
+cd Filter
+pwd
+
+echo Now assembling final version of mrconso.eng.chunked.filtered
+
+# extract all lines from the individual *.filtered files beginning with 'y' or 'n'
+echo "Creating mrconso.eng.relaxed"
+grep -h ^y ALLFILES.relaxed/mrconso.eng.chunk.[0-9]*.filtered | cut -c3- > mrconso.eng.relaxed &
+
+# extract all lines from the individual *.filtered files beginning with 'i'
+echo "Creating mrconso.eng.relaxed.rest"
+grep -h '^n' ALLFILES.relaxed/mrconso.eng.chunk.[0-9]*.filtered | cut -c2- > mrconso.eng.relaxed.rest &
+
+echo "Creating mrconso.eng.relaxed.info.0"
+grep '^i' ALLFILES.relaxed/mrconso.eng.chunk.[0-9]*.filtered | cut -c2- > mrconso.eng.relaxed.info.0 &
+
+wait
+
+echo DONE
+# Note that write_filter_mrconso_info has been rewritten as a Perl script;
+# the Perl version is far simpler and over 7 times faster.
+echo calling write_filter_mrconso_info
+./write_filter_mrconso_info mrconso.eng.relaxed.info.0 > mrconso.eng.relaxed.info
+echo DONE
+
+# chmod -w mrconso.eng.relaxed*
+
+INLINES=`cat mrconso.eng | wc -l`
+OUTLINES=`cat mrconso.eng.relaxed mrconso.eng.relaxed.rest | wc -l`
+
+echo $INLINES lines in mrconso.eng
+echo $OUTLINES in mrconso.eng.relaxed and mrconso.eng.relaxed.rest
+
+if [ $INLINES -eq $OUTLINES ]
+then
+   echo $INLINES and $OUTLINES match
+else
+   echo $INLINES and $OUTLINES do not match
+fi
+
+date
+echo DONE
+
+# if test -s mrconso.eng.relaxed -a $status
+if [ -s mrconso.eng.relaxed ]
+then 
+   #chmod -w mrconso.eng.relaxed*
+
+   . ./0ExpandIndex 
+fi 
+
+#fin 

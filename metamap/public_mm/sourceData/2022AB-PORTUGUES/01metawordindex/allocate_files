@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+my @AllFiles;
+my $File;
+my @SelectedFiles;
+my $Num;
+my $MAX_PROCESSES;
+my $REMAINDER;
+
+( $MAX_PROCESSES, $REMAINDER ) = @ARGV;
+
+@AllFiles = glob "mrconso.eng.chunk.*[0-9]";
+
+foreach $File ( @AllFiles ) {
+   ( $Num = $File ) =~ s/mrconso.eng.chunk.//;
+   push @SelectedFiles, $File if $Num % $MAX_PROCESSES == $REMAINDER;
+} # foreach $File ( @AllFiles )
+
+print "@SelectedFiles\n";

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+BASEDIR=/home/luizperciliano/metamap-portugues/metamap/public_mm
+BINDIR=${BASEDIR}/bin
+OPERATING_SYSTEM=`uname`
+
+# fix for Berkeley DB shared library problem. 29oct2010 wjr
+case $OPERATING_SYSTEM in
+    CYGWIN_NT*)
+	OPERATING_SYSTEM=x86-win32-nt-4
+	export PATH=$PATH:$BASEDIR/lib:$BASEDIR/bin
+	;;
+    MINGW*)
+	OPERATING_SYSTEM=x86-win32-nt-4
+	export PATH=$PATH:$BASEDIR/lib:$BASEDIR/bin
+	;;
+    Darwin*)
+	DYLD_LIBRARY_PATH=$BASEDIR/bin:$BASEDIR/lib:${LD_LIBRARY_PATH}
+	export DYLD_LIBRARY_PATH
+	;;
+    *)
+	LD_LIBRARY_PATH=$BASEDIR/bin:$BASEDIR/lib:${LD_LIBRARY_PATH}
+	export LD_LIBRARY_PATH
+	;;
+esac
+
+$BINDIR/SKRrun.14 $BINDIR/glean_mrconso.BINARY.${OPERATING_SYSTEM} $*

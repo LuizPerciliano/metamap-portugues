@@ -1,0 +1,62 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+# call on MRSTY to generate output like
+# C0013877|bacs,aapp,phsu,hops
+# C0014563|horm,orch,nsba,phsu
+# which will need calling atom_codes and split_string_completely
+
+my ( $Line, $CUI, $FullSemType, $AbbrevSemType ) = ( "", "", "", "" );
+my ( %STAbbrevHash, %STHash ) = ( "", "" );
+
+open ST_ABBREV, " < st.raw";
+
+# st.raw contains lines like
+# Acquired Abnormality|acab
+# Activity|acty
+# Age Group|aggp
+# Amino Acid Sequence|amas
+# Amino Acid, Peptide, or Protein|aapp
+# Amphibian|amph
+
+# So %StAbbrevHash takes an expanded SemType and returns its abbreviation
+
+# for custom data sets
+$STAbbrevHash{"Unknown"} = "unkn";
+
+while ( <ST_ABBREV> ) {
+    chomp;
+    $Line = $_;
+    ( $FullSemType, $AbbrevSemType ) = split /\|/, $Line;
+    $STAbbrevHash{$FullSemType} = $AbbrevSemType;
+} # while ( <ST_ABBREV> )
+
+close ST_ABBREV;
+
+open MRSTY, " < MRSTY.RRF";
+
+# MRSTY.RFF contaons lines like
+# C0000005|T116|A1.4.1.2.1.7|Amino Acid, Peptide, or Protein|AT17648347||
+# C0000005|T121|A1.4.1.1.1|Pharmacologic Substance|AT17575038||
+# C0000005|T130|A1.4.1.1.4|Indicator, Reagent, or Diagnostic Aid|AT17634323||
+# C0000039|T119|A1.4.1.2.1.9|Lipid|AT17617573|256|
+# C0000039|T121|A1.4.1.1.1|Pharmacologic Substance|AT17567371|256|
+
+# We're interested in fields 0 (CUI) and 3 (FullSemType)
+
+while ( <MRSTY> ) {
+    chomp;
+    $Line = $_;
+    ( $CUI, $FullSemType ) = ( split /\|/, $Line )[0,3];
+    $AbbrevSemType = $STAbbrevHash{$FullSemType};
+    $STHash{$CUI}{$AbbrevSemType} = 1;
+} # while ( <MRSTY> )
+
+foreach $CUI ( sort keys %STHash ) {
+    my $String = "$CUI";
+    my $AllSTs = join ",", keys %{$STHash{$CUI}};
+    print "$String|$AllSTs\n";
+} # foreach $CUI ( sort keys %CUIHash )
+
+close MRSTY;

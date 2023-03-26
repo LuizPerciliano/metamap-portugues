@@ -1,0 +1,28 @@
+#!/bin/sh -f
+
+BASEDIR=@@basedir@@
+#
+# Let args be all of the arguments, and switch on the number of them
+#
+case $# in
+#
+#
+# Do normal processing
+#
+    2)
+	echo ' '
+	echo "Forming opt table (cols 1 and 2) from  $1  to produce file  $2"
+	echo ' '
+	perl $BASEDIR/bin/form_opt.perl $1 > $2
+	;;
+#
+#
+# Otherwise, print the command usage
+#
+    *)
+	echo ' '
+	echo 'Usage:  form_opt <input file> <output file>'
+	echo ' '
+	;;
+esac
+exit

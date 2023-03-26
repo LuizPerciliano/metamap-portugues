@@ -1,0 +1,59 @@
+#!/bin/sh
+#
+# originally MWI/data.10/0doit7.one by Francois Lang
+#
+# generate line counts for tables
+
+
+date
+
+MODEL=$1
+cd $MODEL
+
+ALL_WORD_TABLES="first_words_of_one first_words_of_two first_wordsb first_words all_words"
+
+for WORD_TABLE in $ALL_WORD_TABLES
+do
+   echo In $MODEL checking line counts for $WORD_TABLE: All should be the same
+   wc -l ${WORD_TABLE}.* | grep -v ' total' | sed -e "s/\([^ ]\) \([^ ]\)/\1 $MODEL \2/"
+   echo DONE checking line counts for $WORD_TABLE in $MODEL
+   echo ""
+done
+
+date
+
+echo DONE with all checking for $MODEL
+
+# Note: The "wc -l" command is piped to an ugly sed call. Here's what's going on:
+# The output of wc -l looks like this;
+
+#   2456747 first_words.WithStr.sorted
+#   2456747 first_words.WithStrAndConc
+#   2456747 first_words.sorted
+#   2456747 first_words.txt
+
+# We get rid of the "total" line, because we don't care about it.
+#   9826988 total
+
+# I want to add "model.strict" or "model.relaxed", as appropriate,
+# between the line count and the file name to make the script's output more meaningful.
+# To do that, note that in the output of wc -l,
+# the only blank space surrounded by non-blank chars
+# is the blank space separating the line count and the filename.
+# So we look for the sequence
+# <non-blank-1><blank><non-blank-2>
+# via the pattern below, store the two nonblanks in registers \1 and \2,
+# "s/\([^ ]\) \([^ ]\)/\1 $MODEL \2/"
+# and play back
+#  * register \1,
+#  * a space,
+#  * $MODEL,
+#  * another space, and finally
+#  * register \2
+# to produce
+# 
+#   2456747 model.strict first_words.WithStr.sorted
+#   2456747 model.strict first_words.WithStrAndConc
+#   2456747 model.strict first_words.sorted
+#   2456747 model.strict first_words.txt
+#   9826988 model.strict total

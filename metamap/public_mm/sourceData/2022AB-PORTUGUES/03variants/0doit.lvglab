@@ -1,0 +1,112 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+OSTYPE=`uname`
+case $OSTYPE in
+    CYGWIN*)
+	LVG_DIR=`cygpath --unix "/home/luizperciliano/metamap-portugues/metamap/lvg2023"`
+	;;
+    MINGW*)
+	LVG_DIR=`cd /home/luizperciliano/metamap-portugues/metamap/lvg2023 && pwd`
+	;;
+    SunOS)
+	LVG_DIR=/home/luizperciliano/metamap-portugues/metamap/lvg2023
+	;;
+    *)
+	LVG_DIR=/home/luizperciliano/metamap-portugues/metamap/lvg2023
+	;;
+esac
+
+PATH=$BASEDIR/bin:$PATH:${LVG_DIR}/bin
+export PATH
+
+echo "PATH=$PATH"
+echo "lvg -> `which lvg`"
+
+# /bin/rm -f xwords0 xwords1 xwords1.* xwords.vars.0 words.xwords1 words.meta words.xwords1andmeta
+
+date
+
+# ln -s ../WordLabs/xwords0
+
+# generate no-op and simplified inflections only (no derivations)
+echo creating xwords1
+case $OSTYPE in
+    CYGWIN*|MINGW*)
+	cmd /c "lvg.bat -i:xwords0 -f:n -f:i > xwords1"
+	;;
+    *)
+	lvg -i:xwords0 -f:n -f:i > xwords1
+	;;
+esac
+echo DONE
+
+# chmod -w xwords1
+
+date
+
+echo creating xwords1.symbolic
+case $OSTYPE in
+    CYGWIN*|MINGW*)
+	cmd /c "lvg.bat -i:xwords0 -f:n -f:i -SC -SI > xwords1.symbolic"
+	;;
+    *)
+	lvg -i:xwords0 -f:n -f:i -SC -SI > xwords1.symbolic
+	;;
+esac
+echo DONE
+
+# chmod -w xwords1.symbolic
+
+date
+
+echo creating xwords1.cats
+cut -f3 -d '|' xwords1 | sort | uniq -c | sort +1 -2n > xwords1.cats
+echo DONE
+
+echo creating xwords1.infls
+cut -f4 -d '|' xwords1 | sort | uniq -c | sort +1 -2n > xwords1.infls
+echo DONE
+
+echo creating xwords1.symbolic.cats
+cut -f3 -d '|' xwords1.symbolic | sort | uniq -c | sort +1 -2n > xwords1.symbolic.cats
+echo DONE
+
+echo creating xwords1.symbolic.infls
+cut -f4 -d '|' xwords1.symbolic | sort | uniq -c | sort +1 -2n > xwords1.symbolic.infls
+echo DONE
+
+#chmod -w xwords1.*
+
+date
+
+echo creating xwords.vars.0
+# lvg_to_mm_var is a perl script in /nfsvol/nls/bin
+lvg_to_mm_var xwords1 > xwords.vars.0
+echo DONE
+
+# chmod -w xwords.vars.0
+
+date
+
+echo creating words.xwords1
+cut -f2 -d '|' xwords1 | sort -u > words.xwords1
+echo DONE
+
+# ln -s ../WordLabs/words.meta
+
+echo creating words.xwords1andmeta
+comm -12 words.xwords1 words.meta > words.xwords1andmeta
+echo DONE
+
+# chmod -w words.xwords1*
+
+echo "Checking xwords.vars.0 for 'ERROR' messages:"
+grep -n -H ERROR xwords.vars.0
+if [ $? -eq 0 ]; then
+    echo "errors found"
+else
+    echo "no errors found"
+fi
+
+date

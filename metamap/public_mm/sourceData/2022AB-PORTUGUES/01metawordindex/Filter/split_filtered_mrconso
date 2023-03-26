@@ -1,0 +1,72 @@
+#!/bin/sh -f
+#
+# Started a new shell without invoking .cshrc
+#
+#
+# Let args be all of the arguments, and switch on the number of them
+#
+
+case $# in
+   #
+   #
+   # Do normal processing
+   #
+   4)
+   echo ' '
+   echo "Splitting $1 into:"
+   echo " - $2 (filtered mrconso lines),"
+   echo " - $3 (the rest), and"
+   echo " - $4 (summary info)"
+   echo ' '
+   
+   # Lines beginning with "y" ("yes") are good,
+   # and should be kept, e.g.,
+   # y|C0000074:L0000074:S0007615|40|P|PF|1-Alkyl-2-Acylphosphatidates|MSH|PEN|D010742
+   # y|C0000084:L0000084:S0007627|42|P|PF|1-Carboxyglutamic Acid|MSH|MH|D015055
+   # y|C0000084:L0017026:S0043577|44|S|PF|gamma-Carboxyglutamic Acid|MSH|EP|D015055
+   # y|C0000096:L0000096:S0463366|49|P|PF|1-Methyl-3-isobutylxanthine|MSH|MH|D015056
+   
+   echo "Creating $2"
+   grep '^y' $1 | sed 's/^..//' > $2 &
+   
+   # Lines beginning with "n" ("no") are bad,
+   # and should be discarded, e.g.,
+   # nsynt|C0000005:L0000005:S0007492|1|P|PF|(131)I-Macroaggregated Albumin|MSH|PEN|D012711|[case,hyphen]|(131)i macroaggregated albumin
+   # ntss|C0000039:L6530188:S7593536|17|s|PF|DIPALMITOYLPHOSPHATIDYLCHOLINE 0102|MSH|DSV|D015060|[case]|dipalmitoylphosphatidylcholine 0102
+   # nnorm|C0000039:L0012507:S0033298|9|S|PF|Dipalmitoylphosphatidylcholine|SNOMEDCT|OP|102735002|[case]|dipalmitoylphosphatidylcholine
+   # ntyDEV|C0000098:L0086771:S7237376|78|S|VC|N METHYL 4 PHENYLPYRIDINIUM|MSH|DEV|D015655|[case]|n methyl 4 phenylpyridinium
+   
+   echo "Creating $3"
+   grep '^n' $1 | sed 's/^..//' > $3 &
+   
+   # Lines beginning with "i" ("info") are informational,
+   # and should be kept for future analysis, e.g.,
+   # icn|1|[uninv,case,poss]
+   # ibn|6|nos
+   # it|1|MTH_IS
+   # is|139|synt
+   
+   echo "Creating $4"
+   grep '^i' $1 | sed 's/^..//' > $4 &
+   
+   wait
+   
+   #chmod -w $2 $3 $4
+   ;;
+   #
+   #
+   # Otherwise, print the command usage
+   #
+
+   *)
+   echo ' '
+   echo 'Usage: split_filtered_mrconso <infile> <outfile> <restfile> <infofile>'
+   echo '       where <infile> is produced by (the new) filter_mrconso,'
+   echo '             <outfile> is the file of filtered results,'
+   echo '             <restfile> is the remaining results (filtered out), and'
+   echo '             <infofile> contains summary information.'
+   echo ' '
+   ;;
+esac
+
+exit 0

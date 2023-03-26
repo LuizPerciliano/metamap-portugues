@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# generate Synonyms table file syns.txt
+#
+date
+
+# the original SM.DB has a first field which can be used as a key
+# it is extraneous for the purposes of this script.
+
+echo creating SM.DB.0
+cut -f2- -d '|' SM.DB.orig > SM.DB.0
+echo DONE
+
+echo creating SM.DB
+cp SM.DB.0 SM.DB
+echo DONE
+
+echo creating syn_nls_db.txt.0
+./write_syns SM.DB syn_nls_db.txt.0
+echo DONE
+
+echo creating syn_nls_db.txt
+tr '[A-Z]' '[a-z]' < syn_nls_db.txt.0 |  sort -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 > syn_nls_db.txt
+echo DONE
+
+echo creating col.1
+cut -f1 -d '|' syn_nls_db.txt | sort -u > col.1
+echo DONE
+
+echo creating col.1
+cut -f3 -d '|' syn_nls_db.txt | sort -u > col.3
+echo DONE
+
+echo creating col.diffs
+diff col.1 col.3 > col.diffs
+echo 'col.diffs should be empty'
+wc col.diffs
+echo DONE
+
+echo creating syns.txt.0
+sort -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 syn_nls_db.txt > syns.txt.0
+
+echo "You can probably ignore the following messages... "
+
+# chmod -w syns.txt.0
+echo creating syns.txt
+case $OS in
+    Windows_NT)
+	cp syns.txt.0 syns.txt
+	;;
+    *)
+	ln syns.txt.0 syns.txt
+	;;
+esac
+
+echo 
+echo 'Remove any problematic synonyms manually.'
+echo 'Note: There have been no such changes since 2001.'
+echo
+
+./0dowidths > 0field.widths
+# chmod -w 0field.widths
+
+echo
+echo 'Finding cases where one synonym is a single word'
+echo 'and the other is a multiword.'
+echo
+
+echo creating syns.txt.single.multi
+grep '^[^ ]*|.*|.*\ .*|' syns.txt > syns.txt.single.multi
+echo DONE
+
+# chmod -w syns.txt.single.multi
+
+date 
+
+
+echo ' '
+echo ' The next and final generation step is Acronym and Abbrevation generation.'
+echo ' '
+echo '   Move up out of 04synonyms and down into 05abbrAcronyms.'
+echo '   Run 01GenerateAbbrAcronyms. '
+echo ' '
+echo ' '
+echo ' '

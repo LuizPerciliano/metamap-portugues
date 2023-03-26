@@ -1,0 +1,53 @@
+./bin/install.sh started sáb 18 mar 2023 23:14:38 -03
+glib minimun required version: 2.12
+Basedir is set to /home/luizperciliano/metamap-portugues/metamap/public_mm.
+Using /usr/lib/jvm/java-oracle for JAVA_HOME.
+Created directory /home/luizperciliano/metamap-portugues/metamap/public_mm/WSD_Server/log
+Created directory /home/luizperciliano/metamap-portugues/metamap/public_mm/Tagger_server/log
+Setting up bin directory scripts:
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/BuildDataFiles generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/builddatafiles.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/dfbuilder.profile generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/filter_mrconso generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/flip_variants generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/form_opt generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/glean_mrconso generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/LoadDataFiles generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/loaddatafiles.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/metamap2020.TEMPLATE generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/metamap20 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/metamap generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/mm_tokenizer generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/mm_variants generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/rundatafiles.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRenv.14 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRenv.16 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRenv.20 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/skrmedpostctl generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRrun.14 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRrun.16 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/SKRrun.20 generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/uninstall.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/bin/wsdserverctl generated.
+Setting up test suite:
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2009.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2010.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2011.bat generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2011.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2012.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2013.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest_2014.sh generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/TestSuite/runTest.sh generated.
+Checking for required datafiles
+Checking for optional datafiles (WSD)
+MISSINGOPTIONS=0
+MISSINGFILES=0
+Public MetaMap Install complete.
+./bin/install.sh ended sáb 18 mar 2023 23:14:54 -03
+Using /home/luizperciliano/metamap-portugues/metamap/lvg2023 for LVG_DIR.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/scripts/dfbuilderRRF/Variants/0doit.lvglab generated.
+/home/luizperciliano/metamap-portugues/metamap/public_mm/scripts/dfbuilderRRF/Variants/0doit.xwords generated.
+Datafile Builder Setup is complete.
+Public MetaMap basedir: /home/luizperciliano/metamap-portugues/metamap/public_mm
+Public MetaMap Program Dir: /home/luizperciliano/metamap-portugues/metamap/public_mm/bin
+Java Home dir: /usr/lib/jvm/java-oracle

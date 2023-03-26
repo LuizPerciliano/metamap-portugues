@@ -1,0 +1,36 @@
+#!/usr/bin/perl -w
+
+# Find lines in the input file(s) containing non-ASCII (na) chars.
+
+use strict;
+
+my $INFILE    = $ARGV[0];
+my $INFILENAME;
+
+# get the filename by removing all chars up to and including the final "/"
+( $INFILENAME = $INFILE ) =~ s@.*/@@;
+
+my $ASCII     = "./" . $INFILENAME . ".ASCII";
+my $nonASCII  = "./" . $INFILENAME . ".nonASCII";
+
+print "Reading in file $INFILE\n";
+print "ASCII-only lines being sent to $ASCII\n";
+print "non-ASCII-only lines being sent to $nonASCII\n";
+
+open INFILE,   "< $INFILE";
+open ASCII,    "> $ASCII";
+open nonASCII, "> $nonASCII";
+
+while ( <INFILE> ) {
+    chomp;
+    if ( $_ =~ /[^\000-\177]/ ) {
+	printf nonASCII "%s\n", $_;
+    }
+    else {
+	printf ASCII "%s\n", $_;
+    }
+}
+
+close INFILE;
+close ASCII;
+close nonASCII;

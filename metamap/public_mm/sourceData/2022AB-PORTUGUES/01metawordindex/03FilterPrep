@@ -1,0 +1,129 @@
+#! /bin/sh
+
+. ../dfbuilder.profile
+
+cd Filter
+
+OSTYPE=`uname`
+case $OSTYPE in 
+    MINGW*)
+	cp ../mrconso.eng mrconso.eng
+	;;
+    CYGWIN*)
+	cp ../mrconso.eng mrconso.eng
+	;;
+    *)
+	ln -s ../mrconso.eng mrconso.eng
+	;;
+esac
+
+date
+echo ' '
+echo 'This step creates a file containing CUI -> SRC information from mrconso.eng'
+echo '  Filtering will be performed on this file: mrconso.eng .'
+echo ' '
+echo '  Intermediate results can be found in Filter/'
+echo ' '
+echo '  This step takes about 9 minutes.'
+echo ' '
+
+date 
+
+echo
+echo 'Creating source files:'
+echo '  cui_src.txt'
+echo '  cui_sourceinfo.txt'
+echo
+
+echo creating cui_src.txt
+${AWK} 'BEGIN {FS=OFS="|"} $3 == "P" &&  $5 == "PF" {print $1, $12}' \
+    mrconso.eng | sort -u -o cui_src.txt
+# chmod 644 cui_src.txt
+
+echo creating CUI_SRCs and CUI_STs
+
+./gen_CUI_srcs mrconso.eng > CUI_SRCs
+
+case $OSTYPE in 
+    MINGW*|CYGWIN*)
+	cp -s ../st.raw st.raw
+	cp -s ../MRSTY.RRF MRSTY.RRF
+	;;
+    *)
+	ln -s ../st.raw st.raw
+	ln -s ../MRSTY.RRF MRSTY.RRF
+	;;
+esac
+
+./gen_CUI_STs > CUI_STs
+
+
+# chmod -w cui_src.txt
+
+echo DONE
+
+echo joining CUI_SRCs and CUI_STs
+join -t'|' -1 1 -2 1 -o 1.1,1.2,2.2 CUI_SRCs CUI_STs > cui_srcs_sts.txt
+echo DONE
+
+date
+
+# generate cuisui_sourceinfo.txt from mrconso.eng
+# java gov.nih.nlm.nls.mmtx.dfbuilder.ExtractMrconsoSources -r -s mrconso.eng cuisui_sourceinfo.txt 
+extract_mrconso_sources.perl mrconso.eng cui_sourceinfo
+
+
+# generate cuisui_sourceinfo.txt from mrconso.eng
+# java gov.nih.nlm.nls.mmtx.dfbuilder.ExtractMrconsoSources -r -s mrconso.eng cuisui_sourceinfo.txt 
+extract_mrconso_sources.perl mrconso.eng cui_sourceinfo.txt 
+#chmod -w cuisui_sourceinfo.txt
+
+# generate cui_src.txt
+#${AWK} -f $BASEDIR/scripts/dfbuilder/gen_cui_src_txt.awk cui_sourceinfo.txt > cui_src.txt
+
+date
+echo ' '
+echo '  Compressing Intermediate files to conserve disk space. '
+echo ' '
+echo ' '
+
+
+# gzip intermediate files
+
+# gzip mrcon.eng.labels
+# gzip mrcon.eng.lbld
+# gzip mrcon.eng.lbld.s
+# gzip mrcon.eng.n
+# gzip mrso.labels
+# gzip mrso.lbld
+# gzip mrso.lbld.s
+
+#deleted lines 101 until 111
+
+date
+
+cd ../
+
+echo ' '
+echo '- - - - - - - - - - - - - - - - - - - - - -  '
+echo ' '
+echo 'The next step uses studies of the full UMLS '
+echo '  to process NEC/NOS,'
+echo '  to handle parentheticals, and'
+echo '  to handle possessives.'
+echo ' '
+echo 'Run 04FilterRelaxed or  '
+echo '    04FilterModerate or  '
+echo '    04FilterStrict '
+echo '    depending on which level(s) of filtering you desire.'
+echo ' '
+echo 'This creates Filter/mrcon.eng.strict,'
+echo '             Filter/mrcon.eng.moderate, and/or'
+echo '             Filter/mrcon.eng.relaxed'
+echo ' '
+echo 'Creates directories model.strict/,'
+echo '                   model.moderate/ and/or'
+echo '                   model.relaxed/'
+echo 'each containing mrcon.filtered which is linked to the appropriate'
+echo 'Filter/ file.'
+echo ' '

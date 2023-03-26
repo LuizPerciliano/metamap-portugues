@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Datafile Builder README </title>
+	<meta name="author" content="Willie Rogers">
+	<meta name="GENERATOR" content = "Almost Free Text v5.098; Copyright 1996-2010 Todd Coram.">
+<style type="text/css">
+  <!--
+	.section5 { padding-left: 50pt; }
+	.section6 { padding-left: 75pt; }
+	.section7 { padding-left: 100pt; }
+html { background: #eee; color: #000; }
+
+body { background: #eee; color: #000; margin: 0; padding: 0;}
+
+div.body {
+	background: #fff; color: #000;
+	margin: 0 1em 0 1em; padding: 1em;
+	font-family: serif;
+	font-size: 1em; line-height: 1.2em;
+	border-width: 0 1px 0 1px;
+	border-style: solid;
+	border-color: #aaa;
+}
+
+div.block {
+	background: #F8F8FF; color: #000;
+	margin: 1em; padding: 0 1em 0 1em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #909090;
+}
+
+table {
+	background: #F8F8F8; color: #000;
+	margin: 1em;
+	border-width: 0 0 0 1px;
+	border-style: solid;
+	border-color: #C0C0C0;
+}
+
+td {
+	border-width: 0 1px 1px 0;
+	border-style: solid;
+	border-color: #C0C0C0;
+}
+
+th {
+	background: #F8F8FF;
+	border-width: 1px 1px 2px 0;
+	border-style: solid;
+	border-color: #C0C0C0;
+}
+
+
+/* body text, headings, and rules */
+
+p { margin: 0; text-indent: 0em; margin: 0 0 0.5em 0 }
+
+h1, h2, h3, h4, h5, h6 {
+	color: #206020; background: transparent;
+	font-family: Optima, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+/*
+h1 { font-size: 1.69em; margin: 1.4em 0 0.4em 0; }
+h2 { font-size: 1.44em; margin: 1.4em 0 0.4em 0; }
+h3 { font-size: 1.21em; margin: 1.4em 0 0.4em 0; }
+h4 { font-size: 1.00em; margin: 1.4em 0 0.4em 0; }
+h5 { font-size: 0.81em; margin: 1.4em 0 0.4em 0; }
+h6 { font-size: 0.64em; margin: 1.4em 0 0.4em 0; }
+*/
+
+hr {
+	color: transparent; background: transparent;
+	height: 0px; margin: 0.6em 0;
+	border-width: 1px ;
+	border-style: solid;
+	border-color: #999;
+}
+
+/* bulleted lists and definition lists */
+
+ul { margin: 0 1em 0.6em 2em; padding: 0; }
+li { margin: 0.4em 0 0 0; }
+
+dl { margin: 0.6em 1em 0.6em 2em; }
+dt { color: #206020; }
+
+tt { color: #602020; }
+
+/* links */
+
+a.link {
+	color: #33c; background: transparent;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000; background: transparent;
+}
+
+body > a {
+	font-family: Optima, Arial, Helvetica, sans-serif;
+	font-size: 0.81em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #206020; background: transparent;
+	font-family: Optima, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+  -->
+</style>
+</head>
+<body>
+<div class="body">
+
+<br><center><h1><a name="AFT-top">Datafile Builder README </a></h1></center>
+<br><center><h2>Willie Rogers</h2></center>
+<!--  AFT Table of Contents (auto generated) -->
+<ul>
+<li> <a class="link" href="#Preliminaries:">Preliminaries:</a></li>
+<li> <a class="link" href="#Prerequisites">Prerequisites</a></li>
+<li> <a class="link" href="#Getting the MetaMap Distribution">Getting the MetaMap Distribution</a></li>
+<li> <a class="link" href="#Extracting the distribution">Extracting the distribution</a></li>
+<li> <a class="link" href="#Installing Data File Builder">Installing Data File Builder</a></li>
+<li> <a class="link" href="#Installing LVG on Mac OS/X">Installing LVG on Mac OS/X</a></li>
+<li> <a class="link" href="#Instructions for using Data File Builder">Instructions for using Data File Builder</a></li>
+<li> <a class="link" href="#Special Notes for Windows Users">Special Notes for Windows Users</a>
+
+</li>
+</ul>
+<!-- Start SectLevel1 -->
+<h2><a name="Preliminaries:">Preliminaries:</a></h2>
+<p class="Body">
+This document is relevant only if
+</p>
+<ol>
+<li> You do not want to use one of the data models provided with MetaMap, but want instead to build a custom Metathesaurus, and</li>
+<li> You plan to build your custom Metathesaurus on Linux, or Mac OS/X.</li>
+</ol>
+<p class="Body">
+The Data File Builder module, which constructs a custom Metathesaurus,
+requires certain GNU utilities, which are included in Linux
+distributions, some are not available on Mac OS/X. If you plan to use
+the Data File Builder on Mac OS/X, you need to download and install
+the GNU utilities.
+</p>
+<p class="Body">
+It is *essential* that the GNU utilities be available, because the
+Data File Builder scripts use the GNU versions of programs such as
+grep, cut, join, sort, etc., and will not work properly if the Mac
+OS/X versions of some of these programs in /bin are used instead.
+</p>
+<p class="Body">
+See README_macosx.html (<a class="link" href="http://metamap.nlm.nih.gov/README_macosx.html">http://metamap.nlm.nih.gov/README_macosx.html</a>)
+for more information getting pre-compiled GNU tools binaries for Mac
+OS/X.
+</p>
+<!--  The necessary GNU utilities may be freely downloaded and can be installed -->
+<!--  using the Solaris package manager. Knowledge of pkgadd and root privileges -->
+<!--  are required to install the GNU utilities; no C compiler is required, however. -->
+<p class="Body">
+If the GNU utilities are already available on your system, you may skip
+to the <a class="link" href="#Configuring the Shell Environment">Configuring the Shell Environment</a> section below.
+</p>
+<!--End Section 1-->
+<h2><a name="Prerequisites">Prerequisites</a></h2>
+<dl>
+<dt><strong>Platforms</strong></dt><dd> The MetaMap Datafile Builder currently only runs on the Linux and Mac OS/X.</dd>
+</dl>
+<dl>
+<dt><strong>Sun Java Runtime Environment (JRE) 1.6 or later</strong></dt><dd> Sun's Java 1.6.0 or later is required for use of the Datafile Builder Suite.  Java is available from the &quot;Developer Resources for Java Technology&quot; website (<a class="link" href="http://java.sun.com">http://java.sun.com</a>/).  <strong>IMPORTANT</strong>: If you have already installed MetaMap using Java 1.4 you must specify a Java 1.6 installation when re-running the MetaMap install program.</dd>
+</dl>
+<!--  [Solaris specific prerequisites] See file -->
+<!--    README__solaris.html (online version: -->
+<!--    http://metamap.nlm.nih.gov/README__solaris.html) for -->
+<!--    more information on Solaris specific prerequisites. -->
+<!--End Section 1-->
+<h2><a name="Getting the MetaMap Distribution">Getting the MetaMap Distribution</a></h2>
+<p class="Body">
+The public MetaMap distribution can be downloaded at the Download
+Section of the MetaMap website:
+</p>
+<p class="Body">
+  <a class="link" href="http://metamap.nlm.nih.gov/#Downloads">http://metamap.nlm.nih.gov/#Downloads</a>
+</p>
+<p class="Body">
+The latest version of this document can be downloaded at:
+</p>
+<dl>
+<dt><strong>HTML</strong></dt><dd> <a class="link" href="http://metamap.nlm.nih.gov/README_dfb.html">http://metamap.nlm.nih.gov/README_dfb.html</a></dd>
+<dt><strong>PDF</strong></dt><dd>  <a class="link" href="http://metamap.nlm.nih.gov/README_dfb.pdf">http://metamap.nlm.nih.gov/README_dfb.pdf</a></dd>
+</dl>
+<!--End Section 1-->
+<h2><a name="Extracting the distribution">Extracting the distribution</a></h2>
+<p class="Body">
+Use the following <tt>tar</tt> command extract the distribution in the same
+directory where the Public MetaMap distribution was extracted:
+</p>
+<div class="block"><pre>
+% tar xvfj public_mm_linux_main_{year}.tar.bz2
+% tar xvfj public_mm_linux_dfb__{year}.tar.bz2
+</pre></div>
+<p class="Body">
+If you don't have GNU tar installed use:
+</p>
+<div class="block"><pre>
+% bzip2 -dc public_mm_linux_main_{year}.tar.bz2 | tar xvf -
+% bzip2 -dc public_mm_linux_dfb_{year}.tar.bz2 | tar xvf -
+</pre></div>
+<p class="Body">
+<tt>Tar</tt> will create the distribution directory <tt>public_mm</tt>.  Note: The
+data compression program BZIP2 (available from <a class="link" href="http://www.bzip.org">http://www.bzip.org</a>) is
+required to decompress the distributions.  GNU tar is preferred, but
+not required to extract the contents of the distributions.  
+</p>
+<!--End Section 1-->
+<h2><a name="Installing Data File Builder">Installing Data File Builder</a></h2>
+<p class="Body">
+In addition to the following normal MetaMap install instructions, the
+Lexical Variant Generator (LVG) must be installed before running
+MetaMap's install program.  LVG is part of the Lexical Tools
+distribution and is available from the Lexical Systems Group
+(<a class="link" href="http://lexsrv3.nlm.nih.gov/Specialist/Summary/lexicalTools.html">http://lexsrv3.nlm.nih.gov/Specialist/Summary/lexicalTools.html</a>).  If
+installing LVG on Mac OS/X or a platform other than Linux or Windows,
+use the instructions in the section on <a class="link" href="#Installing LVG on Mac OS/X">Installing LVG on Mac OS/X</a>.
+</p>
+<p class="Body">
+Before using the MetaMap install program to install data file builder,
+the LVG bin directory <tt>${LVG_DIR}/bin</tt> should be in the program path
+(LVG_DIR is where the LVG installation resides):
+</p>
+<div class="block"><pre>
+# in C Shell (csh or tcsh)
+set path = ( $path &lt;LVG_DIR&gt;/bin )
+
+# in Bourne Again Shell (bash)
+export PATH=$PATH:&lt;LVG_DIR&gt;/bin
+
+# Bourne Shell (sh)
+PATH=$PATH:&lt;LVG_DIR&gt;/bin
+export PATH
+</pre></div>
+<p class="Body">
+Connect to the new directory created by extracting the distribution
+and invoke the install program:
+</p>
+<div class="block"><pre>
+% cd &lt;distribution directory&gt;
+% ./bin/install.sh
+</pre></div>
+<p class="Body">
+A sample run of the installation script follows:
+</p>
+<div class="block"><pre>
+Enter basedir of installation [/nfsvol/nlsaux15/public_mm] &lt;user hits
+                                                            return to get the default&gt;
+Basedir is set to /nfsvol/nlsaux15/public_mm.
+
+The WSD Server requires Sun's Java Runtime Environment (JRE)
+Sun's Java Developer Kit (JDK) will work as well. if the
+command: &quot;which&quot; java returns /usr/local/jre1.4.2/bin/java, then the
+JRE resides in /usr/local/jre1.4.2/.
+
+Where does your distribution of Sun's JRE reside?
+Enter home path of JRE (JDK) [/usr]: /nfsvol/nls/tools/Linux-i686/java1.4.2
+Using /nfsvol/nls/tools/Linux-i686/java1.4.2 for JAVA_HOME.
+
+/nfsvol/nlsaux15/public_mm/WSD_Server/config/disambServer.cfg generated
+/nfsvol/nlsaux15/public_mm/WSD_Server/config/log4j.properties generated
+/nfsvol/nlsaux15/public_mm/bin/SKRrun generated.
+/nfsvol/nlsaux15/public_mm/bin/metamap07 generated.
+/nfsvol/nlsaux15/public_mm/bin/wsdserverctl generated.
+/nfsvol/nlsaux15/public_mm/bin/skrmedpostctl generated.
+Install complete.
+Would like to use a custom data set with MetaMap (use data file builder)? [yN]: &lt;user types y and return&gt;
+
+running Data File Builder Install...
+Is LVG installed? [yN] &lt;The user types y and return&gt;
+
+running Data File Builder Install...
+Enter home path of LVG [/nfsvol/nls/tools/Linux-i686/lvg{year}]: &lt;user hits
+                                                            return to get the default&gt;
+
+Using /nfsvol/nls/tools/Linux-i686/lvg{year} for LVG_DIR.
+
+/nfsvol/nlsaux15/public_mm/scripts/dfbuilder/mm_variants/0doit.lvglab generated.
+/nfsvol/nlsaux15/public_mm/scripts/dfbuilder/mm_variants/0doit.xwords generated.
+Datafile Builder Setup is complete.
+% 
+</pre></div>
+<!--End Section 1-->
+<h2><a name="Installing LVG on Mac OS/X">Installing LVG on Mac OS/X</a></h2>
+<p class="Body">
+If you are using a Mac there are special instructions for installing
+LVG on Mac OS/X:
+</p>
+<p class="Body">
+Download the &quot;Lite&quot; version of Lvg for the year you wish to use (the
+example uses LVG 2010.) (see Lexical Tools Download Page:
+<a class="link" href="http://lexsrv3.nlm.nih.gov/LexSysGroup/Projects/lvg/current/web/release/index.html">http://lexsrv3.nlm.nih.gov/LexSysGroup/Projects/lvg/current/web/release/index.html</a>)
+</p>
+<p class="Body">
+extract it using tar and then for each of the files in the 
+<tt>lvg2010lite/bin</tt> directory replace:
+</p>
+<div class="block"><pre>
+JAVA=/export/home/lu/Development/LVG/lvg2010/bin/jre1.6.0_14/bin/java
+</pre></div>
+<p class="Body">
+with:
+</p>
+<div class="block"><pre>
+JAVA=java
+</pre></div>
+<p class="Body">
+and:
+</p>
+<div class="block"><pre>
+LVG_DIR=/export/home/lu/Development/LVG/lvg2010
+</pre></div>
+<p class="Body">
+with:
+</p>
+<div class="block"><pre>
+LVG_DIR={where lvg is extracted}/lvg2010lite
+</pre></div>
+<p class="Body">
+Make sure all of the files in <tt>lvg2010lite/bin</tt> are executable:
+</p>
+<div class="block"><pre>
+chmod +x lvg2010lite/bin/*
+</pre></div>
+<p class="Body">
+The Java VM (java) is currently provided with Mac OS/X Snow Leopard.
+</p>
+<!--End Section 1-->
+<h2><a name="Instructions for using Data File Builder">Instructions for using Data File Builder</a></h2>
+<p class="Body">
+See the file datafilebuilder.pdf (Online version:
+<a class="link" href="http://metamap.nlm.nih.gov/datafilebuilder.pdf">http://metamap.nlm.nih.gov/datafilebuilder.pdf</a>) for instructions on
+how to use datafile builder after installing it.  (Windows Users
+please read next section on <a class="link" href="#Special Notes for Windows Users">Special Notes for Windows Users</a>).
+</p>
+<!--End Section 1-->
+<h2><a name="Special Notes for Windows Users">Special Notes for Windows Users</a></h2>
+<p class="Body">
+Instead of running bin/install.sh after extracting the data file
+builder distribution Windows users should run either bin\ginstall.bat
+in the &quot;Command Prompt&quot; or &quot;Windows PowerShell&quot; window while in the
+&quot;public_mm&quot; directory or using Windows Explorer find the &quot;public_mm&quot;
+directory extracted from the distribution archive.  Click on the icon
+with the name &quot;Install MetaMap&quot;.  The dialog will display an input box
+with the label &quot;Location of the Public MetaMap Directory:&quot; filled in
+with the probable location where you've installed the distribution.
+</p>
+<p class="Body">
+Also note, when starting the MedPost/SKR tagger server
+(skrmedpostctl_start), it is best to use the Windows Command Prompt or
+Windows PowerShell in a separate window to start the server, rather
+than starting it from the BASH shell (public_mm/bin/sh.exe).
+</p>
+<p class="Body">
+using the Command Prompt (or PowerShell):
+</p>
+<div class="block"><pre>
+&gt; cd public_mm 
+&gt; .\bin\skrmedpostctl_start.bat 
+... messages 
+</pre></div>
+<p class="Body">
+After staring the Tagger server, in another Command Prompt (or
+PowerShell) window start the BASH shell in the <tt>public_mm</tt> directory:
+</p>
+<div class="block"><pre>
+&gt; cd public_mm 
+&gt; .\bin\sh
+sh.exe&quot;-3.1$ _
+</pre></div>
+<p class="Body">
+Then follow the instructions for using Data File Builder as mentioned
+in the previous section.
+</p>
+<!--End Section 1-->
+<!-- End SectLevel1 -->
+<hr>
+<br>
+<p align="right"> <small>This document was generated using <a class="link" href="http://www.maplefish.com/todd/aft.html">AFT v5.098</a></small> </p>
+</body>
+</html>
+

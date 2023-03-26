@@ -1,0 +1,228 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+
+date
+
+echo "-**- 03Mesh -**-"
+
+mkdir -p ./MeSH
+cd ./MeSH
+
+ln -s ../../umls/MRCONSO.RRF MRCONSO.RRF
+ln -s ../../umls/MRCONSO.mesh MRCONSO.RRF.mesh
+ln -s ../../umls/MRSAT.RRF MRSAT.RRF
+ln -s ../../01metawordindex/Suppress/mrconso.suppressed mrconso.suppressed
+ln -s ../../01metawordindex/model.relaxed/mrconso.filtered mrconso.filtered
+ln -s ../Preliminary/mesh.tc.relaxed.txt
+ln -s ../Preliminary/mesh.tc.strict.txt
+ln -s ../Hierarchy.Susanne.TQ cui.tc.subs.0
+
+#
+# Derived from MWI/data.USAbase.2012AB/0MeSHStudy/0doit1
+#
+
+date
+
+# /bin/rm -f MRCONSO.RRF.mesh.* MRSAT.RRF.* mesh.tc.all mesh.tc.subs.* mesh.with.tc mesh.tc.chems* sui.* strings.* subheadings.* cui.tc.subs.[1234] cui.tc.chems.? cui.string check.tags* mesh.tc.subs*
+
+echo creating MRCONSO.RRF.mesh.dist
+# The 5th field is the Term Type, and we next
+# calculate the distribution of Term Types for all MeSH terms
+cut -f13 -d '|' MRCONSO.RRF.mesh | sort | uniq -c > MRCONSO.RRF.mesh.dist
+echo DONE
+
+# chmod -w MRCONSO.RRF.mesh.dist
+
+echo creating sui.string
+cut -f6,15 -d '|' mrconso.suppressed | sort -u -t'|' -k1,1 -k2,2 > sui.string
+echo DONE
+
+# chmod -w sui.string
+
+# "tc" == "Tree Codes"
+echo creating mesh.tc.all
+sort -u -t '|' -k1,1 -k2,2 mesh.tc.relaxed.txt mesh.tc.strict.txt > mesh.tc.all
+echo DONE
+
+echo creating mesh.with.tc
+cut -f1 -d '|' mesh.tc.all | sort -u > mesh.with.tc
+echo DONE
+
+# chmod -w mesh.tc.all
+# chmod -w mesh.with.tc
+
+# cut -f5 -d '|' MRSAT.mesh | sort | uniq -c > MRSAT.mesh.dist
+
+date
+
+# FML 06/04/2008 Wednesday @ 11:00:02 AM
+# Per Lan, we no longer do these TermTypes: EN EP HT PM
+
+for TermType in CE N1 NM TQ XQ
+do
+   echo
+   echo doing Term Type $TermType
+   echo creating MRCONSO.RRF.mesh.$TermType
+   grep '|MSH|'$TermType'|' MRCONSO.RRF.mesh > MRCONSO.RRF.mesh.$TermType
+   echo DONE
+
+   echo creating strings.$TermType
+   cut -f15 -d '|' MRCONSO.RRF.mesh.$TermType | sort -u > strings.$TermType
+   echo DONE
+
+   echo creating strings.${TermType}.with.tc
+   comm -12 strings.$TermType mesh.with.tc > strings.${TermType}.with.tc
+   echo DONE
+
+   echo creating strings.$TermType.no.tc
+   comm -23 strings.${TermType} mesh.with.tc > strings.${TermType}.no.tc
+   echo DONE
+done
+
+# chmod -w MRCONSO.RRF.mesh.*
+# chmod -w strings.*
+
+date
+
+ln -s strings.TQ subheadings.0
+
+# ks has changed
+#ks -meta -svo MSH -scv:sat -f subheadings.0 > subheadings.ks
+## chmod -w subheadings.ks
+
+echo creating MRSAT.RRF.mesh
+# Doing simply
+# grep '|MSH|' MRSAT > MRSAT.mesh
+# slightly overgenerates, because "MSH" appears in fields
+# other than the 6th (the SAB). In 2008AA, there are 9 such lines.
+awk -F'|' '$10 == "MSH"' MRSAT.RRF > MRSAT.RRF.mesh
+echo DONE
+
+# chmod -w MRSAT.RRF.mesh
+
+echo creating check.tags.MRSAT.RRF
+# This is complete black magic.
+# Even Lan has no idea why this combination of ATN|SAB|ATV identifies check tags.
+# ATN == Attribute Name
+# SAB == Source Vocabulary
+# ATV == Attribute Value
+grep '|DC|MSH|3|' MRSAT.RRF.mesh > check.tags.MRSAT.RRF
+echo DONE
+
+# chmod -w check.tags.MRSAT.RRF
+
+echo creating check.tags.sui
+cut -f3 -d '|' check.tags.MRSAT.RRF | sort -u > check.tags.sui
+echo DONE
+
+echo creating check.tags
+join -t '|' -o 2.2 check.tags.sui sui.string | sort -u > check.tags
+echo DONE
+
+# chmod -w check.tags*
+
+date
+
+# echo creating cui.tc.chems.5
+# cut -f1 -d '|' MRSO.mesh.NM MRSO.mesh.CE MRSO.mesh.N1 | sort -u | sed 's/$/|x.x.x.x.x/' > cui.tc.chems.5
+# echo DONE
+# 
+# # chmod -w cui.tc.chems.5
+
+echo creating cui.tc.chems.4
+cut -f1 -d '|' MRCONSO.RRF.mesh.NM MRCONSO.RRF.mesh.CE MRCONSO.RRF.mesh.N1 | sort -u | sed 's/$/|x.x.x.x/' > cui.tc.chems.4
+echo DONE
+
+# chmod -w cui.tc.chems.4
+
+# echo creating mesh.tc.chems.5
+# sort -u strings.NM strings.CE strings.N1 | sed 's/$/|x.x.x.x.x/' > mesh.tc.chems.5
+# echo DONE
+# 
+# # chmod -w mesh.tc.chems.5
+
+echo creating mesh.tc.chems.4
+sort -u strings.CE strings.N1 strings.NM | sed 's/$/|x.x.x.x/' > mesh.tc.chems.4
+echo DONE
+
+# chmod -w mesh.tc.chems.4
+
+date
+
+# sorted by string
+echo creating cui.string
+cut -f1,15 -d '|' mrconso.suppressed | sort -u -t '|' -k2,2 -k1,1 > cui.string
+echo DONE
+
+# cui.tc.subs.0 is just a link to Hierarchy.Suzanne.TQ,
+# which represents some kind of Subheading hierarchy.
+# Hierarchy.Suzanne.TQ has many duplicates, because
+# that file was created simply by doing
+# grep '/' Hierarchy.Suzanne
+# "TQ" == "Term Qualifier" == SubHeading
+echo creating cui.tc.subs.1
+tr '[A-Z]' '[a-z]' < cui.tc.subs.0 | sed 's/^ \. \./x/' | sed 's/ \./.x/g' > cui.tc.subs.1
+echo DONE
+
+echo creating cui.tc.subs.2
+sed 's;^\([x.]*\) /\(.*\)$;\2|\1;' cui.tc.subs.1 | sort -u -t '|' -k1,1 -k2,2 > cui.tc.subs.2
+echo DONE
+
+# default of x.x.x
+echo creating cui.tc.subs.3
+sed 's/$/|x.x.x/' subheadings.0 > cui.tc.subs.3
+echo DONE
+
+echo creating cui.tc.subs.4
+sort -u -t '|' -k1,1 -k2,2 cui.tc.subs.2 cui.tc.subs.3 > cui.tc.subs.4
+echo DONE
+
+ln -s cui.tc.subs.4 mesh.tc.subs.0
+
+echo creating mesh.tc.subs
+cp cui.tc.subs.4 mesh.tc.subs.mult
+
+# The following awk call transforms mesh.tc.subs.mult
+# by removing subsumed (i.e., less specific) treecodes.
+# E.g., if we have all of
+# therapy|x.x
+# therapy|x.x.x
+# therapy|x.x.x.x
+# therapy|x.x.x.x.x
+# therapy|x.x.x.x.x.x
+# therapy|x.x.x.x.x.x.x
+# remove all but the last one -- the most specific.
+
+# If PrevTQ has changed (i.e., the current line has a different
+# Subheading from the previous line's),
+# AND PrevTQ is not null (to rule out the very first line),
+# then print the previous line.
+# Always set PrevTQ and PrevLine.
+# Finally, print the very last line.
+
+awk -F'|' '
+$1 != PrevTQ  && PrevTQ != "" {
+      print PrevLine
+   }
+
+{ PrevTQ = $1; PrevLine = $0 }
+
+END { print PrevLine } ' mesh.tc.subs.mult > mesh.tc.subs
+
+# The four files cui.tc.subs.4 mesh.tc.subs.0 mesh.tc.subs.mult mesh.tc.subs
+# are identical (modulo links); not sure why we need all three.
+
+# chmod -w cui.string
+# chmod -w cui.tc.subs*
+
+
+echo ' '
+echo 'Update 00RESULTS with the data in strings.*.'
+echo ' '
+
+echo ' '
+echo 'Then run 0doit2.'
+echo ' '
+
+date

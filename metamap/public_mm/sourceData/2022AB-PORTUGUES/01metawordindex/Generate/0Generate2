@@ -1,0 +1,260 @@
+#! /bin/bash
+
+## $Id: 0Generate2,v 1.16 2008/03/20 14:56:17 wrogers Exp $
+## Copyright © 2001 National Library of Medicine. All rights reserved.
+
+MRCONSO_FILTERED=$1
+
+OSTYPE=`uname`
+case $OSTYPE in
+    Darwin) AWK=awk ;;
+    Linux) AWK=awk ;;
+    SunOS) AWK=nawk ;;
+    MINGW*) AWK=gawk ;;
+    CYGWIN_NT*) AWK=gawk ;;
+    *) AWK=awk ;;
+esac
+
+## mrconso.filtered exists in the model directories, but it is passed as 
+## a reference to the orginal file in Filter/.
+
+## There are three main dependencies that need to be covered by 
+## the CLASSPATH:
+## The program itsself, the mm packages it refernces and the StringUtils
+
+# input files for this script:
+# MRCONSO_FILTERED:  passed as argument 1
+#
+# output files for this script:
+# all_words.txt, first_words.txt, first_words_of_one.txt,  first_words_of_two.txt
+# all_words_counts.txt, all_words_counts.txt.hr, first_words_counts.txt, first_words_counts.txt.hr
+# first_wordsb.txt, first_wordsb_counts.txt
+# cui_concept, concept_cui.txt, concept_st.txt, cui_st.txt, concept_st.txt
+# fullst.cui.concept
+# sui_nmstr_str.txt
+# 0filter.1
+
+# this is a hack (fixme)
+touch 0filter.0			
+
+# remove previous version of filter_pairs.pl
+rm -f filter_pairs.pl
+#java gov.nih.nlm.nls.mmtx.dfbuilder.GleanMRCON $MRCONSO_FILTERED words.gleaned strings.gleaned concepts.gleaned
+# glean_mrcon -csw $MRCONSO_FILTERED $PWD/0filter.0 $PWD/words.gleaned $PWD/strings.gleaned $PWD/concepts.gleaned
+glean_mrconso -csw $MRCONSO_FILTERED $PWD/0filter.0 $PWD/words.gleaned $PWD/strings.gleaned $PWD/concepts.gleaned
+
+#chmod -w words.gleaned
+#chmod -w strings.gleaned
+#chmod -w concepts.gleaned
+
+
+cut -f3- -d'|' words.gleaned | sort -u | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > all_words.txt
+grep '^1|' words.gleaned | cut -f3- -d'|' | sort -u | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > first_words.txt
+grep '^1|1|' words.gleaned | cut -f3- -d'|' | sort -u | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > first_words_of_one.txt 
+grep '^1|[12]|' words.gleaned | cut -f3- -d'|' | sort -u | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > first_words_of_two.txt
+
+sort -u strings.gleaned | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > sui_nmstr_str.0
+# On Windows because this file is loaded with the last field as a TEXT type, the 
+# default terminator of \n results in that data field in the database getting the \r at the end
+
+# .txt removed from cui_concept.txt; not a MMTx table
+sort -t '|' -k 1,1 -k 2,2 concepts.gleaned > cui_concept.0 
+case $OSTYPE in
+    CYGWIN_NT*|MINGW*)
+	sed "s/\r//g" cui_concept.0 > cui_concept
+	dos2unix -n sui_nmstr_str.0 sui_nmstr_str.txt
+	;;
+    Windows_NT)
+	sed 's/\r//g' cui_concept.0 > cui_concept
+	java gov.nih.nlm.nls.utils.Dos2Unix sui_nmstr_str.0 sui_nmstr_str.txt
+	;;
+    *)
+	mv cui_concept.0 cui_concept
+	mv sui_nmstr_str.0 sui_nmstr_str.txt
+	;;
+esac    
+
+cut -f1 -d'|' cui_concept  > cui_c
+cut -f2 -d'|' cui_concept  > con_c
+paste -d'|' con_c cui_c > concept_cui.txt.1
+
+#Using pipe to join the next two commands results in an extra ^M at end of lines
+tail --lines=+2 concept_cui.txt.1 > concept_cui.txt.0
+sort -t '|' -k 1,1 -k 2,2 concept_cui.txt.0 > concept_cui.txt
+#chmod -w concept_cui.txt*
+
+sort -t '|' -k 1 ../MRSTY.RRF > MRSTY.s
+# ORF: join -t '|' -o "2.3 1.1 1.2" cui_concept MRSTY.s | sort -u| sort -t '|' -k 1,1 -k 2,2  > fullst.cui.concept
+join -t '|' -o "2.4 1.1 1.2" cui_concept MRSTY.s | sort -u| sort -t '|' -k 1,1 -k 2,2  > fullst.cui.concept
+#chmod -w fullst.cui.concept
+
+sort -t '|' -k 1,1 -k 2,2 ../st.raw -o st.raw.s
+join -t '|' -o "1.2 1.3 2.2" fullst.cui.concept st.raw.s > cui.concept.st
+#chmod -w cui.concept.st
+
+cut -f1,3 -d '|' cui.concept.st | sort -t '|' -k 1,1 -k 2,2 > cui_st.txt
+#chmod -w cui_st.txt
+
+cut -f2,3 -d '|' cui.concept.st | sort -t '|' -k 1,1 -k 2,2 > concept_st.txt
+#chmod -w concept_st.txt
+
+###   The counts.txt files are used by MetaMap  ###
+
+
+# The replacement below using AWK (gawk) doesn't use either call to tr and doesn't use Perl either.
+echo creating $1/all_words_counts.txt.0
+#cut -f1 -d'|' all_words.txt | uniq -c | tr '\011' '|' | tr -d ' ' | perl -pe 's/(.*)\|(.*)/$2|$1/' | sort -t '|' -k 1,1 > all_words_counts.txt.0
+cut -f1 -d'|' all_words.txt | uniq -c | ${AWK} '{printf("%s|%s\n",$2,$1)}' | sort -t '|' +0 -1 > all_words_counts.txt.0
+echo in $1 DONE
+
+grep -v '|1$' all_words_counts.txt.0 > all_words_counts.txt
+sort -t '|' -k 2,2 -nr -k 1,1 all_words_counts.txt > all_words_counts.txt.hr
+
+
+echo creating $1/first_words_counts.txt.0
+# cut -f1 -d'|' first_words.txt | uniq -c | tr '\011' '|' | tr -d ' ' | perl -pe 's/(.*)\|(.*)/$2|$1/' | sort -t '|' +0 -1 > first_words_counts.txt.0
+# cut -f1 -d'|' first_words.txt | uniq -c | tr '\011' '|' | tr -d ' ' | perl -pe 's/(.*)\|(.*)/$2|$1/' | sort -t '|' -k 1,1 > first_words_counts.txt.0
+cut -f1 -d'|' first_words.txt | uniq -c | ${AWK} '{printf("%s|%s\n",$2,$1)}' | sort -t '|' +0 -1 > first_words_counts.txt.0
+echo DONE
+
+
+grep -v '|1$' first_words_counts.txt.0 > first_words_counts.txt
+sort -t '|' -k 2,2 -nr -k 1,1 first_words_counts.txt > first_words_counts.txt.hr
+
+
+# build 0filter.1
+
+# Compute counts for common first words
+
+echo creating all
+cut -f2 -d '|' strings.gleaned > all
+echo DONE
+
+echo creating all.last
+sed 's/^.*\ //' all > all.last
+echo DONE
+
+echo creating all.last.counts
+sort all.last | uniq -c | sort +0 -1nr > all.last.counts
+echo DONE
+
+# hopefully plain awk exists on both Linux and Solaris (awk -> gawk on Linux)
+echo Determining most frequent words
+FREQ_WORDS=`head -100 first_words_counts.txt.hr | awk -F'|' '$2 > 4000 {print $1}'`
+echo words are $FREQ_WORDS
+
+for WORD in $FREQ_WORDS
+do
+    echo $WORD
+    grep "^S[0-9][0-9]*|$WORD[^a-z0-9]" strings.gleaned | cut -f2 -d '|' > $WORD
+    sed 's/^.*\ //' $WORD > $WORD.last
+    sort $WORD.last | uniq -c | sort +0 -1nr > $WORD.last.counts
+done
+
+# What's going on here?
+# Look in all the files in model.strict/0CountStudy/*.last.counts
+# (other than all.last.counts; "FILENAME" is a built-in AWK variable)
+# and identify all lines of the form
+#    COUNT  CONCEPT
+# e.g.,
+#   3703 protein
+# in which the COUNT is > 1000.
+# We then print
+# (1) the filename (minus the ".last.counts")
+# (2) "|"
+# (3) the concept
+
+${AWK} 'FILENAME != "all.last.counts" && $1 > 1000 {printf "%s|%s\n", substr(FILENAME, 1, index(FILENAME,".")-1), $2}' *.last.counts > 0filter.1
+
+echo DONE
+
+# remove previous version of filter_pairs.pl
+rm -f filter_pairs.pl
+
+# generate filter_pairs.pl for glean_mrconso
+${AWK} -F\| '{ printf("filter_pair(\047%s\047,\047%s\047).\n", $1, $2); }' $PWD/0filter.1 > $PWD/filter_pairs.pl
+
+# build first_wordsb.txt and first_wordsb_counts.txt
+echo calling glean_mrconso on $MRCONSO_FILTERED to generate WORDS ONLY
+glean_mrconso -w $MRCONSO_FILTERED $PWD/0filter.1 $PWD/words.gleanedb $PWD/strings.gleanedb $PWD/concepts.gleanedb
+echo DONE
+
+ls -l words.gleanedb strings.gleanedb concepts.gleanedb
+echo Make sure that all only words.gleaned has been populated.
+
+#chmod -w words.gleanedb
+
+echo  creating first_wordsb.txt
+# grep '^1|' words.gleanedb | cut -f3- -d'|' | sort -u | sort -t '|' +0 -1 +1 -2 +2 -3 > first_wordsb.txt
+grep '^1|' words.gleanedb | cut -f3- -d'|' | sort -u | sort -t '|' -k 1,1 -k 2,2 -k 3,3 > first_wordsb.txt
+echo DONE
+
+echo  creating first_wordsb_counts.txt.0
+# NOTE: The uniq command appears to no longer generate tab-separated output,
+# so the following command will no longer work.
+# cut -f1 -d'|' first_wordsb.txt | uniq -c | tr '\011' '|' | tr -d ' ' | perl -pe 's/(.*)\|(.*)/$2|$1/' | sort -t '|' +0 -1 > first_wordsb_counts.txt.0
+# cut -f1 -d'|' first_wordsb.txt | uniq -c | ${AWK} '{printf("%s|%s\n",$1,$2)}' | perl -pe 's/(.*)\|(.*)/$2|$1/' | sort -t '|' +0 -1 > first_wordsb_counts.txt.0
+# cut -f1 -d'|' first_wordsb.txt | uniq -c | ${AWK} '{printf("%s|%s\n",$2,$1)}' | sort -t '|' +0 -1 > first_wordsb_counts.txt.0
+cut -f1 -d'|' first_wordsb.txt | uniq -c | ${AWK} '{printf("%s|%s\n",$2,$1)}' | sort -t '|' -k 1,1 > first_wordsb_counts.txt.0
+echo DONE
+
+echo  creating first_wordsb_counts.txt
+grep -v '|1$' first_wordsb_counts.txt.0 > first_wordsb_counts.txt
+echo DONE
+
+echo  creating first_wordsb_counts.txt.hr
+# sort -t '|' +1 -2nr +0 -1 first_wordsb_counts.txt > first_wordsb_counts.txt.hr
+sort -t '|' -k 2,2nr -k 1,1  first_wordsb_counts.txt > first_wordsb_counts.txt.hr
+echo DONE
+
+# chmod -w first_wordsb*
+
+# echo  creating 0field.widths
+# chmod 644 0field.widths
+# ../0dow > 0field.widths
+# chmod -w 0field.widths
+# echo DONE
+
+# for FILE in concepts.gleanedb first_wordsb*txt.? strings.gleanedb words.gleanedb
+# do
+#    rm -f $FILE.gz
+#    echo  gzip-ing $FILE
+#    gzip $FILE &
+# done
+
+wait
+
+echo DONE
+
+checksize ()
+{
+    SZ=`stat --format="%s" $1`
+    if [ $SZ == "0" ]; then 
+	echo "file $1 is zero, check for errors."
+    fi
+}
+
+#chmod -w *.txt*
+
+##  No utility for this step has been determined.
+##../0dow > 0field.widths
+#chmod -w 0field.widths
+date 
+echo '    Checking intermediate files. '
+checksize concepts.gleaned
+checksize strings.gleaned
+checksize words.gleaned
+
+checksize concepts.gleanedb
+checksize strings.gleanedb
+checksize words.gleanedb
+
+echo '    Compressing intermediate files. '
+#rm con_c cui_c
+#gzip all*txt.?
+#gzip concepts.gleaned
+#gzip first*txt.?
+#gzip strings.gleaned
+#gzip words.gleaned
+#gzip concept_cui.txt.?
+

@@ -1,0 +1,116 @@
+#!/bin/sh
+#
+# updated using
+# /nfsvol/nls/specialist/metamap/tools/mm_variants/data.TEMPLATE/WordLabs/LexLab/0doit1
+
+# /bin/rm -f words.lex* multi.*
+
+. ../dfbuilder.profile
+PATH=$BASEDIR/bin:$PATH
+
+date
+
+echo creating words.lex.0
+# mm_tokenizer -ml inflections words.lex.0
+mm_tokenizer.perl inflections words.lex.0
+echo DONE
+
+echo creating words.lex.counts
+# cut -f2 -d '|' words.lex.0 | sort | uniq -c | sort +0 -1nr > words.lex.counts
+sort words.lex.0 | uniq -c | sort +0 -1nr > words.lex.counts
+echo DONE
+
+echo creating words.lex.stats
+${AWK} -f ./stats.awk words.lex.counts > words.lex.stats
+echo DONE
+
+echo creating words.lex
+cut -f2 -d '|' words.lex.0 | sort -u > words.lex
+echo DONE
+
+echo calling chartally on words.lex
+${AWK} -f $BASEDIR/bin/chartally.awk words.lex
+echo DONE
+
+#chmod -w words*
+# gzip words.lex.0
+
+date
+
+# Find out how many of the Lexicon inflection words are Metathesaurus words
+
+echo creating words.lexandmeta
+comm -12 words.lex words.meta > words.lexandmeta
+echo DONE
+
+#chmod -w words.lexandmeta
+
+date
+
+# Check out multi-word inflections
+
+echo creating multi.1
+grep '\ ' inflections > multi.1
+echo DONE
+
+echo creating multi.2
+grep '\ .*\ ' multi.1 > multi.2
+echo DONE
+
+echo creating multi.3
+grep '\ .*\ .*\ ' multi.2 > multi.3
+echo DONE
+
+echo creating multi.4
+grep '\ .*\ .*\ .*\ ' multi.3 > multi.4
+echo DONE
+
+echo creating multi.5
+grep '\ .*\ .*\ .*\ .*\ ' multi.4 > multi.5
+echo DONE
+
+echo creating multi.6
+grep '\ .*\ .*\ .*\ .*\ .*\ ' multi.5 > multi.6
+echo DONE
+
+echo creating multi.7
+grep '\ .*\ .*\ .*\ .*\ .*\ .*\ ' multi.6 > multi.7
+echo DONE
+
+echo creating multi.8
+grep '\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ ' multi.7 > multi.8
+echo DONE
+
+echo creating multi.9
+grep '\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ ' multi.8 > multi.9
+echo DONE
+
+echo creating multi.10
+grep '\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ ' multi.9 > multi.10
+echo DONE
+
+echo creating multi.11
+grep '\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ .*\ ' multi.10 > multi.11
+echo DONE
+
+echo creating multi.12
+grep ' .* .* .* .* .* .* .* .* .* .* .* ' multi.11 > multi.12
+echo DONE
+
+echo creating multi.13
+grep ' .* .* .* .* .* .* .* .* .* .* .* .* ' multi.12 > multi.13
+echo DONE
+
+if [ -s multi.13 ]
+then
+   echo multi.13 is NOT zero length.
+   echo generate multi.12 and multi.13 and so on until one is zero length.
+   # grep ' .* .* .* .* .* .* .* .* .* .* .* ' multi.11 > multi.12
+   # grep ' .* .* .* .* .* .* .* .* .* .* .* .* ' multi.12 > multi.13
+else
+   echo multi.13 IS zero length.
+fi
+
+# chmod -w multi.*
+
+date

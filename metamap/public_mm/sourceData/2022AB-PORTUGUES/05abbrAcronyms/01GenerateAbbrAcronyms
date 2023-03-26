@@ -1,0 +1,105 @@
+#!/bin/sh
+#
+# Generate Table of Abbreviations and Acronyms
+#
+# adapted from /nfsvol/nls/specialist/module/db_access/data.TEMPLATE/NLSAbbrAcros/0doit0
+#
+
+. ../dfbuilder.profile
+
+LEXICON_FILE=$BASEDIR/lexicon/data/lexiconStatic${KSYear}
+export DEFAULT_LEXICON_FILE
+LEXICON_INDEX_FILE=$BASEDIR/lexicon/data/lexiconStatic${KSYear}Ind
+export DEFAULT_LEXICON_INDEX_FILE
+
+date
+
+# from 0doit0
+
+# echo 'Now create am.db by editing/removing anomalies from am.db.0'
+# echo '(see previous am.db.diffs files)'
+# This is now done automatically via the call to comm -23 above.
+# The file bogus_AAs contains nearly 100 highly suspicious AAs,
+# including the four below that had been excluded for a long time:
+# SI|Systeme International d'Unites|noun|acronym
+# v.|vena|noun|abbreviation
+# Rx|recipe|noun|abbreviation
+# He|heart|noun|abbreviation
+# BRA|brain|noun|abbreviation
+
+echo creating am.db.0
+./extract_abbr.perl $LEXICON_FILE > am.db.0
+echo DONE
+
+echo creating am.db.sorted
+sort -u am.db.0 > am.db.sorted
+echo DONE
+
+echo creating am.db
+comm -23 am.db.sorted bogus_AAs > am.db
+echo DONE
+
+echo calling chartally on am.db.0
+${AWK} -f $BASEDIR/bin/chartally.awk am.db.0
+echo DONE
+
+# from 0doit1
+
+# am.db contains lines of the form
+
+# AA|achievement age|noun|acronym
+# AA|Alcoholics Anonymous|noun|acronym
+# AA|alcohol abuse|noun|acronym
+
+# ./write_aas creates two output lines in nls_aa.txt.0 for each line in am.db:
+
+# AA|achievement age|e|noun
+# achievement age|AA|a|noun
+# AA|Alcoholics Anonymous|e|noun
+# Alcoholics Anonymous|AA|a|noun
+# AA|alcohol abuse|e|noun
+# alcohol abuse|AA|a|noun
+
+echo creating nls_aa.txt.0
+./write_aas am.db nls_aa.txt.0
+echo DONE
+
+echo creating nls_aa.txt
+# tr '[A-Z]' '[a-z]' < nls_aa.txt.0 | sort -u -t '|' +0 -1 +1 -2 +2 -3 +3 -4 > nls_aa.txt
+tr '[A-Z]' '[a-z]' < nls_aa.txt.0 | sort -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 > nls_aa.txt
+echo DONE
+
+echo creating nls_aa.unique
+cut -f1 -d'|' nls_aa.txt | sort | uniq -u > nls_aa.unique
+echo DONE
+
+echo creating nls_aau.txt
+glean_unique_aa nls_aa.unique nls_aa.txt nls_aau.txt
+echo DONE
+
+case $OSTYPE in
+    MINGW*)
+	dos2unix nls_aau.txt 
+	;;
+    CYGWIN*)
+	dos2unix nls_aau.txt 
+	;;
+esac
+
+
+date
+
+echo ' '
+echo ' All of the data files for a complete data set should be ready.'
+echo ' You a can enter the final stage to collect these files into a'
+echo ' new mmtx/data/meta directory and load them into your MySQL database.'
+echo ' '
+echo '      To create the data set and load:'
+echo ' '
+echo '           cd ../'
+echo '           ../../bin/LoadDataFiles'
+echo ' '
+echo '           For Windows, run this in a Command Prompt window,'
+echo '           not in bash '
+echo ' '
+echo ' '

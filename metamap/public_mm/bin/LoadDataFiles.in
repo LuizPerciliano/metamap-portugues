@@ -1,0 +1,7 @@
+#!/bin/sh
+
+BASEDIR=@@basedir@@
+PATH=${PATH}:${BASEDIR}/bin
+export PATH
+
+/bin/sh ${BASEDIR}/bin/loaddatafiles.sh $*

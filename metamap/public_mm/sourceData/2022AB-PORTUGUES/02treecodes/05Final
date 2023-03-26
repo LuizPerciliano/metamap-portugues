@@ -1,0 +1,197 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+
+date
+
+echo "-**- 05Final -**-"
+
+ln -s ../umls/MRCONSO.RRF MRCONSO.RRF
+ln -s MRCONSO.mesh MRCONSO.RRF.mesh
+ln -s ../umls/MRSAT.RRF MRSAT.RRF
+ln -s ../01metawordindex/Suppress/mrconso.suppressed mrconso.suppressed
+ln -s ../01metawordindex/model.relaxed/mrconso.filtered mrconso.filtered
+
+ln -s Preliminary/cui.meta.mesh .
+ln -s Preliminary/cui.tc cui.tc.0 
+ln -s Preliminary/mesh.tc.relaxed.txt mesh_tc_relaxed.txt.0
+ln -s Preliminary/mesh.mh.opt.txt ./mesh_mh_opt.txt
+ln -s Preliminary/MRSAT.RRF.check.tags .
+ln -s Preliminary/MRSAT.RRF.check.tags.raw .
+
+ln -s MeSH/cui.tc.chems cui.tc.chems
+ln -s MeSH/cui.tc.subs cui.tc.subs
+ln -s MeSH/mesh.tc.chems mesh.tc.chems
+ln -s MeSH/mesh.tc.subs mesh.tc.subs
+
+echo
+echo 'Creating meta_mesh_tc_opt.txt,'
+echo '         mesh_tc_strict.txt, and'
+echo '         meta_mesh_opt.txt'
+echo 'strictly respecting Metathesaurus splitting of MeSH terms'
+echo
+echo 'accounting for supplementary chemicals, subheadings, check tags'
+echo
+echo 'WARNING: Make sure cui.tc.chems and cui.tc.subs are linked'
+echo '         to <MWI>/data.20YYRR.Version/0MeSHStudy/ files'
+echo
+
+# /bin/rm -f cui.tc.check.tags cui.tc cui.meta.mesh.tc meta.mesh.tc.0
+
+# /bin/rm -f  meta.mesh.tc.ambig.0 meta.mesh.tc.ambig meta.mesh.tc meta_mesh_tc_opt.txt
+
+# /bin/rm -f mesh_tc_strict.txt mesh.tc.strict.mo meta.mesh meta_mesh_opt.txt
+
+# Next, create CUI|TreeCodes for the check-tag lines
+# C0015780|x.x.x
+# C0024554|x.x.x
+
+echo creating cui.tc.check.tags
+cut -f1 -d '|' MRSAT.RRF.check.tags.raw | sed 's/$/|x.x.x/' > cui.tc.check.tags
+echo DONE
+
+# Next, create CUI|TreeCodes
+# C0000039|D10.570.755.375.760.400.800.224
+# C0000039|x.x.x.x
+# C0000052|D08.811.913.400.450.460.100
+# C0000052|x.x.x.x
+
+echo creating cui.tc
+sort -u -t '|' -k1,1 -k2,2 cui.tc.0 cui.tc.check.tags cui.tc.chems cui.tc.subs > cui.tc
+echo DONE
+
+# Next, create CUI|Metathesaurus Preferred Name|MeSH Preferred Name
+# for all CUIs in the MeSH download whose P|PF in the Metathesaurus is not suppressed.
+# cui.meta is CUI|Preferred Name for the entire Metathesaurus
+# cui.mesh is CUI|Preferred Name for MeSH terms
+
+echo creating cui.meta.mesh.tc
+join -t '|' -o 1.1 1.2 1.3 2.2 cui.meta.mesh cui.tc > cui.meta.mesh.tc
+echo DONE
+
+echo creating meta.mesh.tc.0
+cut -f2-4 -d '|' cui.meta.mesh.tc | sort -s -t '|' -k1,1 -k2,2 > meta.mesh.tc.0
+echo DONE
+
+echo creating meta.mesh.tc.ambig.0
+grep ' <[0-9]>|' meta.mesh.tc.0 > meta.mesh.tc.ambig.0
+echo DONE
+
+echo creating meta.mesh.tc.ambig
+sed 's/ <[0-9]>|/|/' meta.mesh.tc.ambig.0 > meta.mesh.tc.ambig
+echo DONE
+
+echo creating meta.mesh.tc
+sort -s -t '|' -k1,1 meta.mesh.tc.0 meta.mesh.tc.ambig > meta.mesh.tc
+echo DONE
+
+echo creating meta_mesh_tc_opt.txt
+form_opt meta.mesh.tc meta_mesh_tc_opt.txt
+echo DONE
+
+echo creating mesh_tc_strict.txt
+cut -f2-3 -d '|' meta.mesh.tc | sort -u | sort -t '|' -k1,1 -k2,2 > mesh_tc_strict.txt
+echo DONE
+
+echo creating mesh.tc.strict.mo
+cut -f1 -d '|' mesh_tc_strict.txt | sort -u > mesh.tc.strict.mo
+echo DONE
+
+echo creating meta.mesh
+cut -f1-2 -d '|' meta.mesh.tc | sort -u | sort -t '|' -k1,1 -k2,2 > meta.mesh
+echo DONE
+
+echo creating meta_mesh_opt.txt
+form_opt meta.mesh  meta_mesh_opt.txt
+echo DONE
+
+# Not needed; see concept_cui.txt in various MWI models
+# date
+#
+# echo
+# echo 'Creating meta.cui.txt'
+# echo
+# echo 'WARNING: Make sure <meta> is unique.'
+# echo
+#
+# flip12 cui.meta meta.cui.txt.0
+# sort -t '|' +0 -1 meta.cui.txt.0 > meta.cui.txt
+
+# chmod -w MRSAT.*
+# chmod -w cui.*
+# chmod -w mesh_*
+# chmod -w meta_*
+# chmod -w meta.mesh*
+
+date
+
+echo
+echo
+echo 'Creating mesh_tc_relaxed.txt and'
+echo '         mesh.mh.opt.txt'
+echo 'allowing all MeSH terms to acquire treecodes from their MH'
+echo
+echo
+echo 'accounting for supplementary chemicals, subheadings, check tags'
+echo
+echo 'WARNING: Make sure MRSAT.check.tags has been created and that'
+echo '         mesh.tc.chems and mesh.tc.subs are linked to'
+echo '         <MWI>/data.08/0MeSHStudy/ files'
+echo
+
+
+# /bin/rm -f mesh.tc.check.tags mesh_tc_relaxed.txt mesh.tc.relaxed.mo
+
+# /bin/rm -f 0field.widths
+
+
+echo creating mesh.tc.check.tags
+join -t '|' -o 1.2 2.2 MRSAT.RRF.check.tags cui.tc.check.tags > mesh.tc.check.tags
+echo DONE
+
+echo creating mesh_tc_relaxed.txt
+sort -u -t '|' -k1,1 -k2,2 mesh_tc_relaxed.txt.0 mesh.tc.check.tags mesh.tc.chems mesh.tc.subs > mesh_tc_relaxed.txt
+echo DONE
+
+echo creating mesh.tc.relaxed.mo
+cut -f1 -d '|' mesh_tc_relaxed.txt | sort -u > mesh.tc.relaxed.mo
+echo DONE
+
+# chmod -w mesh.*
+# chmod -w mesh_*
+
+date
+
+echo
+echo 'Computing field widths'
+echo
+
+## 04/20/09 - JGM &FML Don't need to do this anymore
+
+#echo creating 0field.widths
+#./0dowidths >  0field.widths
+#echo DONE
+
+#chmod -w 0field.widths
+
+## 04/20/09 - JGM &FML ^^^^^^^^^^^^^ End of Change
+
+echo
+echo 'Compressing intermediate files'
+echo
+
+# for FILE in cui.* meta.mesh meta.mesh.tc meta.mesh.tc.0 meta.mesh.tc.ambig meta.mesh.tc.ambig.0
+# do
+#    /bin/rm -f $FILE.gz
+#    echo gzip-ing file $FILE &
+#    gzip $FILE
+#    echo DONE
+# done
+
+wait
+
+echo DONE
+
+wc -l mesh_*.txt meta_*.txt |  sed -e 's/\([0-9]\)\([0-9][0-9][0-9] \)/\1,\2/g' -e 's/\([0-9]\)\([0-9][0-9][0-9]\)/\1,\2/'
+
+date

@@ -1,0 +1,95 @@
+#! /bin/sh 
+
+. ../dfbuilder.profile
+
+date
+
+echo ' '
+echo ' '
+echo 'Generating the sui_cui.txt files for the existing models. '
+echo ' '
+echo 'One of the following files must exist:'
+echo '  Filter/mrconso.eng.relaxed,'
+echo '  Filter/mrconso.eng.moderate, and'
+echo '  Filter/mrconso.eng.strict'
+echo ' '
+echo ' This will take about 12 minutes for each model you have generated.'
+
+## Passing mrconso.filtered as a parameter because Java does
+## not follow the shortcut in Windows.
+
+if test -d model.relaxed  -a ! -s model.relaxed/sui_cui.txt;
+then 
+echo 'Doing model.relaxed/'
+cd model.relaxed
+FILTER=`(cd ../Filter && pwd)`
+../Generate/0Generate1
+../Generate/0Generate2 ${FILTER}/mrconso.eng.relaxed
+date
+
+cd ../
+date
+Generate/0GenerateWideTable model.relaxed
+Generate/0GenerateLineCounts model.relaxed
+Generate/0GenerateRenameToWide model.relaxed
+date
+fi
+
+if test -d model.moderate -a ! -s model.moderate/sui_cui.txt;
+then 
+echo 'Doing model.moderate/'
+cd model.moderate
+FILTER=`(cd ../Filter && pwd)`
+../Generate/0Generate1
+../Generate/0Generate2 ${FILTER}/mrconso.eng.moderate
+date
+
+cd ../
+date
+Generate/0GenerateWideTable model.moderate
+Generate/0GenerateLineCounts model.moderate
+Generate/0GenerateRenameToWide model.moderate
+date
+fi
+
+if test -d model.strict  -a ! -s model.strict/sui_cui.txt;
+then 
+echo 'Doing model.strict/'
+cd model.strict
+FILTER=`(cd ../Filter && pwd)`
+../Generate/0Generate1
+../Generate/0Generate2  ${FILTER}/mrconso.eng.strict
+date
+
+cd ../
+date
+Generate/0GenerateWideTable model.strict
+Generate/0GenerateLineCounts model.strict
+Generate/0GenerateRenameToWide model.strict
+date
+fi
+
+echo ""
+echo "Generating tables sab_rv.txt and sab_vr.txt"
+sh $BASEDIR/scripts/dfbuilderRRF/Metawordindex/Filter/gen_sab_tables.sh
+
+
+echo ' '
+echo ' You may verify that the MWI data files were created '
+echo ' by looking in the model.[relaxed|moderate|strict]'
+echo ' directory for the model(s) you created and finding'
+echo ' these files: '
+echo '     all_words.txt '
+echo '     concept_cui.txt '
+echo '     concept_st.txt '
+echo '     first_words.txt'
+echo '     first_words_of_one.txt '
+echo '     first_words_of_two.txt '
+echo '     sui_nmstr_str.txt'
+echo '      '
+echo ' For the next step:      '
+echo '     Move up out of the 01metawordindex directory and   '
+echo '     down into the 02treecodes. '
+echo '      '
+echo '     There you run the 01GenerateTreecodes script. '
+echo '      '

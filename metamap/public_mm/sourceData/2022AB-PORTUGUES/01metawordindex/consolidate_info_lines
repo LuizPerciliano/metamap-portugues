@@ -1,0 +1,22 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+my $line;
+my $OutputFile;
+# %InfoHash is a hash of hashes -- one subhash for each InfoType (ibn, icn, ic, it)
+my %InfoHash;
+ my ( $InfoType, $Count, $Data );
+
+while (<>) {
+    chomp;
+    $line = $_;
+    ( $InfoType, $Count, $Data ) = split /\|/, $line;
+    ${$InfoHash{$InfoType}}{$Data} += $Count;
+} # while
+
+foreach $InfoType ( sort keys %InfoHash ) {
+    foreach $Data ( sort keys %{$InfoHash{$InfoType}} ) {
+	printf "%s|%s|%s\n", $InfoType, ${$InfoHash{$InfoType}}{$Data}, $Data;
+    } # foreach $Data ( sort keys $InfoHash{$InfoType} )
+} # foreach $InfoType ( sort keys %InfoHash )

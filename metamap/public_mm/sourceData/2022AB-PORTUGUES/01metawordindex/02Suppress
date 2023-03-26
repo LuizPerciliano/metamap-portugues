@@ -1,0 +1,64 @@
+#! /bin/sh
+
+# $Id: 02Suppress,v 1.4 2002/08/30 21:33:40 cliff Exp $
+
+echo ' '
+echo ' '
+echo 'The step does preprocessing to suppress'
+echo '  numbers (0, 1, +1, 0.5, 50000)'
+echo '  single letters (a, A, b, B, ...)'
+echo '  bloopers (0->TPBF protein, and Periods->Menstruation)'
+echo '  unnecessary ambiguity (Other <n>, Protocols <n>, ...)'
+echo ' '
+echo 'It also performs contextual suppression'
+echo ' '
+echo 'Intermediate results are found in Suppress/ '
+echo ' '
+
+. ../dfbuilder.profile
+
+cd Suppress
+
+OSTYPE=`uname`
+case $OSTYPE in
+    MINGW*|CYGWIN_NT*)
+	cp ../mrconso.eng.0 mrconso.eng.0
+	;;
+    *)
+	ln ../mrconso.eng.0 mrconso.eng.0
+	;;
+esac
+
+echo '   This script will take about 4 minutes.'
+echo ' '
+# perform suppression
+
+java gov.nih.nlm.nls.mmtx.dfbuilder.Suppress -s \
+   specialterms.txt mrconso.eng.0 suppressibles.txt\
+   mrconso.suppressed suppressions.mrconso
+
+echo ' '
+echo 'A link is created to the just-created mrconso.eng in 01metawordindex/'
+echo ' '
+
+cd ../
+
+OSTYPE=`uname`
+case $OSTYPE in
+    MINGW*|CYGWIN_NT*)
+	echo ' '
+	echo 'A copy is created of the just-created mrcon.eng in 01metawordindex/'
+	echo ' '
+	cp Suppress/mrconso.suppressed ./mrconso.eng
+	;;
+    *)
+	echo ' '
+	echo 'A link is created to the just-created mrcon.eng in 01metawordindex/'
+	echo ' '
+	ln -s  Suppress/mrconso.suppressed ./mrconso.eng
+	;;
+esac
+
+echo ' '
+echo '    The next step is to run 03FilterPrep. '
+echo ' '

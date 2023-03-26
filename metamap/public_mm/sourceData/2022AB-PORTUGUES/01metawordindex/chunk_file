@@ -1,0 +1,83 @@
+#!/usr/bin/perl -w
+
+# Divide file $InputFile into as many smaller files as necessary,
+# each approximately $MaxLineNum lines long.
+# Lines for a given CUI are *not* split across files.
+
+# This script is called by $MWI/0doit3.strict, and divides mrconso.suppressed into
+# mrconso.suppressed.chunked.0001, 
+# mrconso.suppressed.chunked.0002, 
+# mrconso.suppressed.chunked.0003, etc.
+
+use strict;
+
+my $line;
+my $InputFile;
+my $OutputFile;
+my $NumChunks;
+my $MaxLineNum;
+my $LineCount;
+my $OutputFileCount = 1;
+my $OutputFileSuffix;
+my $PrevCUI = "";
+
+my $CUI;
+
+# Sets buffer to flush after every write
+$| = 1;
+
+( $NumChunks, $MaxLineNum, $InputFile ) = @ARGV;
+
+# print "MaxLineNum = $MaxLineNum\n";
+
+# exit 0;
+
+open INFILE, "< ${InputFile}";
+
+$OutputFileSuffix = &MakeOutputFileSuffix($OutputFileCount, $NumChunks);
+$OutputFile = "$InputFile.chunk.$OutputFileSuffix";
+
+open OUTFILE, " > $OutputFile";
+
+while ( <INFILE> ) {
+   chomp;
+   $line = $_;
+
+   # mrconso.suppressed lines look like this
+   # C0000005:L0000005:S0007492|1|P|PF|(131)I-Macroaggregated Albumin|MSH|PEN|D012711
+   # so remove everything after the first "|" to get the CUI
+   $CUI = substr($line, 0, index($line, "|"));
+   # If we haven't yet written $MaxLineNum lines to the current output file,
+   # or if the current line has the same CUI as previous line,
+   # then just print the current line to the existing file.
+   if ( ( ++$LineCount < $MaxLineNum ) || ( $CUI eq $PrevCUI ) ) {
+      print OUTFILE "$line\n";
+   } # if ( ( ++$LineCount < $MaxLineNum ) || ( $CUI eq $PrevCUI ) ) {
+   # Otherwise, we've switched CUIs ,
+   # and the current output file has at least $MaxLineNum lines,
+   # so close the current output file and open a new one.
+   elsif ( $LineCount >= $MaxLineNum ) {
+      print "$OutputFileSuffix ";
+      close OUTFILE;
+      $OutputFileSuffix = &MakeOutputFileSuffix(++$OutputFileCount, $NumChunks);
+      $OutputFile = "$InputFile.chunk.$OutputFileSuffix";
+      open OUTFILE, " > $OutputFile";
+      print OUTFILE "$line\n";
+      $LineCount = 1;
+   } # elsif ( $LineCount > $MaxLineNum )
+   $PrevCUI = $CUI;
+} # while ( <INFILE> )
+
+print "\n";
+close INFILE;
+
+# Add as many leading "0"s as mecessary to ensure all suffixes have same length
+sub MakeOutputFileSuffix {
+    my ( $OutputFileCount, $NumChunks ) = @_;
+    my $OutputFileSuffix;
+
+    $OutputFileSuffix = ("0" x (length($NumChunks)-length($OutputFileCount))) . $OutputFileCount;
+
+    return $OutputFileSuffix;
+
+} # sub MakeOutputFileSuffix

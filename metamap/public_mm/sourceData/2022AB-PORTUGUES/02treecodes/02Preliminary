@@ -1,0 +1,285 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+
+date
+
+echo "-**- 02preliminary -**-"
+
+mkdir -p ./Preliminary
+cd ./Preliminary
+
+ln -s ../../umls/MRCONSO.RRF MRCONSO.RRF
+ln -s ../../umls/MRCONSO.mesh MRCONSO.RRF.mesh
+ln -s ../../umls/MRSAT.RRF MRSAT.RRF
+ln -s ../../01metawordindex/Suppress/mrconso.suppressed mrconso.suppressed
+if [ -f ../../01metawordindex/model.relaxed/mrconso.filtered ]; then
+  ln -s ../../01metawordindex/model.relaxed/mrconso.filtered mrconso.filtered
+elif [ -f ../../01metawordindex/model.strict/mrconso.filtered ]; then
+  ln -s ../../01metawordindex/model.strict/mrconso.filtered mrconso.filtered       
+else
+  echo "Couldn't find a suitable mrconso.filtered files in"
+  echo " 01metawordindex/model.relaxed or 01metawordindex/model.strict."
+  exit 1
+fi
+
+# IMPORTANT: The strict and relaxed MeSH files created here have
+# nothing to do with MetaMap's strict and relaxed data models!!
+
+# Rows in MRSO (or MRCONSO) whose SAB is "MSH" are taken from the MeSH source vocabulary.
+# The critical field in understanding the difference between the strict and relaxed
+# MeSH views is CODE:
+# * If CODE begins with "D", the string is a MeSH Subject Heading (aka a Descriptor).
+# * If CODE begins with "C", the string is a MeSH Concept.
+# MeSH concepts are grouped into Subject Headings (or Descriptors), so there are
+# about twice as many "C" CODEs as "D" codes.
+
+# As best as I understand it,
+# in the strict files,
+#    each TreeCode is associated only with its MeSH Descriptor (or Subject Heading), so
+#    MeSH Preferred Name | TreeCode
+# is a 1-to-1 mapping.
+# in the relaxed files,
+#    each TreeCode is associated all of its Entry Terms (or terms?), so
+#    MeSH String | TreeCode
+# is a many-to-1 mapping
+
+echo
+echo 'Creating meta.mesh.tc.opt.txt,'
+echo '         mesh.tc.strict.txt, and'
+echo '         meta.mesh.opt.txt'
+echo 'strictly respecting Metathesaurus splitting of MeSH terms'
+echo
+
+date
+
+/bin/rm -f cui.* sui.* dui.* meta.* mesh.* MRSAT.RRF.* 0field.widths *.gz
+
+# mrconso.filtered contains all concepts in the relaxed model.
+# cui.meta contains lines of the form
+# CUI | UMLS Preferred Name
+# for each concept in the relaxed model
+
+echo creating cui.meta
+grep '|ENG|P|L.*|PF|S' mrconso.filtered | cut -f1,15 -d '|' \
+   | sort -t '|' -k1,1 -k2,2 -u > cui.meta &
+
+# grep '|MSH|MH|' MRSO | cut -f1,3 -d '|' > cui.sui.mh.0
+# sort -t '|' +1 -2 cui.sui.mh.0 > cui.sui.mh.1
+# join -t '|' -1 2 -2 1 -o 1.1 2.2 cui.sui.mh.1 sui.string | sort -t '|' +0 -1 > cui.mesh
+
+# MRCON.mesh is the MRCON file from the MeSH-only download
+# cui.mesh contains lines of the form
+# CUI | MeSH Preferred Name
+
+echo creating cui.mesh
+grep '|ENG|P|L.*|PF|S' MRCONSO.RRF.mesh | cut -f1,15 -d '|' \
+   | sort -t '|' -k1,1 -k2,2 -u > cui.mesh &
+
+# In MRSAT, "|MN|MSH|" represents the fields ATN|SAB.
+# ATN is Attribute Name.
+# SAB is Source Vocabulary Name.
+# If ATN = "MN", that means the Attribute Value, the 7th field, is
+# "MeSH hierarchical number for the concept in the MeSH tree structures.
+# This number also appears in the HCD subelement of the REL and CXT elements."
+# which I take to mean TreeCode. So...cui.tc contains likes of the form
+# CUI | TreeCode
+echo creating cui.tc
+grep '|MN|MSH|' MRSAT.RRF | cut -f1,11 -d '|' | sort -t'|' -k1,1 -k2,2 -u > cui.tc &
+
+echo waiting for 4 processes to terminate
+
+wait
+
+# cui.meta contains lines of the form
+# CUI | UMLS Preferred Name
+# cui.mesh contains lines of the form
+# CUI | MeSH Preferred Name
+
+# Joining these two fields on the CUI field creates lines of the form
+# CUI | UMLS Preferred Name | MeSH Preferred Name
+
+# cui.meta contains far more lines than cui.mesh,
+# because there are far more UMLS Preferred Names than MeSH Preferred Names.
+# It's OK if there are fewer lines in the join result, cui.meta.mesh than in cui.mesh
+# because some CUIs exist in MeSH only and not in the MRCON file.
+# This happens for the Base and USAbase versions, because the exceptions are in
+# the "SRC" vocabulary, which has Restriction Category 3,
+# and therefore not in the 
+
+echo creating cui.meta.mesh
+join -t '|' -o 1.1 1.2 2.2 cui.meta cui.mesh > cui.meta.mesh
+echo DONE
+
+# Now add the TreeCodes for those CUIs that have them
+# CUI | UMLS Preferred Name | MeSH Preferred Name | TreeCode
+
+echo creating cui.meta.mesh.tc
+join -t '|' -o 1.1 1.2 1.3 2.2 cui.meta.mesh cui.tc > cui.meta.mesh.tc
+echo DONE
+
+# Now remove the CUIs
+# UMLS Preferred Name | MeSH Preferred Name | TreeCode
+
+echo creating meta.mesh.tc
+cut -f2-4 -d '|' cui.meta.mesh.tc | sort -s -t '|' -k1,1 -k2,2 > meta.mesh.tc
+echo DONE
+
+# This next section is obsolete, because the <N> notation is no longer used
+# in the UMLS, and in fact has not been used since 2003.
+
+# echo creating meta.mesh.tc.ambig.0
+# grep ' <[0-9]>|' meta.mesh.tc.0 > meta.mesh.tc.ambig.0
+# echo DONE
+
+# echo creating meta.mesh.tc.ambig
+# sed 's/ <[0-9]>|/|/' meta.mesh.tc.ambig.0 > meta.mesh.tc.ambig
+# echo DONE
+
+# echo creating meta.mesh.tc
+# sort -s -t '|' -k1,1 -k2,2 meta.mesh.tc.0 meta.mesh.tc.ambig > meta.mesh.tc
+# echo DONE
+
+# The "opt" versions simply have "X" as the second field if it's identical to the first.
+# "Opt" means simply "optimized" for disk space.
+
+echo creating meta.mesh.tc.opt.txt
+form_opt meta.mesh.tc meta.mesh.tc.opt.txt
+echo DONE
+
+# mesh.tc.strict.txt
+# MeSH Preferred Name | TreeCode
+# comes from meta.mesh.tc
+# UMLS Preferred Name | MeSH Preferred Name | TreeCode
+# which comes from cui.meta.mesh.tc
+# CUI | UMLS Preferred Name | MeSH Preferred Name | TreeCode
+# which comes from cui.meta, cui.mesh, and cui.tc
+
+# MeSH Preferred Name | TreeCode
+
+echo creating mesh.tc.strict.txt
+cut -f2-3 -d '|' meta.mesh.tc | sort -u | sort -t '|' -k1,1 -k2,2 > mesh.tc.strict.txt
+echo DONE
+
+# MeSH Preferred Name
+
+echo creating mesh.tc.strict.mo
+cut -f1 -d '|' mesh.tc.strict.txt | sort -u > mesh.tc.strict.mo
+echo DONE
+
+# UMLS Preferred Name | MeSH Preferred Name
+
+echo creating meta.mesh
+cut -f1-2 -d '|' meta.mesh.tc | sort -u | sort -t '|' -k1,1 -k2,2 > meta.mesh
+echo DONE
+
+form_opt meta.mesh > meta.mesh.opt.txt
+
+# Compute counts of Source Vocabularies
+echo creating MRSAT.RRF.SAB.dist
+cut -f 10 -d '|' MRSAT.RRF | sort | uniq -c > MRSAT.RRF.SAB.dist &
+
+# Identify Check Tags (Male and Female)
+echo creating MRSAT.RRF.check.tags.raw
+grep '|DC|MSH|3|[YN]|[0-9]*|$' MRSAT.RRF > MRSAT.RRF.check.tags.raw &
+
+wait
+
+# Add the CUIs to the Check Tags
+echo creating MRSAT.RRF.check.tags
+join -t '|' -o 1.1 2.2 MRSAT.RRF.check.tags.raw cui.mesh > MRSAT.RRF.check.tags
+echo DONE
+
+# chmod -w MRSAT.RRF.*
+# chmod -w cui.*
+# chmod -w mesh.*
+# chmod -w meta.*
+
+echo
+echo 'You can now perform 0TreecodeStudy/.'
+echo
+
+date
+
+echo
+echo 'Creating mesh.tc.relaxed.txt and'
+echo '         mesh.mh.opt.txt'
+echo 'allowing all MeSH terms to acquire treecodes from their MH'
+echo
+
+date
+# Identify the MeSH rows in mrconso.suppressed that have a DUI (and not a CUI) in the 14th field
+# Those are the rows whose strings are MeSH Headings (i.e., MeSH Descriptors).
+# DUI | String
+echo creating dui.string
+grep '|MSH|' mrconso.suppressed | cut -f 14,15 -d '|' | grep '^D' \
+   | sort -t '|' -u -k1,1 -k2,2 > dui.string
+echo DONE
+
+# DUI | TreeCode
+# dui.tc and cui.tc have same # of rows because they're simply
+# different slices of grepping for '|MN|MSH|' in MRSAT
+
+echo creating dui.tc
+grep '|MN|MSH|' MRSAT.RRF | cut -f6,11 -d '|' | sort -t'|' -u -k1,1 -k2,2 > dui.tc
+echo DONE
+
+# String | TreeCoode
+
+echo creating mesh.tc.relaxed.txt
+join -t '|' -o 1.2 2.2 dui.string dui.tc | sort -u | sort -t '|' -k1,1 -k2,2 > mesh.tc.relaxed.txt
+echo DONE
+
+echo creating mesh.tc.relaxed.mo
+cut -f1 -d '|' mesh.tc.relaxed.txt | sort -u > mesh.tc.relaxed.mo
+echo DONE
+
+echo creating dui.stringmh
+grep '|MSH|MH|' mrconso.suppressed | cut -f 14,15 -d '|' | grep '^D' \
+   | sort -t '|' -u -k1,1 -k2,2 > dui.stringmh
+echo DONE
+
+echo creating mesh.mh
+join -t '|' -o 1.2 2.2 dui.string dui.stringmh | sort -u | sort -t '|' -k1,1 -k2,2 > mesh.mh
+echo DONE
+
+form_opt mesh.mh mesh.mh.opt.txt
+
+# chmod -w dui.*
+# chmod -w mesh.*
+
+date
+
+#echo
+#echo 'Computing field widths'
+#echo
+
+#echo creating 0field.widths
+#./0dowidths > 0field.widths
+#echo DONE
+
+#chmod -w 0field.widths
+
+# echo
+# echo 'Make sure you have performed 0TreecodeStudy/.'
+# echo
+
+# echo
+# echo 'Compressing intermediate files'
+# echo
+
+# for FILE in cui.* dui.* mesh.mh meta.mesh meta.mesh.tc sui.*
+# do
+#    echo gzipping file $FILE
+#    gzip $FILE &
+# done
+# wait
+
+# for FILE in cui.meta.mesh cui.tc
+# do
+#    echo gunzipping file $FILE
+#    gunzip $FILE &
+# done
+# wait
+
+date

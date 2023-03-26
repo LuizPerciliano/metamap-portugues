@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo creating CUI_SRCs and CUI_STs
+
+./gen_CUI_srcs mrconso.suppressed > CUI_SRCs &
+
+./gen_CUI_STs > CUI_STs &
+
+wait
+echo DONE
+
+echo joining CUI_SRCs and CUI_STs
+join -t'|' -1 1 -2 1 -o 1.1,1.2,2.2 CUI_SRCs CUI_STs > cui_srcs_sts.txt
+echo DONE
+

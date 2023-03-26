@@ -1,0 +1,55 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+# Input File nls_aa.unique
+my $UniqueFile = $ARGV[0];
+
+# Input File nls_aa.txt
+my $AAFile = $ARGV[1];
+
+# Output file nls_aau.txt
+my $AAUniqueFile = $ARGV[2];
+my @Fields;
+my $Line;
+my %UniqueHash;
+
+print "Reading in $UniqueFile...\n";
+
+open UNIQUE_FILE, "< $UniqueFile";
+
+# Store all the unique AAs in a hash
+while (<UNIQUE_FILE>) {
+    chomp;
+    if ( length($_) > 1 ) {
+	$UniqueHash{$_} = 1;
+    }
+}
+
+close UNIQUE_FILE;
+
+print "Reading in $AAFile...\n";
+
+open AA_FILE, "< $AAFile";
+open AAUNIQUE_FILE, "> $AAUniqueFile";
+
+# $AAFile contains lines of the form
+# <AA>|<Expansion>|e|<LexCat>
+# <Expansion>|<AA>|a|<LexCat>
+# We want to print each such line if both <AA> and <Expansion> are unique.
+
+while (<AA_FILE>) {
+    chomp;
+    $Line = $_;
+    @Fields = split /\|/, $Line;
+    # print "$Line\n";
+    # print "$Fields[0]\n";
+    # print "$Fields[1]\n";
+    if ( exists($UniqueHash{$Fields[0]})
+      && exists($UniqueHash{$Fields[1]}) ) {
+       print AAUNIQUE_FILE "$Line\n";
+    }
+}
+
+close AA_FILE;
+close AAUNIQUE_FILE;

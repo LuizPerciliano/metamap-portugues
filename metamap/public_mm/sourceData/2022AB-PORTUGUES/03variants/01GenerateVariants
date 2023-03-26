@@ -1,0 +1,101 @@
+#! /bin/sh 
+
+. ../dfbuilder.profile
+. ../../../.datafilesrc
+
+date
+
+if [ "$TEMP" = "" ]; then
+    TEMP=/tmp
+fi
+
+echo ' '
+echo ' '
+echo 'Generating derivational variants and lexical variants '
+echo 'to speed MetaMap processing '
+echo ' '
+echo 'One of the following files must exist:'
+echo '  model.relaxed/all_words.txt,'
+echo '  model. moderate/all_words.txt, or'
+echo '  model.strict/all_words.txt.'
+echo ' '
+echo 'This step will take more than a day to complete'
+echo 'for a thesaurus with more than 100,000 words. '
+echo ' '
+
+MMV=$BASEDIR/bin/mm_variants
+INFILE=$PWD/words
+
+if [ -d ../01metawordindex/model.relaxed  -a  \
+    -e ../01metawordindex/model.relaxed/all_words.txt ]; then 
+    MODEL=relaxed
+elif [ -d ../01metawordindex/model.moderate -a \
+    -e ../01metawordindex/model.moderate/all_words.txt ]; then 
+    MODEL=moderate
+elif [ -d ../01metawordindex/model.strict  -a \
+    -e ../01metawordindex/model.strict/all_words.txt ];     then 
+    MODEL=strict
+fi
+
+echo $CUSTOM
+echo "Using model.$MODEL/ to create variants"
+
+cut -f1 -d'|' ../01metawordindex/model.${MODEL}/all_words.txt | sort -u  > all_words.sorted
+    # chmod -w all_words.sorted
+# mm_variants no longer uses labeled input.
+# ${AWK} 'BEGIN { i = 1 } { printf("[ word.%d ] %s\n\n", i,$1); i++; }' all_words.sorted > words.labeled
+
+./0doit.metalab $MODEL
+./0doit0.lexlab
+./0doit1.lexlab
+./0doit.xwords
+./0doit.lvglab 
+
+echo creating xwords.vars
+cut -f1-6,8 -d '|' xwords.vars.0 | sort -T $TEMP -u -t '|' +0 -1 +1 -2 +2 -3 +3 -4 +4 -5 +5 -6 +6 -7 > xwords.vars
+echo DONE
+
+echo creating xwords.vars.flip.0
+# flip_variants $PWD/xwords.vars $PWD/xwords.vars.flip.0
+flip_variants.perl $PWD/xwords.vars $PWD/xwords.vars.flip.0
+sort -T $TEMP -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 -k 5,5 -k 6,6 -k 7,7 xwords.vars.flip.0 > xwords.vars.flip
+
+RUNOPTS=" -w $BASEDIR/lexicon mm_variants"
+# TOOLOPTS="-Z 2013AA -V USAbase"		# override use of default database
+
+for VARTYPE in vars varsan varsanu varsu
+do
+
+    case $VARTYPE in
+	vars) FLAG="";;
+	varsan) FLAG="-D";;
+	varsanu) FLAG="-Du";;
+	varsu) FLAG="-u";;
+    esac
+
+    echo SKRrun.16 $RUNOPTS $TOOLOPTS $FLAG $INFILE $PWD/$VARTYPE.variants.0 
+    SKRrun.16 $RUNOPTS $TOOLOPTS $FLAG $INFILE $PWD/$VARTYPE.variants.0 
+    # the next line removes invalid variant records
+    ${AWK} 'BEGIN { FS="|" } $2 !~ "none" { printf("%s|%s|%s|%s|%s|%s|%s\n",$1,$2,$3,$4,$5,$6,$8); }' $VARTYPE.variants.0 > $VARTYPE.variants
+    echo "Flipping all $VARTYPE file."
+    flip_variants.perl $PWD/$VARTYPE.variants $PWD/$VARTYPE.flip.0
+
+    echo "Sorting the flipped $VARTYPE file."
+    sort -T $TEMP -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 -k 5,5 -k 6,6 -k 7,7 $VARTYPE.flip.0 > $VARTYPE.flip
+
+    echo "Forming the final $VARTYPE file."
+    sort -T $TEMP -u -t '|' -k 1,1 -k 2,2 -k 3,3 -k 4,4 -k 5,5 -k 6,6 -k 7,7 $VARTYPE.flip xwords.vars.flip > $VARTYPE.txt &
+
+done
+date
+
+echo ' '
+echo ' The next generation step is Synonym generation.'
+echo ' '
+echo '   Move up out of 03variants and down into 04synonyms .'
+echo '   Run 01GenerateSynonyms. '
+echo ' '
+echo ' '
+echo ' '
+
+

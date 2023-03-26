@@ -1,0 +1,62 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+
+date
+
+echo "-**- 04Mesh -**-"
+
+cd ./MeSH
+
+date
+
+# /bin/rm -f cui.tc.subs.5 cui.subs sui.tc.subs cui.tc.chems mesh.tc.chems cui.tc.subs
+
+echo creating cui.tc.subs.5
+join -t '|' -1 2 -2 1 -o 1.1 2.2 cui.string mesh.tc.subs | sort -u -t '|' -k1,1 -k2,2 > cui.tc.subs.5
+echo DONE
+
+echo creating cui.subs
+cut -f1 -d '|' MRCONSO.RRF.mesh.TQ MRCONSO.RRF.mesh.XQ | sort -u > cui.subs
+echo DONE
+
+echo creating cui.tc.subs
+join -t '|' -o 2.1 2.2 cui.subs cui.tc.subs.5 > cui.tc.subs
+echo DONE
+
+# chmod -w cui.tc.subs.5
+# chmod -w cui.subs
+# chmod -w cui.tc.subs
+
+date
+
+ln -s cui.tc.chems.4 cui.tc.chems
+ln -s mesh.tc.chems.4 mesh.tc.chems
+
+# echo gzip-ing files
+# for FILE in MRSAT.RRF.mesh  MRCONSO.RRF.mesh*  cui*  mesh* strings* sui*
+# do
+#    if [ ! -L $FILE ]
+#    then
+#       /bin/rm -f $FILE.gz
+#       echo gzip-ing $FILE
+#       gzip $FILE
+#       echo DONE
+#    else
+#       echo $FILE is a symlink...leaving it alone
+#    fi
+# done
+
+# echo DONE with gzip-ing
+
+# echo gunzip-ing files
+# for FILE in cui.tc.chems.4.gz  cui.tc.subs.gz  mesh.tc.chems.4.gz  mesh.tc.subs.gz
+# do
+#    echo gunzip-ing $FILE
+#    gunzip $FILE
+#    echo DONE
+# done
+
+echo DONE
+
+date

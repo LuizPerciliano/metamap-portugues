@@ -1,0 +1,112 @@
+#!/bin/bash
+# derived from 05Filter/0doit3.strict
+# change MAX_PROCESSES to run on a machine with less or more processors
+
+date
+
+. ../dfbuilder.profile
+
+# Input file name
+FILEBASE=mrconso.eng
+
+# Model: Either strict or relaxed
+MODEL=strict
+# "-sEN" for strict; "-N" for relaxed
+FLAGS=-sEN
+
+# How many simultaneous filter_mrconso processes to run
+MAX_PROCESSES=1
+
+# Ask user about number of processes to run.
+OSTYPE=`uname`
+if [ $OSTYPE = "Linux" ]; then
+    NO_PROCESSORS=`grep processor /proc/cpuinfo  | wc -l`
+    if [ $NO_PROCESSORS -gt "1" ]; then
+	resp_valid="false"
+	until [ "$resp_valid" = "true" ]
+	do
+	    echo "This system has $NO_PROCESSORS available, would you like to use more"
+	    echo "than one process for the strict filtering? [no]:"
+	    read response
+	    if [ "$response" = "no" -o "$response" = "yes" -o "$response" = "" ] ; then
+		resp_valid=true
+	    fi
+	done
+	if [ "$response" = "yes" ]; then
+	    resp_valid="false"
+	    # use half the processors by default
+	    DEFAULT_NO_PROCESSORS=`expr $NO_PROCESSORS / 2`
+	    until [ "$resp_valid" = "true" ]
+	    do
+		echo "Specify the number of processes to use: [default: $DEFAULT_NO_PROCESSORS]"
+	    	read response
+		if [ "$response" = "" ] ; then
+		    response=$DEFAULT_NO_PROCESSORS
+		fi
+		# make sure response contains only digits
+		expr $response : '\([0-9]*\)$'
+		if [ $? -eq "0" ]; then 
+		    resp_valid="true"
+		    MAX_PROCESSES=$response
+		else
+		    echo "The response must contain integers only."
+		fi
+	    done
+	    echo "MAX_PROCESSES=$MAX_PROCESSES"
+	fi
+    fi
+fi
+
+echo ' '
+echo "The script is configured to run on an ${MAX_PROCESSES}-processor Linux box."
+echo ' '
+echo 'Note using more than one processes could overwhelm tagger server when using strict model.'
+echo ' '
+echo 'Change MAX_PROCESSES to reduce or increase number of simulataneous processes.'
+echo ' '
+echo 'Sleeping for 5 seconds.'
+sleep 5
+
+./04FilterShared strict sEN mrconso.eng 1000 $MAX_PROCESSES
+
+date
+
+cd Filter
+
+echo Now assembling final version of mrconso.eng.chunked.filtered
+
+# extract all lines from the individual *.filtered files beginning with 'y' or 'n'
+echo extracting \"yn\" lines from individual filtered lines
+grep -h '^[yn]' ALLFILES.strict/mrconso.eng.chunk.[0-9]*.filtered > mrconso.eng.chunked.filtered
+
+# extract all lines from the individual *.filtered files beginning with 'i'
+echo extracting \"i\" lines from individual filtered lines
+grep -h '^i' ALLFILES.strict/mrconso.eng.chunk.[0-9]*.filtered > mrconso.eng.chunked.info
+
+echo consolidating \"i\" lines
+../consolidate_info_lines mrconso.eng.chunked.info > mrconso.eng.chunked.info.SUMMARY
+
+cat mrconso.eng.chunked.info.SUMMARY >> mrconso.eng.chunked.filtered
+
+# /bin/rm -f mrconso.eng.chunk.*
+
+date
+echo DONE
+
+cd ..
+./04FilterStrictMore
+
+cd Filter
+if [ -s mrconso.eng.strict ]
+then 
+   #chmod -w mrconso.eng.strict*
+
+   . ./0ExpandIndex 
+fi 
+
+
+
+#fin 
+
+
+

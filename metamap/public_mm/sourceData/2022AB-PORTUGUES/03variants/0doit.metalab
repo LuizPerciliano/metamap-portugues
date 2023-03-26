@@ -1,0 +1,82 @@
+#!/bin/sh
+# create words.meta from most relaxed mrcon.filtered available.
+#
+# Updated using changes from:
+# /nfsvol/nls/specialist/metamap/tools/mm_variants/data.TEMPLATE/WordLabs/0doit1
+
+if [ $# = 0 ]; then
+    echo "usage $0 [relaxed|moderate|strict]"
+    exit 1
+fi
+case $1 in 
+    relaxed|moderate|strict)
+	MODELTYPE=$1
+	;;
+    *)
+	echo "usage $0 [relaxed|moderate|strict]" 
+	exit 1
+	;;
+esac
+	
+. ../dfbuilder.profile
+. ../../../.datafilesrc
+date
+
+
+/bin/rm -f mrcon.filtered mrcon.strings mrcon.strings.dups words.meta.0 words.meta.counts words.meta.stats words.meta words.meta.0.gz
+
+# ln -s /nfsvol/nls/specialist/module/metawordindex/data.0809/model.relaxed/mrcon.filtered
+OSTYPE=`uname`
+case $OSTYPE in
+    MINGW*)
+	cp ../01metawordindex/model.${MODELTYPE}/mrconso.filtered .
+	;;
+    CYGWIN*)
+	cp ../01metawordindex/model.${MODELTYPE}/mrconso.filtered .
+	;;
+    *)   
+	ln -s ../01metawordindex/model.${MODELTYPE}/mrconso.filtered
+	;;
+esac
+
+echo creating mrconso.strings
+cut -f15 -d '|' mrconso.filtered > mrconso.strings
+echo DONE
+
+echo creating mrconso.strings.dups
+# sort mrconso.strings | uniq -cd | sort +0 -1nr > mrconso.strings.dups
+sort mrconso.strings | uniq -cd | sort -k 1,1nr > mrconso.strings.dups
+echo DONE
+
+# just checking to make sure that mm_tokenizer hasn't changed behavior
+# mm_tokenizer.98 -ml mrcon.strings words.meta.0.98
+echo "creating words.meta.0...hang on...this will take a while"
+# $BASEDIR/bin/mm_tokenizer -ml mrconso.strings words.meta.0
+$BASEDIR/bin/mm_tokenizer.perl mrconso.strings words.meta.0
+echo DONE
+
+echo creating words.meta.counts
+# cut -f2 -d '|' words.meta.0 | sort | uniq -c | sort +0 -1nr > words.meta.counts
+# cut -f2 -d '|' words.meta.0 | sort | uniq -c | sort -k 1,1nr > words.meta.counts
+#
+# from /nfsvol/nls/specialist/metamap/tools/mm_variants/data.TEMPLATE/WordLabs/MetaLab/0doit:
+# sort words.meta.0 | uniq -c | sort +0 -1nr > words.meta.counts
+sort words.meta.0 | uniq -c | sort -k 1,1nr > words.meta.counts
+echo DONE
+
+echo creating words.meta.stats
+${AWK} -f ./stats.awk words.meta.counts > words.meta.stats
+echo DONE
+
+echo creating words.meta
+#cut -f2 -d '|' words.meta.0 | sort -u > words.meta
+sort -u words.meta.0 > words.meta
+echo DONE
+
+# chmod -w mrconso.strings*
+# chmod -w words*
+
+# gzip words.meta.0
+
+date
+

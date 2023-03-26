@@ -1,0 +1,69 @@
+#!/usr/bin/perl
+# -*-perl-*-
+# write filter_mrconso information statistics
+#
+use strict;
+
+my $Line;
+my ( $CountType, $Count, $Key );
+my %CountHash;
+
+
+# Input lines are of the form
+# 
+# CountType|Count|Key
+# 
+# s|2|synt
+# s|1|pref
+# cn|1|[uninv,case]
+# cn|6|[case]
+# cn|2|[case,hyphen]
+# bn|1|uninv
+# bn|9|case
+# bn|2|hyphen
+# t|1|s
+# t|1|OP
+# 3 s|4|synt
+# 
+# Sum Count for each Key and each CountType.
+
+# The top-level Hash %CountHash has four entries,
+# corresponding to the four CountTypes: cn, bn, t, and s.
+# Each $CountHash{$CountType} is itself a hash that sums
+# the Counts for each Key.
+
+
+while (<>) {
+   chomp;
+   $Line = $_;
+   ( $CountType, $Count, $Key ) = split /\|/, $Line;
+   ${$CountHash{$CountType}}{$Key} += $Count;
+}
+
+# FML:
+# Use of qw(...) as parentheses is deprecated at ./write_filter_mrconso_info line 43.
+# This is perl 5, version 16, subversion 3 (v5.16.3) built for x86_64-linux-thread-multi
+# foreach $CountType qw( cn bn t s ) {
+
+foreach $CountType ( "cn", "bn", "t", "s" ) {
+   print "\n";
+   print get_header($CountType), "\n";
+   foreach $Key ( sort { ${$CountHash{$CountType}}{$b} <=> ${$CountHash{$CountType}}{$a} }
+		  keys %{$CountHash{$CountType}}) {
+       printf "%7d %s\n", ${$CountHash{$CountType}}{$Key}, $Key;
+    }
+}
+
+
+sub get_header {
+    my ( $CountType ) = @_;
+
+    return "Normalization counts causing filtering" if $CountType eq "cn";
+    return "Base normalization counts"              if $CountType eq "bn";
+    return "Type counts causing filtering"          if $CountType eq "t";
+    return "Base normalization counts"              if $CountType eq "s";
+
+
+
+
+}

@@ -1,0 +1,90 @@
+#! /bin/env perl
+
+use strict;
+
+my $word;
+my $variant = "";
+my $catn;
+my $infln;
+my $hist;
+my ($x1, $x2);
+my $left1 = "";
+my $right1 = "";
+my $left2 = "";
+my $right2 = "";
+my $firstword;
+
+
+while (<>) {
+	chop;
+	($word,$variant,$catn,$infln,$hist,$x1,$x2) = split(/\|/,$_,9);
+	# handle the word, its category (always none) and the variant
+	print $word, "|none|", $variant, "|";
+	# handle the category of the variant
+	
+	if      ($catn == 1) {
+		print "adj|";
+		
+	} elsif ($catn == 2) {
+		print "adv|";
+		
+	} elsif ($catn == 4) {
+		print "aux|";
+		
+	} elsif ($catn == 8) {
+		print "compl|";
+		
+	} elsif ($catn == 16) {
+		print "conj|";
+				
+	} elsif ($catn == 32) {
+		print "det|";
+		
+	} elsif ($catn == 64) {
+		print "modal|";
+
+	} elsif ($catn == 128) {
+		print "noun|";
+		
+	} elsif ($catn == 256) {
+		print "prep|";
+				
+	} elsif ($catn == 512) {
+		print "pron|";
+
+	} elsif ($catn == 1024) {
+		print "verb|";
+		
+	} elsif ($catn == 2047) {
+		print "none|";
+		
+	} else {
+		print "\n";
+		print "ERROR: Unknown category: ", $catn, "\n";
+	}
+	# handle history
+	if (($hist eq "n") or ($word eq $variant)) { # lvg -fi is reflexive
+		print "0||";
+	} elsif ($hist eq "i") {
+		print "1|i|";
+	} elsif ($hist eq "d") {
+		print "2|d|";
+	} else {
+		print "\n";
+		print "ERROR: Unknown history: ", $hist, "\n";
+	}
+	# find first word
+
+	if ( ( $variant =~ /'/ )
+	  && ( ($left1,$right1) = split(/'/,$variant,2) )
+          && ( $right1 ne "" ) ) {
+		$firstword = $left1;
+	} elsif ( ( $variant =~ /-/ )
+	  && ( ($left2,$right2) = split(/-/,$variant,2) )
+	  && ( $right2 ne "") ) {
+		$firstword = $left2;
+	} else {
+		$firstword = $variant;
+	}
+	print $firstword, "|[]\n";
+}

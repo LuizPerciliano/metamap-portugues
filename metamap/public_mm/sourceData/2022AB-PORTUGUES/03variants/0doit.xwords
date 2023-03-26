@@ -1,0 +1,129 @@
+#!/bin/sh
+
+# /bin/rm -f words* xwords*
+
+. ../dfbuilder.profile
+
+case $OSTYPE in
+    CYGWIN*)
+	LVG_DIR=`cygpath --unix "/home/luizperciliano/metamap-portugues/metamap/lvg2023"`
+	;;
+    MINGW*)
+	LVG_DIR=`cd /home/luizperciliano/metamap-portugues/metamap/lvg2023 && pwd`
+	;;
+    *)
+	LVG_DIR=/home/luizperciliano/metamap-portugues/metamap/lvg2023
+	;;
+esac
+PATH=$BASEDIR/bin:$PATH:${LVG_DIR}/bin
+export PATH
+
+echo "PATH=$PATH"
+echo "lvg -> `which lvg`"
+
+date
+
+# ln -s MetaLab/words.meta
+# ln -s LexLab/inflections words.lex
+
+# Form
+# words (Metathesaurus words that are in the Lexicon), and
+# xwords0 (Metathesaurus words that are not)
+
+# cat words.meta words.lex | sort -u > words.all
+echo creating words
+comm -12 words.meta words.lex > words
+echo DONE
+
+echo creating xwords0
+comm -23 words.meta words.lex > xwords0
+echo DONE
+
+# chmod -w words.all
+# chmod -w words
+# chmod -w xwords0
+
+# Count various kinds of xwords (non-Lexicon Metathesaurus words)
+
+# numbers only
+echo creating xwords1
+grep '^[0-9][0-9]*$' xwords0 > xwords1
+echo DONE
+
+echo creating xwords1.rest
+grep -v '^[0-9][0-9]*$' xwords0 > xwords1.rest
+echo DONE
+
+# number plurals
+echo creating xwords2
+grep '^[0-9][0-9]*s$' xwords1.rest > xwords2
+echo DONE
+
+echo creating xwords2.rest
+grep -v '^[0-9][0-9]*s$' xwords1.rest > xwords2.rest
+echo DONE
+
+# all possessives
+echo creating xwords3
+grep '[^a-z0-9]s$' xwords2.rest > xwords3
+echo DONE
+
+echo creating xwords3.rest
+grep -v '[^a-z0-9]s$' xwords2.rest > xwords3.rest
+echo DONE
+
+# alphanumeric
+echo creating xwords4
+grep '[0-9]' xwords3.rest > xwords4
+echo DONE
+
+echo creating xwords4.rest
+grep -v '[0-9]' xwords3.rest > xwords4.rest
+echo DONE
+
+# alphabetics (non-possessive)
+echo creating xwords5
+cp xwords4.rest xwords5
+echo DONE
+
+echo creating xwords.counts
+wc -l xwords? > xwords.counts
+echo DONE
+
+# chmod -w xwords*
+
+date
+
+# Inflect all xwords (non-inflection words) from the knowledge sources
+
+# the following doesn't work
+#cat xwords0 | lvg06 -f:n -f:i > xwords0.lvg
+
+echo creating xwords0.lvg...hang on...this will take a while
+# lvg2008 -i:xwords0 -f:n -f:i > xwords0.lvg
+case $OSTYPE in
+    CYGWIN*|MINGW*)
+	cmd /c "lvg.bat -i:xwords0 -f:n -f:i > xwords0.lvg"
+	;;
+    *)
+	lvg -i:xwords0 -f:n -f:i > xwords0.lvg
+	;;
+esac
+echo DONE
+
+date
+
+# Find out how many of the words and their inflections are Meta words
+
+echo creating words.xwords
+cut -f2 -d '|' xwords0.lvg | sort -u > words.xwords
+echo DONE
+
+echo creating words.xandmeta
+comm -12 words.xwords words.meta > words.xandmeta
+echo DONE
+
+#chmod -w xwords0.lvg
+#chmod -w words.x*
+
+date

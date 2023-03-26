@@ -1,0 +1,13 @@
+#! /bin/sh
+
+. ../../dfbuilder.profile
+
+${AWK} 'BEGIN { FS = "|" } { printf("%s|%s\n", $6,$1)}' mrconso.filtered > sui_cui.txt.0
+${AWK} 'BEGIN { FS = "|" } { printf("%s|%s\n", $1,$6)}' mrconso.filtered > cui_sui.txt.0
+sort -t '|' -k 1,1 -k 2,2 sui_cui.txt.0 -o sui_cui.txt
+sort -t '|' -k 1,1 -k 2,2 cui_sui.txt.0 -o cui_sui.txt
+
+#chmod -w sui*
+## Clean up temp files
+#rm -f con_cui 
+#rm -f con_sui

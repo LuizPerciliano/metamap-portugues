@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# derived from 05Filter/0doit3.shared
+#
+
+# Do all the filter_mrconso processing shared by the strict and relaxed models.
+
+cd Filter
+pwd
+
+# Either strict or relaxed
+MODEL=$1
+# "-sEN" for strict; "-N" for relaxed
+FLAGS=$2
+# mrconso.eng
+FILEBASE=$3
+# How many pieces to chunk the file into
+CHUNKS=$4
+# How many simultaneous filter_mrconso processes to run
+MAX_PROCESSES=$5
+
+# echo ' '
+# echo 'Be sure to run this script on as powerful a machine as possible.'
+# echo ' '
+# echo 'Sleeping for 2 seconds.'
+# sleep 2
+
+ALLFILES_DIR=ALLFILES.$MODEL
+
+/bin/rm -rf $ALLFILES_DIR
+mkdir $ALLFILES_DIR
+cd $ALLFILES_DIR
+
+case $OSTYPE in 
+    MINGW*|CYGWIN*)
+	cp -pv ../$FILEBASE .
+	cp -pv ../../chunk_file .
+	cp -pv ../../allocate_files .
+	cp -pv ../../filter_mrconso_ALL .
+	;;
+    *)
+	ln -s ../$FILEBASE .
+	ln -s ../../chunk_file .
+	ln -s ../../allocate_files .
+	ln -s ../../filter_mrconso_ALL .
+	;;
+esac
+
+NUMLINES=`cat $FILEBASE | wc -l`
+
+CHUNKSIZE=`expr $NUMLINES / $CHUNKS + 1`
+
+echo Creating  $CHUNKS smaller files, each containing about $CHUNKSIZE lines
+echo
+
+./chunk_file $CHUNKS $CHUNKSIZE $FILEBASE
+
+date
+
+PROCESS=0
+
+echo Running $MAX_PROCESSES filter_mrconso processes in parallel,
+echo depositing all the output files in the $ALLFILES_DIR directory.
+
+MRRANK_FILE=mrrank_${SUBSET}.pl
+echo Creating mrrank file $MRRANK_FILE
+../../create_mrrank ../../MRRANK.RRF > $MRRANK_FILE
+
+# Now run $MAX_PROCESSES filter_mrconso processes in parallel,
+while [ $PROCESS -lt $MAX_PROCESSES ]
+do
+   FILES=`./allocate_files $MAX_PROCESSES $PROCESS`
+   echo filter_mrconso_ALL $MRRANK_FILE $MODEL -${FLAGS} 1000 $FILES
+   ./filter_mrconso_ALL $MRRANK_FILE $MODEL -${FLAGS} 1000 $FILES &
+   PROCESS=`expr $PROCESS + 1`
+   echo ""
+done
+
+wait
+
+date

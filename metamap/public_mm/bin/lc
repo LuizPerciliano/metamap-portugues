@@ -1,0 +1,29 @@
+#! /bin/sh -f
+#
+# Started a new shell without invoking .cshrc
+#
+#
+# Let args be all of the arguments, and switch on the number of them
+#
+case $# in
+#
+#
+# Do normal processing
+#
+    2)
+	echo ' '
+	echo "Lowercasing  $1  to produce  $2"
+	echo ' '
+	tr '[A-Z]' '[a-z]' < $1 > $2
+	;;
+#
+#
+# Otherwise, print the command usage
+#
+    *)
+    echo 'Please specify'
+    echo '     lc <input file> <output file>'
+    echo ' '
+    ;;
+esac
+exit

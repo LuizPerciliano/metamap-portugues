@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. ../dfbuilder.profile
+
+date
+
+./02Preliminary
+./03Mesh
+./04Mesh
+./05Final
+
+date
+
+echo ' '
+echo ' The next and final generation step is variant generation.'
+echo ' '
+echo '   Move up out of 02treecodes and down into 03variants.'
+echo '   Run 01GenerateVariants. '
+echo ' '
+echo ' '
+echo ' '

@@ -1,5 +1,5 @@
 # Executar o comando abaixo antes de subir os arquivos e tals
-# find . -size +100M | cat >> .gitignore
+# find . -size +99M | cat >> .gitignore
 
 # Compiled class file
 *.class

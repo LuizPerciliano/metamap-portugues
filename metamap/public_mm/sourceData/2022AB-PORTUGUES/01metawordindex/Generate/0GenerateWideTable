@@ -1,0 +1,109 @@
+#!/bin/sh
+# public_mm/scripts/dfbuilder/0GenerateWideTables, Fri Oct  1 17:58:17 2010, edit by Willie Rogers
+# Initial Version by Francois Lang (/nfsvol/nls/specialist/module/metawordindex/data.10/0doit6.one)
+
+#input files for this script
+#
+#
+# output files for this script:
+#
+
+date
+
+MODEL=$1
+cd $MODEL
+
+/bin/rm -rf *.sorted *WithStr *.WithStrAndConc
+
+SUI_TABLE=sui_nmstr_str.txt
+CUI_TABLE=cui_concept
+
+ALL_WORD_TABLES="first_words_of_one first_words_of_two first_wordsb first_words all_words"
+
+echo In $MODEL sorting $SUI_TABLE and $CUI_TABLE
+sort -t '|' -k1,1 $SUI_TABLE > ./$SUI_TABLE.sorted &
+sort -t '|' -k1,1 $CUI_TABLE > ./$CUI_TABLE.sorted &
+
+echo In $MODEL waiting for above sorts to complete...
+wait
+echo ""
+echo In $MODEL initial sorts DONE
+date
+
+echo ""
+
+SUI_TABLE=${SUI_TABLE}.sorted
+CUI_TABLE=${CUI_TABLE}.sorted
+
+do_one_table () {
+
+   WORD_TABLE=$1
+   WORD_TABLE_TXT=${WORD_TABLE}.txt
+   echo In $MODEL sorting $WORD_TABLE_TXT into ${WORD_TABLE}.sorted
+   sort -t'|' -k2,2 $WORD_TABLE_TXT > ${WORD_TABLE}.sorted
+
+   echo "In $MODEL DONE sorting $WORD_TABLE_TXT into ${WORD_TABLE}.sorted"
+
+   echo ""
+   echo "In $MODEL joining $WORD_TABLE and $SUI_TABLE and sorting result into ${WORD_TABLE}.WithStr.sorted"
+
+   # join -t'|' -j1 2 -j2 1 -o 1.1 1.2 2.2 2.3 1.3 $WORD_TABLE $SUI_TABLE > ${WORD_TABLE}.WithStr
+   # we don't need the SUI field in the result!
+
+   # The first call to join below joins
+   # * table #1, the word table (e.g., first_words), and
+   # * table #2, sui_nmstr_str.txt.
+
+   # The tables are joined on the SUI, which is
+   # field #2 of the word table,
+   #       (hence "-j1 2", which means the join field is the 2nd field of the 1st table),
+   # field #1 of sui_nmstr_str.txt,
+   #       (hence "-j1 1", which means the join field is the 1st field of the 2nd table).
+   # The output ("-o") of the join includes these fields, in this order:
+   # 1.1:      the 1st field of first_words.txt, which is the word
+   # 2.2, 2.3: the 2nd and 3rd fields of sui_nmstr_str.txt,
+   #	       which are the normalized meta string and the (un-normalized) meta string,
+   # 1.3:      the 3rd field of first_words.txt, which is the CUI
+
+   # The call to sort then sorts the output of join on the 4th field,
+   # which is CUI, so that the table is ready for the next join.
+   join -t'|' -j1 2 -j2 1 -o 1.1 2.2 2.3 1.3 ${WORD_TABLE}.sorted $SUI_TABLE \
+           | sort -t'|' -k4,4 > ${WORD_TABLE}.WithStr.sorted
+
+   echo "In $MODEL DONE sorting result into ${WORD_TABLE}.WithStr.sorted"
+
+   echo "In $MODEL joining ${WORD_TABLE}.WithStr.sorted and $CUI_TABLE into ${WORD_TABLE}.WithStrAndConc"
+
+   # The second call to join below joins
+   # * table #1, the word table including both strings and the CUI
+   #             (e.g., first_words.WithStr.sorted), and
+   # * table #2, cui_concept.txt.
+
+   # The tables are joined on the CUI, which is
+   # field #4 of the word table,
+   #       (hence "-j1 4", which means the join field is the 4th field of the 1st table),
+   # field #1 of sui_nmstr_str.txt,
+   #       (hence "-j2 1", which means the join field is the 1st field of the 2nd table).
+   # The output ("-o") of the join includes these fields, in this order:
+   # 1.1, 1.2, 1.3:  the 1st, 2nd, and 3rd fields of first_words.WithStr,sorted,
+   #                 which are the word,
+   #                           the normalized meta string, and
+   #                           the (un-normalized) meta string,
+   # 2.2:            the 2nd field of cui_concept.txt,
+   #	             which is the preferred name of the concept.
+
+   join -t'|' -j1 4 -j2 1 -o 1.1 1.2 1.3 2.2 ${WORD_TABLE}.WithStr.sorted $CUI_TABLE \
+           > ${WORD_TABLE}.WithStrAndConc
+
+   echo "In $MODEL DONE joining into ${WORD_TABLE}.WithStrAndConc"
+}
+
+for WORD_TABLE in $ALL_WORD_TABLES
+do
+   do_one_table $WORD_TABLE &
+done
+
+wait
+date
+
+echo $MODEL DONE

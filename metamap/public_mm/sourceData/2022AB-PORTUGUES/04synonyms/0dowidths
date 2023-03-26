@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo
+echo
+echo 'syns.txt: Col 1 (word)'
+cut -f1 -d'|' syns.txt | awk -f ./maxline.awk
+
+echo
+echo
+echo 'syns.txt: Col 2 (wcat)'
+cut -f2 -d'|' syns.txt | awk -f ./maxline.awk
+
+echo
+echo
+echo 'syns.txt: Col 3 (syn)'
+cut -f3 -d'|' syns.txt | awk -f ./maxline.awk
+
+echo
+echo
+echo 'syns.txt: Col 4 (scat)'
+cut -f4 -d'|' syns.txt | awk -f ./maxline.awk

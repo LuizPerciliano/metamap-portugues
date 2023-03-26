@@ -1,0 +1,7 @@
+#!/bin/sh
+
+BASEDIR=/home/luizperciliano/metamap-portugues/metamap/public_mm
+PATH=${PATH}:${BASEDIR}/bin
+export PATH
+
+/bin/bash ${BASEDIR}/bin/builddatafiles.sh $*

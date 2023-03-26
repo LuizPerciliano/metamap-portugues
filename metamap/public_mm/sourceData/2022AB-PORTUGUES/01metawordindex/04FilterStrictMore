@@ -1,0 +1,111 @@
+#!/bin/sh
+# derived from 05Filter/0doit3.strict.more
+
+date
+
+cd Filter
+
+/bin/rm -f mrconso.eng.strict mrconso.eng.strict.rest mrconso.eng.strict.info.0 mrconso.eng.strict.info mrconso.eng.strict.0
+
+case $OSTYPE in 
+    MINGW*|CYGWIN*)
+	cp -p mrconso.eng.chunked.filtered mrconso.eng.strict.0
+	;;
+    *)
+	ln -s mrconso.eng.chunked.filtered mrconso.eng.strict.0
+	;;
+esac
+
+echo 'Doing sanity check...hang on...'
+N1=`cat mrconso.eng | wc -l`
+N2=`grep -c '^[yn]' mrconso.eng.strict.0`
+
+echo $N1 lines in mrconso.eng
+echo $N2 yn lines in mrconso.eng.strict.0
+echo These two should match
+
+if [ $N1 -ne $N2 ]
+then
+   echo $N1 and $N2 do NOT match
+   echo About to run 04FilterStrictCheck
+   echo Pay close attention to the output of this script
+   sleep 2
+   ../04FilterStrictCheck
+   exit 1
+else
+   echo $N1 and $N2 DO match
+   echo proceeding
+   echo ""
+fi
+
+sleep 2
+
+
+echo 'Splitting mrconso.eng.strict.0 into:'
+echo ' * mrconso.eng.strict (filtered mrconso lines),'
+echo ' * mrconso.eng.strict.rest (the rest), and'
+echo ' * mrconso.eng.strict.info.0 (summary info)'
+echo ' '
+
+# echo calling split_filtered_mrconso on mrconso.eng.strict.0
+
+# ./split_filtered_mrconso mrconso.eng.strict.0 	\
+#                          mrconso.eng.strict 		\
+# 			   mrconso.eng.strict.rest 	\
+#                          mrconso.eng.strict.info.0
+
+# Lines beginning with "y" ("yes") are good,
+# and should be kept, e.g.,
+# y|C0000074:L0000074:S0007615|40|P|PF|1-Alkyl-2-Acylphosphatidates|MSH|PEN|D010742
+# y|C0000084:L0000084:S0007627|42|P|PF|1-Carboxyglutamic Acid|MSH|MH|D015055
+# y|C0000084:L0017026:S0043577|44|S|PF|gamma-Carboxyglutamic Acid|MSH|EP|D015055
+# y|C0000096:L0000096:S0463366|49|P|PF|1-Methyl-3-isobutylxanthine|MSH|MH|D015056
+
+# The call to cut removes the first two chars of each line (i.e., "y|")
+
+echo "Creating mrconso.eng.strict"
+grep '^y' mrconso.eng.strict.0 | cut -c3- > mrconso.eng.strict &
+
+# Lines beginning with "n" ("no") are bad,
+# and should be discarded, e.g.,
+# nsynt|C0000005:L0000005:S0007492|1|P|PF|(131)I-Macroaggregated Albumin|MSH|PEN|D012711|[case,hyphen]|(131)i macroaggregated albumin
+# ntss|C0000039:L6530188:S7593536|17|s|PF|DIPALMITOYLPHOSPHATIDYLCHOLINE 0102|MSH|DSV|D015060|[case]|dipalmitoylphosphatidylcholine 0102
+# nnorm|C0000039:L0012507:S0033298|9|S|PF|Dipalmitoylphosphatidylcholine|SNOMEDCT|OP|102735002|[case]|dipalmitoylphosphatidylcholine
+# ntyDEV|C0000098:L0086771:S7237376|78|S|VC|N METHYL 4 PHENYLPYRIDINIUM|MSH|DEV|D015655|[case]|n methyl 4 phenylpyridinium
+
+# The call to cut removes the first char of each line (i.e., "n")
+
+echo "Creating mrconso.eng.strict.rest"
+grep '^n' mrconso.eng.strict.0 | cut -c2-  > mrconso.eng.strict.rest &
+
+# Lines beginning with "i" ("info") are informational,
+# and should be kept for future analysis, e.g.,
+# icn|1|[uninv,case,poss]
+# ibn|6|nos
+# it|1|MTH_IS
+# is|139|synt
+
+# The call to cut removes the first char of each line (i.e., "i")
+
+echo "Creating mrconso.eng.strict.info.0"
+grep '^i' mrconso.eng.strict.0 | cut -c2- > mrconso.eng.strict.info.0 &
+
+echo ' '
+echo "Waiting for the three processes to terminate..."
+
+wait
+
+echo DONE
+
+chmod -w mrconso.eng.strict mrconso.eng.strict.rest mrconso.eng.strict.info.0
+
+# Note that write_filter_mrconso_info has been rewritten as a Perl script;
+# the Perl version is far simpler and over 7 times faster.
+
+echo calling write_filter_mrconso_info on mrconso.eng.strict.info.0
+./write_filter_mrconso_info mrconso.eng.strict.info.0 > mrconso.eng.strict.info
+echo DONE
+
+chmod -w mrconso.eng.strict*
+
+date
