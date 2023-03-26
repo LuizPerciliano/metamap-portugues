@@ -1,14 +1,11 @@
+# Executar o comando abaixo antes de subir os arquivos e tals
+# find . -size +100M | cat >> .gitignore
+
 # Compiled class file
 *.class
 
 # Log file
 *.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
 # Package Files #
 *.jar
@@ -18,6 +15,105 @@
 *.zip
 *.tar.gz
 *.rar
+*.so
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+
+# Distribution / packaging
+build/
+dist/
+downloads/
+lib/
+lib64/
+
+
+#### MetaMap ####
+metamap/
+metamap/lvg2023/
+
+# public_mm
+# metamap/public_mm/
+# !metamap/public_mm/sourceData
+metamap/public_mm/DB
+metamap/public_mm/lexicon
+metamap/public_mm/MedPost-SKR
+metamap/public_mm/resources
+metamap/public_mm/scripts
+metamap/public_mm/WSD_Server
+!metamap/public_mm/install.log
+
+# UMLS
+metamap/UMLS-2022AB-full
+# metamap/UMLS-2022AB-full/etc
+#metamap/UMLS-2022AB-full/jre
+#metamap/UMLS-2022AB-full/plugins
+#metamap-portugues/metamap/UMLS-2022AB-full/
+metamap/public_mm/sourceData/2022AB-PORTUGUES/01metawordindex/Filter/ALLFILES.strict/
+*.nlm
+*.src/
+
+
+#Others
+node_modules
+.env
+.DS_Store
+data
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+
+# ignora quaisquer diretórios chamados "metadata"
+.metadata/
+.recommenders/
+
+# ignore the file literally named foo[01].txt
+foo\[01\].txt
+
+############### Arquivos acima de 100MB ###############
+
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/cuist
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/suistrings
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/sui_cui
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_wordsb_WIDE
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words_WIDE
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/conceptst
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/all_words_WIDE
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words_of_two_WIDE
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/cui_srcs_sts
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/conceptcui
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/all_words
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_wordsb
+./metamap/public_mm/DB/DB.USAbase.2020AA.strict/cuiconcept
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/cuisrc
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/varsan
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/cuisourceinfo
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/varsanu
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/vars
+./metamap/public_mm/DB/DB.USAbase.2020AA.base/varsu
+./metamap/public_mm/data/dfbuilder/2022/inflVars.data
+./metamap/public_mm/data/dfbuilder/2022/MRCONSO.mesh
+./metamap/public_mm/lexicon/data/2020/im_vars
+./metamap/public_mm/lexicon/data/2020/lex_form
+./metamap/public_mm/lexicon/data/2020/lex_rec
+./metamap/public_mm/sourceData/2022AB-PORTUGUES/umls/MRSAT.RRF
+./metamap/public_mm/WSD_Server/wstvsc01-12-dc.txt
+./metamap/lvg2023/data/HSqlDb/lvg2023.data
+./metamap/lvg2023/data/tables/fruitful.data
+./metamap/lvg2023/data/tables/infl.data
+./metamap/lvg2023/data/tables/antiNorm.data
+./metamap/UMLS-2022AB-full/2022ab-1-meta.nlm
+./metamap/UMLS-2022AB-full/mmsys.zip
+./metamap/UMLS-2022AB-full/2022ab-otherks.nlm
+./metamap/UMLS-2022AB-full/2022ab-2-meta.nlm
+./metamap/UMLS-2022AB-full/2022AB/LEX/LEX_PGMS/lvg2022lite.tgz
+./metamap/UMLS-2022AB-full/2022AB/LEX/LEX_PGMS/lvg2022.tgz
+./metamap/UMLS-2022AB-full/2022AB/LEX/MISC/inflection.table
+./metamap/UMLS-2022AB-full/2022AB/LEX/MISC/inflVars.data
+./metamap/UMLS-2022AB-full/2022AB/LEX/LRAGR
+./metamap/UMLS-2022AB-full/2022AB/META/MRSAT.RRF
+./metamap/UMLS-2022AB-full/2022AB/META/MRCUI.RRF
