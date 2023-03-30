@@ -14,7 +14,8 @@ This work intends to generate a data model in Portuguese using **MetaMap DFB 202
 Installation and usage details can be found in the document [Installation MetaMap DFB2022](doc/Installation%MetaMap%DFB2022.pdf).
 
 # Authors
-- Luiz Perciliano
+|[<img src="https://avatars.githubusercontent.com/u/4924928?s=96&v=4" width=115><br><sub>Luiz Perciliano</sub>](https://github.com/LuizPerciliano) |
+| :---: | 
 
 # License
 `MIT licensed`
