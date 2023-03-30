@@ -1,0 +1,23 @@
+
+Normalization counts causing filtering
+  33557 [case]
+   2081 [case,hyphen]
+    225 [uninv,case]
+     17 [hyphen]
+     13 [uninv,case,hyphen]
+      3 []
+      1 [case,poss]
+
+Base normalization counts
+  35877 case
+   2111 hyphen
+    238 uninv
+      1 poss
+
+Type counts causing filtering
+   9331 p
+   4471 s
+
+Base normalization counts
+  53439 synt
+  47080 pref

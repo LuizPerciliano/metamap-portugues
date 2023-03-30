@@ -98,8 +98,6 @@ echo ' '
 # gzip mrso.lbld
 # gzip mrso.lbld.s
 
-#deleted lines 101 until 111
-
 date
 
 cd ../

@@ -1,0 +1,3220 @@
+     16 Limitacao funcional/incapacidade
+     12 Slope do segmento ST.derivação AVF:ElpotRat:Pt:Coração:Qn:ECG
+      7 Outras lesoes traumaticas
+      4 Malformacoes congenitas
+      4 Neoplasia benigna
+      4 Obesidade mórbida
+      4 Outras malformacoes congenitas
+      4 Tontura
+      3 3-Hidroxidecanoato.livre:SCnc:Pt:Sor/Plas:Qn
+      3 AIDS
+      3 Abdominoplastia
+      3 Acne
+      3 Amenorreia
+      3 Anestesia
+      3 Apendicite
+      3 Arrepios
+      3 Asma
+      3 Calafrios
+      3 Candidíase
+      3 Caspa
+      3 Catarata
+      3 Cegueira
+      3 Choro
+      3 Coma
+      3 Condiloma acuminado
+      3 Conjuntivite
+      3 Corticosterona:#N/A:24H:Urina:Qn
+      3 Células.CD16+CD57+/100 células:NFr:Pt:SgTotal:Qn
+      3 Diarreia
+      3 Disgrafia
+      3 Dor
+      3 Edema
+      3 Egocentrismo
+      3 Emaciação
+      3 Encoprese
+      3 Esplenomegalia
+      3 Estrabismo
+      3 Febre
+      3 Gagueira
+      3 Gases
+      3 Glaucoma
+      3 Gota
+      3 Hemoptise
+      3 Hemorroidas
+      3 Hepatomegalia
+      3 Hiperaldosteronismo
+      3 Hipoglicemia
+      3 Impetigo
+      3 Intoxicação
+      3 Lesoes traumaticas
+      3 Leucemia
+      3 Leucócitos
+      3 Lipoma
+      3 Osteoporose
+      3 Pielectasia
+      3 Pneumonia
+      3 Postectomia
+      3 Presbiacusia
+      3 Sarampo
+      3 Sibilo
+      3 Sobrepeso
+      3 Sonolência
+      3 Síndrome CREST
+      3 Tosse
+      3 Toxoplasmose
+      3 Tracoma
+      3 Tremor
+      3 Trismo
+      3 Varicela
+      3 Verruga
+      2 (Hordeum vulgare+Oryza sativa+Secale cereale+Triticum aestivum) Ac.IgE:ACnc:Pt:Soro:Ord:Multidisco
+      2 11-Cetoandrosterona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoandrosterona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoandrosterona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoandrosterona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoetiocolanolona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoetiocolanolona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoetiocolanolona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Cetoetiocolanolona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Deoxicortisol^1 dia após dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Deoxicortisol^1 dia após dose de metirapona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Deoxicortisol^2 dias após dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Deoxicortisol^2 dias após dose de metirapona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Deoxicortisol^pré dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Deoxicortisol^pré dose de metirapona:#N/A:Pt:Sor/Plas:Qn
+      2 11-Hidroxiandrosterona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxiandrosterona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxiandrosterona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxiandrosterona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxietiocolanolona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxietiocolanolona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxietiocolanolona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 11-Hidroxietiocolanolona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 17-Hidroxiprogesterona^1 dia após dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 17-Hidroxiprogesterona^2 dias após dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 17-Hidroxiprogesterona^pré dose de dexametasona:#N/A:Pt:Sor/Plas:Qn
+      2 18-Hidroxicortisol:#N/A:24H:Urina:Qn
+      2 1st trimester scn+NT Patient-Imp
+      2 3-Hidroxidecanoato:SCnc:Pt:Sor/Plas:Qn
+      2 3-Hidroxisebacato.não saturado/Creatinina:SCrto:Pt:Urina:Qn
+      2 3-Hidroxisovalerilcarnitina (C5-OH):SCrto:Pt:SgPapel:Qn
+      2 6-Alfa hidroxitetrahidro-11-Dehidrocorticosterona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Dehidrocorticosterona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Dehidrocorticosterona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Dehidrocorticosterona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Deoxicortisol^2 dias após alta dose dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Deoxicortisol^2 dias após dose dexametasona:#N/A:24H:Urina:Qn
+      2 6-Alfa hidroxitetrahidro-11-Deoxicortisol^pré dose dexametasona:#N/A:24H:Urina:Qn
+      2 A- & B-Gamma Tocopherol SerPl-Imp
+      2 A1AT Phenotyp SerPl-Imp
+      2 ABCB4 gene Mut Anal Sg/T
+      2 ACADS gene Mut Anal Sg/T
+      2 AFP Interp Amn-Imp
+      2 AFP Interp SerPl-Imp
+      2 AIT
+      2 ALDOB gene Mut Anal Sg/T
+      2 ALP Isos SerPl-Imp
+      2 ALTERACAO DA MARCHA
+      2 ALTERACOES DAS UNHAS
+      2 ANA Pat Ser-Imp
+      2 APTX gene Mut Anal Sg/T
+      2 AR gene Mut Anal Sg/T
+      2 AS gene Mut Anal Sg/T
+      2 ASPA gene Mut Anal Sg/T
+      2 ATP7A gene Mut Anal SerPl
+      2 ATP7B gene Mut Anal Sg/T
+      2 ATRASO DE CRESCIMENTO
+      2 AUMENTO DA TRANSAMINASE GLUTAMICO
+      2 AV AV area method
+      2 AVC
+      2 Abetalipoproteinemia
+      2 Aborto espontâneo
+      2 Abscesso
+      2 Absentismo
+      2 Abuso de tabaco
+      2 AcCC8 gene Mut Anal Sg/T
+      2 Acantocitose
+      2 Acantoma
+      2 Acantólise
+      2 Acatalasemia
+      2 Acatalasia
+      2 Acatisia
+      2 Acetilcolinesterase
+      2 Acetona
+      2 Acetonemia
+      2 Acetonúria
+      2 Acidente
+      2 Acidose
+      2 Acloridria
+      2 Acondroplasia
+      2 Acrocefalossindactilia
+      2 Acrodermatite
+      2 Acrodinia
+      2 Acromatopsia
+      2 Acromegalia
+      2 Acrômio
+      2 Actinomicose
+      2 Acupressão
+      2 Acupuntura
+      2 Acute leukemia markers XXX-Imp
+      2 Adenite
+      2 Adenocarcinoma
+      2 Adenofibroma
+      2 Adenoidectomia
+      2 Adenolinfoma
+      2 Adenoma
+      2 Adenomioma
+      2 Adenomiose
+      2 Adenopatia
+      2 Adenosina monofosfato.cíclico/Creatinina^3ª amostra após administração de XXX:Ratio:Pt:Urina:Qn
+      2 Adenovírus Ac^1ª amostra:Título:Pt:Soro:Qn
+      2 Adenovírus Ac^1ª amostra:Título:Pt:Soro:Qn:Fixação do complemento
+      2 Adiadococinesia
+      2 Adiposidade
+      2 Adolescência
+      2 Adoção
+      2 Adrenalectomia
+      2 Adrenocorticotropina
+      2 Adrenoleucodistrofia
+      2 Aerofagia
+      2 Afacia
+      2 Afasia
+      2 Afasia de Broca
+      2 Afasia de Wernicke
+      2 Afibrinogenemia
+      2 Afogamento
+      2 Afonia
+      2 Afrodisíaco
+      2 Aférese
+      2 Agamaglobulinemia
+      2 Ageusia
+      2 Agiria
+      2 Agnosia
+      2 Agorafobia
+      2 Agrafia
+      2 Agranulocitose
+      2 Agressividade
+      2 Agressão
+      2 Ainhum
+      2 Alastrim
+      2 Albinismo
+      2 Albumina
+      2 Albumina do soro de cão Ac.IgE.RAST classe:ACnc:Pt:Soro:Ord
+      2 Albumina^45 min após administração de XXX:MCnc:Pt:Sor/Plas:Qn
+      2 Albuminúria
+      2 Alcalose
+      2 Alcaptonúria
+      2 Alcoolismo
+      2 Alcoólatra
+      2 Aldosterona
+      2 Aldosterona^15 min após administração de XXX:#N/A:Pt:Sor/Plas:Qn
+      2 Aldosterona^3 hs após 25 mg captopril VO:#N/A:Pt:Sor/Plas:Qn
+      2 Aldosterona^3 hs após administração de XXX:#N/A:Pt:Sor/Plas:Qn
+      2 Aldosterona^em pé:MCnc:Pt:Sor/Plas:Qn
+      2 Aldosteronismo
+      2 Alergia
+      2 Alexia
+      2 Alexitimia
+      2 Alfa cortol^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortol^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortol^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortol^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortolone:#N/A:24H:Urina:Qn
+      2 Alfa cortolone^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortolone^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortolone^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Alfa cortolone^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Algodistrofia
+      2 Alo pregnanediol:#N/A:24H:Urina:Qn
+      2 Alo-tetrahidrocorticosterona:#N/A:24H:Urina:Qn
+      2 Alo-tetrahidrodeoxicortisol:#N/A:24H:Urina:Qn
+      2 Alodinia
+      2 Alopecia
+      2 Alteração da cor da pele
+      2 Altitude
+      2 Alucinações
+      2 Alumínio
+      2 Alveolectomia
+      2 Alveolite
+      2 Alveoloplastia
+      2 Amamentação
+      2 Amaurose
+      2 Ambliopia
+      2 Ameboma
+      2 Amebíase
+      2 Amelia
+      2 Ameloblastoma
+      2 Ametropia
+      2 Amilofagia
+      2 Amiloidose
+      2 Amiloidose AL
+      2 Amino acid Pat SerPl-Imp
+      2 Amino acid Pat Ur-Imp
+      2 Amino acids CSF-Imp
+      2 Amniocentese
+      2 Amnionite
+      2 Amnioscopia
+      2 Amnésia
+      2 Amputação
+      2 Amylase Isos SerPl-Imp
+      2 Amônia
+      2 Anafilaxia
+      2 Analfabetismo
+      2 Analgesia
+      2 Ancilostomíase
+      2 Androgênios
+      2 Andropausa
+      2 Androsterona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Androsterona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Androsterona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Androsterona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Anedonia
+      2 Anemia
+      2 Anemia de Addison
+      2 Anemia de Cooley
+      2 Anemia de Diamond-Blackfan
+      2 Anemia de Fanconi
+      2 Anemia hemolítica e teste de Coombs indireto negativo
+      2 Anencefalia
+      2 Aneurisma
+      2 Anexite
+      2 Anfetamina cutoff:MCnc:Pt:Urina:Qn:Confirmatório
+      2 Anfetamina cutoff:MCnc:Pt:Urina:Qn:Triagem
+      2 Anfetaminas
+      2 Angeíte
+      2 Angina de Ludwig
+      2 Angina de Prinzmetal
+      2 Angina de Vincent
+      2 Angina de peito
+      2 Angiocardiografia
+      2 Angiodisplasia
+      2 Angioedema
+      2 Angiofibroma
+      2 Angiografia
+      2 Angiograma
+      2 Angiolipoma
+      2 Angioma
+      2 Angiomiolipoma
+      2 Angiomixoma
+      2 Angioplastia
+      2 Angioscopia
+      2 Angiossarcoma
+      2 Angiotensina I
+      2 Angiotensina II
+      2 Angústia
+      2 Anidrose
+      2 Aniridia
+      2 Anisaquíase
+      2 Aniseiconia
+      2 Anisocoria
+      2 Anisometropia
+      2 Anodontia
+      2 Anoftalmia
+      2 Anomalia de Ebstein
+      2 Anomalia de Kimmerle
+      2 Anomia
+      2 Anorexia
+      2 Anoscopy Anus Study
+      2 Anosmia
+      2 Anotia
+      2 Anovulação
+      2 Anquilose
+      2 Ansiedade
+      2 Antibiograma
+      2 Anticorpo anti-Borrelia positivo
+      2 Anticorpo anti-DNA
+      2 Anticorpo anti-HBc
+      2 Anticorpo antinuclear negativo
+      2 Anticorpos anti-DNA SOE positivos
+      2 Anticorpos anticardiolipina negativos
+      2 Anticorpos anticardiolipina positivos
+      2 Antiestreptolisina
+      2 Antimônio
+      2 Antitrombina III
+      2 Antracose
+      2 Antracossilicose
+      2 Antraz
+      2 Anóxia
+      2 Aortite
+      2 Aortografia
+      2 Apatia
+      2 Apendicectomia
+      2 Apetite excessivo
+      2 Apicectomia
+      2 Apiterapia
+      2 Apneia
+      2 Apolipoproteína A-I
+      2 Apoplexia
+      2 Apoptose
+      2 Aposentadoria
+      2 Apudoma
+      2 Aracnodactilia
+      2 Aracnoidite
+      2 Argentafinoma
+      2 Argiria
+      2 Aromaterapia
+      2 Arritmia
+      2 Arroto
+      2 Arteriosclerose
+      2 Arteriotomia
+      2 Arterite
+      2 Arterite de Takayasu
+      2 Arteterapia
+      2 Articulação de Charcot
+      2 Artralgia
+      2 Artrite
+      2 Artrocentese
+      2 Artrodese
+      2 Artrografia
+      2 Artropatia
+      2 Artroscopia
+      2 Artrose
+      2 Asbestose
+      2 Ascaris lumbricoides adulto Ac.IgG:ACnc:Pt:Soro:Qn
+      2 Ascaris lumbricoides adulto Ac.IgG:ACnc:Pt:Soro:Qn:Imunoensaio
+      2 Ascaríase
+      2 Ascite
+      2 Ascorbato+Dehidroascorbato:#N/A:Pt:Sor/Plas:Qn
+      2 Asfixia
+      2 Aspartilglicosaminúria
+      2 Aspergilose
+      2 Aspermia
+      2 Assassinato
+      2 Assialia
+      2 Assistolia
+      2 Astenia
+      2 Astenopia
+      2 Astenozoospermia
+      2 Asterixe
+      2 Astigmatismo
+      2 Astroblastoma
+      2 Astrocitoma
+      2 Ataxia
+      2 Ataxia de Friedreich
+      2 Aterectomia
+      2 Ateroembolia
+      2 Ateroma
+      2 Aterosclerose
+      2 Atetose
+      2 Atrofia
+      2 Atrofia de Sudeck
+      2 Audiometria
+      2 Aumento de peso
+      2 Aura
+      2 Auscultação
+      2 Autismo
+      2 Autoenxerto
+      2 Autolesão deliberada
+      2 Automatismo
+      2 Automedicação
+      2 Automutilação
+      2 Autorressuscitação
+      2 Autotransfusão
+      2 Autólise
+      2 Avitaminose
+      2 Axonotmese
+      2 Azia
+      2 Azoospermia
+      2 Azotemia
+      2 BIGEMINISMO
+      2 BJ Protein Ur-Imp
+      2 BLM gene Mut Anal Sg/T
+      2 Babesíase
+      2 Bacteremia
+      2 Bacteriemia
+      2 Bacteriúria
+      2 Baixo peso ao nascimento
+      2 Balanite
+      2 Balanopostite
+      2 Balismo
+      2 Balneoterapia
+      2 Barbiturates Tested Ur Scn
+      2 Barbitúricos
+      2 Barotrauma
+      2 Bartonelose
+      2 Basófilos
+      2 Bejel
+      2 Benzodiaz Tested Ur Scn
+      2 Beriliose
+      2 Berílio
+      2 Beta 1 globulina:#N/A:Pt:Urina:Qn:Eletroforese
+      2 Beta-2-Microglobulina:#N/A:24H:Urina:Qn
+      2 Bicarbonato
+      2 Bicarbonato sérico
+      2 Bile Ac Pattern Ur-Imp
+      2 Bilirrubina
+      2 Bilirrubinemia
+      2 Bioterapia
+      2 Bissexualidade
+      2 Bissinose
+      2 Biópsia
+      2 Blastomicose
+      2 Blefarite
+      2 Blefarofimose
+      2 Blefaroplastia
+      2 Blefaroptose
+      2 Blefarospasmo
+      2 Bocejo
+      2 Bolha
+      2 Bolha diabética
+      2 Bolha na mucosa
+      2 Bolhas
+      2 Borreliose de Lyme
+      2 Botulismo
+      2 Bouba
+      2 Bradiarritmia
+      2 Bradicardia
+      2 Bradicinesia
+      2 Braquicefalia
+      2 Braquidactilia
+      2 Braquiterapia
+      2 Brometo
+      2 Bromidrose
+      2 Broncocele
+      2 Broncoconstrição
+      2 Broncoespasmo
+      2 Broncografia
+      2 Broncomalácia
+      2 Broncopneumonia
+      2 Broncoscopia
+      2 Bronquiectasia
+      2 Bronquiolite
+      2 Bronquite
+      2 Bronquite asmática
+      2 Brotoeja
+      2 Brucella abortus
+      2 Brucella canis
+      2 Brucella melitensis
+      2 Brucella suis
+      2 Brucelose
+      2 Bruxismo
+      2 Bruxomania
+      2 Buftalmo
+      2 Bulimia
+      2 Bursite
+      2 Bócio
+      2 Bócio atóxico
+      2 CADASIL
+      2 CAPN3 gene Mut Anal Sg/T
+      2 CATCH22 gene Mut Anal Sg/T
+      2 CFTR Mut Anal Amn
+      2 CFTR Mut Anal Sg/T
+      2 CK Isos SerPl Elph-Imp
+      2 CK Isos SerPl-Imp
+      2 CLL gene Mut Anal Sg/T
+      2 CMSPT Smn-Imp
+      2 CMT1 gene Mut Anal Sg/T
+      2 CMT2 gene Mut Anal Sg/T
+      2 COL3A1 gene Mut Anal Sg/T
+      2 COL5A1 gene Mut Anal Sg/T
+      2 COVID-19
+      2 CRISES ATONICAS
+      2 CSTB gene Mut Anal Sg/T
+      2 CYP21A2 gene Mut Anal Sg/T
+      2 CYP2D6 gene Mut Anal Sg/T
+      2 Cacosmia
+      2 Cafeína
+      2 Calazar
+      2 Calcinose
+      2 Calcitonina
+      2 Calo cutâneo
+      2 Calos
+      2 Calosidades
+      2 Calvície
+      2 Calázio
+      2 Campylobacter fetus Ac:Título:Pt:Soro:Qn:Fixação do complemento
+      2 Canabinoides
+      2 Candidemia
+      2 Candidíase SOE
+      2 Canelite
+      2 Capilaroscopia
+      2 Capilaríase
+      2 Capsulite
+      2 Caquexia
+      2 Carboxihemoglobina
+      2 Carbúnculo
+      2 Carcinoma
+      2 Carcinomatose
+      2 Cardiac Echo Study Transducer site
+      2 Cardiac echo device Class
+      2 Cardiomegalia
+      2 Cardiomiopatias
+      2 Cardioplegia
+      2 Cardiotocografia
+      2 Cardiotoxicidade
+      2 Cardioversão
+      2 Cardite
+      2 Cariotipagem
+      2 Carnitina
+      2 Caroteno
+      2 Casamento
+      2 Catalepsia
+      2 Cataplexia
+      2 Catapora
+      2 Catarro
+      2 Catatonia
+      2 Catecol Plas-Imp
+      2 Catecol Ur-Imp
+      2 Catecolaminas
+      2 Causalgia
+      2 Cavidade dentária
+      2 Caxumba
+      2 Cecite
+      2 Cecostomia
+      2 Cefaleia
+      2 Cefalgia
+      2 Celibato
+      2 Celioscopia
+      2 Celulite
+      2 Ceratectomia
+      2 Ceratite
+      2 Ceratite por Acanthamoeba
+      2 Ceratocone
+      2 Ceratoconjuntivite
+      2 Ceratoplastia
+      2 Ceruloplasmina
+      2 Cervicalgia
+      2 Cervicite
+      2 Cervicoplastia
+      2 Cetoacidose
+      2 Cetonas
+      2 Cetonemia
+      2 Cetonúria
+      2 Cetose
+      2 Chiado
+      2 Choque
+      2 Chronic Leukemia Markers XXX-Imp
+      2 Chumbo
+      2 Cianose
+      2 Cicatriz
+      2 Cicatrização
+      2 Ciclosporíase
+      2 Ciclotimia
+      2 Cifoplastia
+      2 Cifose
+      2 Cilindroma
+      2 Cintilografia
+      2 Cintilografia óssea
+      2 Cirurgia
+      2 Cirurgia de joanete
+      2 Cistatina C
+      2 Cistatina C:#N/A:24H:Urina:Qn
+      2 Cisticercose
+      2 Cistinose
+      2 Cistinúria
+      2 Cistite
+      2 Cisto de Baker
+      2 Cisto de Tarlov
+      2 Cisto sebáceo
+      2 Cistoadenocarcinoma
+      2 Cistocele
+      2 Cistografia
+      2 Cistograma
+      2 Cistoscopia
+      2 Cistostomia
+      2 Citaferese
+      2 Cito Cvx/Vag
+      2 Citologia
+      2 Citrato:#N/A:12H:Urina:Qn
+      2 Citrulinemia
+      2 Ciática
+      2 Claustrofobia
+      2 Cleptomania
+      2 Climatoterapia
+      2 Clitoridectomia
+      2 Cloasma
+      2 Clonorquíase
+      2 Cloracne
+      2 Cloreto
+      2 Cloreto:#N/A:12H:Urina:Qn
+      2 Cloroma
+      2 Clusterina
+      2 Coagulação
+      2 Coagulopatias
+      2 Cobalaminas:#N/A:Pt:LiqOrg:Qn
+      2 Cobalaminas:#N/A:Pt:Urina:Qn
+      2 Cobre
+      2 Cobreiro
+      2 Coccidioidomicose
+      2 Coccidiose
+      2 Coceira
+      2 Coenzima Q
+      2 Coinfecção
+      2 Coinfecção por HIV
+      2 Colangiocarcinoma
+      2 Colangiografia
+      2 Colangite
+      2 Colecistectomia
+      2 Colecistite
+      2 Colecistolitíase
+      2 Colecistostomia
+      2 Colectomia
+      2 Coledocoduodenostomia
+      2 Coledocojejunostomia
+      2 Coledocolitíase
+      2 Coledocostomia
+      2 Colelitíase
+      2 Colestase
+      2 Colesteatoma
+      2 Colesterol
+      2 Colesterol HDL
+      2 Colesterol LDL
+      2 Colesterol.HDL 2a:#N/A:Pt:Sor/Plas:Qn
+      2 Colesterol.LDL.acetilado:MCnc:Pt:Sor/Plas:Qn
+      2 Colite
+      2 Coloboma
+      2 Colonoscopia
+      2 Colonoscopy Rectum+Colon Study
+      2 Colonoscopy.thru Stoma Colon Study
+      2 Color CL Rx-L
+      2 Color CL Rx-R
+      2 Color CL-L
+      2 Color CL-R
+      2 Color XXX
+      2 Colostomia
+      2 Colposcopia
+      2 Comatoso
+      2 Comparison study Imp EKG
+      2 Complexo de Carney
+      2 Complicação de fístula mucosa
+      2 Complicação de nefrostomia
+      2 Condroblastoma
+      2 Condrocalcinose
+      2 Condroma
+      2 Condromatose
+      2 Condrossarcoma
+      2 Conduction Imp EKG
+      2 Confinado ao domicílio
+      2 Confusão
+      2 Congelamento
+      2 Conjuntivite infecciosa
+      2 Constipação
+      2 Constrangimento
+      2 Contagem de leucócitos
+      2 Contracepção
+      2 Contratura
+      2 Contratura de Dupuytren
+      2 Convalescença
+      2 Convulsão
+      2 Convulsão de grande mal
+      2 Convulsões
+      2 Coprofagia
+      2 Coqueluche
+      2 Cordocentese
+      2 Cordoma
+      2 Coreia
+      2 Coreia de Huntington
+      2 Corioamnionite
+      2 Coriocarcinoma
+      2 Coriogonadotrofina subunidade beta:#N/A:Pt:Sor/Plas:Qn
+      2 Coriorretinite
+      2 Coristoma
+      2 Coriza
+      2 Coroideremia
+      2 Coroidite
+      2 Corpos de Heinz
+      2 Corticosterona
+      2 Corticotrofina
+      2 Corticotropina
+      2 Cortisol
+      2 Cortisol.livre:#N/A:24H:Urina:Qn:RIE
+      2 Coxartrose
+      2 Craniectomia
+      2 Craniofaringioma
+      2 Craniossinostose
+      2 Craniotomia
+      2 Creatina
+      2 Creatinina
+      2 Creatinina^2ª amostra:MCnc:Pt:LiqDialPerit:Qn
+      2 Creatinina^4ª amostra:MCnc:Pt:LiqDialPerit:Qn
+      2 Cretinismo
+      2 Criação de fístula mucosa
+      2 Crime
+      2 Crioablação
+      2 Criocirurgia
+      2 Crioglobulinas
+      2 Crioglobulinemia
+      2 Crioterapia
+      2 Criptococose
+      2 Criptorquidismo
+      2 Criptosporidiose
+      2 Cromo
+      2 Cromoblastomicose
+      2 Crosta láctea
+      2 Crupe
+      2 Cryoglob IgA & IgG & IgM Ser-Imp
+      2 Cryptococcus neoformans
+      2 Cryptosporidium hominis DNA:ACnc:Pt:XXX:Ord:Sonda com limite de detecção da amplificação de alvo
+      2 Cuidador
+      2 Culdoscopia
+      2 Cultura
+      2 Curvatura peniana
+      2 Cádmio
+      2 Cálcio
+      2 Cálcio:#N/A:Pt:Liq.não biológico:Qn
+      2 Câncer
+      2 Cãibra
+      2 Células.CD16+CD56+/100 células:NFr:Pt:LCR:Qn
+      2 Células.CD16+CD56+/100 células:NFr:Pt:LiqOrg:Qn
+      2 Células.CD16+CD56+/100 células:NFr:Pt:Tecido:Qn
+      2 Células.CD20+CD25+/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD20+CD25+:NCnc:Pt:SgTotal:Qn
+      2 Células.CD3+CD4+CD45RO+CD45RA+/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD3+CD4+CD45RO+CD45RA-/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD3+CD56+/100 células:NFr:Pt:MedOssea:Qn
+      2 Células.CD3+CD7+/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD3+CD8+CD45RO+CD45RA+/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD3+CD8+CD45RO+CD45RA-/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD3-CD16+:NCnc:Pt:MedOssea:Qn
+      2 Células.CD3-CD16+:NCnc:Pt:Tecido:Qn
+      2 Células.CD4+CD95+/100 células:NFr:Pt:SgTotal:Qn
+      2 Células.CD4+CD95+:NCnc:Pt:SgTotal:Qn
+      2 Cólera
+      2 Cólica
+      2 DEBILIDADE
+      2 DERMATITE ALERGICA
+      2 DESCONFORTO TORAXICO
+      2 DIU
+      2 DMD gene Mut Anal Sg/T
+      2 DMID
+      2 DMNID
+      2 DPOC
+      2 DYS gene Mut Anal Sg/T
+      2 DYT1 gene Mut Anal Sg/T
+      2 Dacrio-hemorragia
+      2 Dacrioadenite
+      2 Dacriocistite
+      2 Dactilite
+      2 Daltonismo
+      2 Debilidade
+      2 Decapitação
+      2 Defecografia
+      2 Deficiência de G6PD
+      2 Deficiência de GATA2
+      2 Deficiência de IgA
+      2 Dehidroepiandrosterona^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Dehidroepiandrosterona^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Dehidroepiandrosterona^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Dehidroepiandrosterona^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Delirium
+      2 Delírio
+      2 Delírio de ciúmes
+      2 Demência
+      2 Dengue
+      2 Dentes de Hutchinson
+      2 Depilação
+      2 Depressão
+      2 Depressão pós-parto
+      2 Dermabrasão
+      2 Dermatite
+      2 Dermatite seborreica
+      2 Dermatofibroma
+      2 Dermatofibrossarcoma
+      2 Dermatofitose
+      2 Dermatofitoses
+      2 Dermatomiosite
+      2 Dermatosclerose
+      2 Dermatose
+      2 Dermatólise
+      2 Dermoscopia
+      2 Desarticulação
+      2 Desbridamento
+      2 Descamação
+      2 Descamação cutânea
+      2 Descamação da córnea
+      2 Descamação da pele
+      2 Descolamento da retina
+      2 Desemprego
+      2 Desidratação
+      2 Desmaio
+      2 Despersonalização
+      2 Despertar noturno
+      2 Desrealização
+      2 Desvio esquerda-direita intracardíaco:VRat:Pt:Coração:Qn
+      2 Deuteranopia
+      2 Dextrocardia
+      2 Diabetes
+      2 Diabetes mellitus
+      2 Diabulimia
+      2 Diafragma
+      2 Diastema
+      2 Diastematomielia
+      2 Diatermia
+      2 Dicrocelíase
+      2 Dientamebíase
+      2 Difilobotríase
+      2 Difteria
+      2 Dipetalonemíase
+      2 Diplopia
+      2 Disartria
+      2 Disautonomia
+      2 Disbetalipoproteinemia
+      2 Disbiose
+      2 Discalculia
+      2 Discromatopsia
+      2 Disenteria
+      2 Disestesia
+      2 Disfagia
+      2 Disfasia
+      2 Disfonia
+      2 Disgeusia
+      2 Dislexia
+      2 Dismenorreia
+      2 Dismetria
+      2 Disnomia
+      2 Disosmia
+      2 Disostose
+      2 Dispareunia
+      2 Dispepsia
+      2 Displasia esquelética
+      2 Dispneia
+      2 Dispraxia
+      2 Disquiria
+      2 Dissociação
+      2 Dissonias
+      2 Distensão lombar
+      2 Distimia
+      2 Distonia
+      2 Distúrbio dentário SOE
+      2 Diurese
+      2 Diverticulite
+      2 Diverticulose
+      2 Divertículo
+      2 Divertículo de Meckel
+      2 Divertículo de Zenker
+      2 Divórcio
+      2 Diálise
+      2 Doença
+      2 Doença de Addison
+      2 Doença de Alexander
+      2 Doença de Alzheimer
+      2 Doença de Andersen
+      2 Doença de Basedow
+      2 Doença de Batten
+      2 Doença de Bazin
+      2 Doença de Bechterew
+      2 Doença de Behçet
+      2 Doença de Berger
+      2 Doença de Binswanger
+      2 Doença de Bornholm
+      2 Doença de Bowen
+      2 Doença de Bright
+      2 Doença de Brill
+      2 Doença de Brill-Zinsser
+      2 Doença de Buerger
+      2 Doença de Canavan
+      2 Doença de Caroli
+      2 Doença de Carrion
+      2 Doença de Castleman
+      2 Doença de Chagas
+      2 Doença de Charcot-Marie-Tooth
+      2 Doença de Cowden
+      2 Doença de Crohn
+      2 Doença de Crouzon
+      2 Doença de Cushing
+      2 Doença de Darier
+      2 Doença de Degos
+      2 Doença de Dent
+      2 Doença de Dercum
+      2 Doença de Devic
+      2 Doença de Erdheim-Chester
+      2 Doença de Fabry
+      2 Doença de Farber
+      2 Doença de Feer
+      2 Doença de Forestier
+      2 Doença de Fox-Fordyce
+      2 Doença de Gaucher
+      2 Doença de Graves
+      2 Doença de Hailey-Hailey
+      2 Doença de Hansen
+      2 Doença de Hartnup
+      2 Doença de Hashimoto
+      2 Doença de Heck
+      2 Doença de Hirschsprung
+      2 Doença de Hodgkin
+      2 Doença de Horton
+      2 Doença de Huntington
+      2 Doença de Kaschin-Beck
+      2 Doença de Kawasaki
+      2 Doença de Kikuchi
+      2 Doença de Kimura
+      2 Doença de Krabbe
+      2 Doença de Kufs
+      2 Doença de Kugelberg-Welander
+      2 Doença de Lafora
+      2 Doença de Ledderhose
+      2 Doença de Legg-Calve-Perthes
+      2 Doença de Lewandowsky-Lutz
+      2 Doença de Lyme
+      2 Doença de Madelung
+      2 Doença de Marchiafava-Bignami
+      2 Doença de McArdle
+      2 Doença de Menetrier
+      2 Doença de Mikulicz
+      2 Doença de Milroy
+      2 Doença de Morquio
+      2 Doença de Morton
+      2 Doença de Moyamoya
+      2 Doença de Mucha-Habermann
+      2 Doença de Newcastle
+      2 Doença de Niemann-Pick
+      2 Doença de Ollier
+      2 Doença de Ormond
+      2 Doença de Osgood-Schlatter
+      2 Doença de Paget
+      2 Doença de Parkinson
+      2 Doença de Pelizaeus-Merzbacher
+      2 Doença de Perthes
+      2 Doença de Peyronie
+      2 Doença de Pick
+      2 Doença de Pompe
+      2 Doença de Pott
+      2 Doença de Raynaud
+      2 Doença de Refsum
+      2 Doença de Ritter
+      2 Doença de Salla
+      2 Doença de Sandhoff
+      2 Doença de Schamberg
+      2 Doença de Scheuermann
+      2 Doença de Schilder
+      2 Doença de Stargardt
+      2 Doença de Steinert
+      2 Doença de Swift
+      2 Doença de Tangier
+      2 Doença de Tarui
+      2 Doença de Tay-Sachs
+      2 Doença de Thomsen
+      2 Doença de Weil
+      2 Doença de Werdnig-Hoffmann
+      2 Doença de Whipple
+      2 Doença de Wilson
+      2 Doença de Wolman
+      2 Doença de von Gierke
+      2 Doença de von Hippel-Lindau
+      2 Doença de von Willebrand
+      2 Doença semelhante à gripe
+      2 Dor SOE
+      2 Dor aguda
+      2 Dor genital
+      2 Dor lombar
+      2 Dor na face
+      2 Dor na mama
+      2 Dor nos olhos
+      2 Dor torácica
+      2 Dores nas pernas
+      2 Dormência
+      2 Dorsopatia
+      2 Dracontíase
+      2 Dracunculíase
+      2 Drenagem
+      2 Duodenite
+      2 Duodenoscopia
+      2 Duodenostomia
+      2 Dx Endoscopy proc
+      2 EGR2 gene Mut Anal Sg/T
+      2 ELEVACAO SERICA DA TRANSAMINASE G
+      2 ELISA
+      2 ELN gene Mut Anal Sg/T
+      2 EM XXX
+      2 ERCP Fígado+Pancreas Study
+      2 ERUPCAO BOLHOSA
+      2 ERUPCAO MEDICAMENTOSA
+      2 EXAUSTAO
+      2 EXT1 gene Mut Anal Sg/T
+      2 Ecocardiografia
+      2 Ecografia
+      2 Ecolalia
+      2 Ecotomografia
+      2 Ectima
+      2 Ectrodactilia
+      2 Ectromelia
+      2 Ectrópio
+      2 Eczema
+      2 Edema de Quincke
+      2 Edema sem cacifo
+      2 Elefantíase
+      2 Eletrocardiograma
+      2 Eletrocoagulação
+      2 Eletroconvulsoterapia
+      2 Eletrocorticografia
+      2 Eletrocussão
+      2 Eletroencefalograma
+      2 Eletroforese
+      2 Eletromiograma
+      2 Eletronistagmografia
+      2 Eletroquimioterapia
+      2 Eletrovaporização transuretral da próstata
+      2 Embolectomia
+      2 Embolia
+      2 Embolia pulmonar
+      2 Embotamento afetivo
+      2 Embriaguez
+      2 Empiema
+      2 Encefalite
+      2 Encefalite da Califórnia
+      2 Encefalite de St. Louis
+      2 Encefalite do carrapato cargo europeu vírus Ac:ACnc:Pt:Soro:Qn
+      2 Encefalocele
+      2 Encefalomalacia
+      2 Encefalomielite
+      2 Encefalopatia
+      2 Encefalopatia de Wernicke
+      2 Encefalopatia por HIV
+      2 Encefalopatias
+      2 Encondroma
+      2 Encondromatose
+      2 Endarterectomia
+      2 Endarterite
+      2 Endocardite
+      2 Endocardite de Loeffler
+      2 Endoftalmite
+      2 Endofuga
+      2 Endometrioma
+      2 Endometriose
+      2 Endometrite
+      2 Endomiometrite
+      2 Endoscopia
+      2 Endotoxemia
+      2 Enfermidade
+      2 Enfisema
+      2 Enoftalmia
+      2 Enterite
+      2 Enterobíase
+      2 Enterocele
+      2 Enterocolite
+      2 Enteropatia por HIV
+      2 Enterostomia
+      2 Entesopatia
+      2 Entrópio
+      2 Enurese
+      2 Enxaqueca
+      2 Eosinofilia
+      2 Eosinófilos
+      2 Ependimoblastoma
+      2 Ependimoma
+      2 Epiceratofacia
+      2 Epididimite
+      2 Epifisiólise
+      2 Epiglotite
+      2 Epilação
+      2 Epilepsia
+      2 Epiloia
+      2 Epinefrina
+      2 Episclerite
+      2 Episiotomia
+      2 Epistaxe
+      2 Epitelioma
+      2 Epífora
+      2 Epúlide
+      2 Equimose
+      2 Equinococose
+      2 Ergometria
+      2 Ergoterapia
+      2 Ergotismo
+      2 Erisipela
+      2 Erisipeloide
+      2 Eritema
+      2 Eritema necrolítico migratório
+      2 Eritrasma
+      2 Eritroblastos
+      2 Eritrocitose
+      2 Eritrodermia
+      2 Eritroleucemia
+      2 Eritromelalgia
+      2 Eritromicina+Sulfisoxazol:Susc:Pt:Isolado:OrdQn
+      2 Eritroplasia
+      2 Erro em prescrição médica eletrônica
+      2 Eructação
+      2 Erupção cutânea descamativa
+      2 Erupção cutânea urticariforme
+      2 Erupção na língua
+      2 Escabiose
+      2 Escafocefalia
+      2 Escala de Karnofsky
+      2 Escarlatina
+      2 Escarro
+      2 Esclerite
+      2 Escleromixedema
+      2 Escleroplastia
+      2 Escleroterapia
+      2 Escoliose
+      2 Escorbuto
+      2 Escore de Apgar
+      2 Escotoma
+      2 Escrófula
+      2 Esfoliação
+      2 Esofagalgia
+      2 Esofagectomia
+      2 Esofagite
+      2 Esofagocele
+      2 Esofagogastroduodenoscopia
+      2 Esofagoplastia
+      2 Esofagoscopia
+      2 Esofagostomia
+      2 Esoforia
+      2 Esophagoscopy Esoph Study
+      2 Esotropia
+      2 Espasmo
+      2 Espasmofilia
+      2 Espasticidade
+      2 Espermatocele
+      2 Espermatozóide.ponta da cauda Ac.IgA/100 espermatozóides:NFr:Pt:XXX:Qn:Imunoesferas
+      2 Espermatozóide.ponta da cauda Ac.IgM/100 espermatozóides:NFr:Pt:XXX:Qn:Imunoesferas
+      2 Espermatozóides Ac.IgM/100 espermatozóides:NFr:Pt:Soro:Qn:Imunoesferas
+      2 Espirometria
+      2 Esplancnoptose
+      2 Esplenectomia
+      2 Esplenose
+      2 Espondilartrite
+      2 Espondilite
+      2 Espondiloartropatia
+      2 Espondiloartropatias
+      2 Espondilodese
+      2 Espondilodiscite
+      2 Espondilolistese
+      2 Espondilose
+      2 Espondilólise
+      2 Esporotricose
+      2 Esquistossomose
+      2 Esquizencefalia
+      2 Esquizofrenia
+      2 Estalidos nos ouvidos
+      2 Estapedectomia
+      2 Esteatonecrose
+      2 Esteatorreia
+      2 Estenocardia
+      2 Estenose
+      2 Estenose brônquica
+      2 Esterilidade
+      2 Esterilização
+      2 Esternotomia
+      2 Estertores
+      2 Estesioneuroblastoma
+      2 Estomatite
+      2 Estomatite aftosa
+      2 Estradiol:#N/A:Pt:LiqOrg:Qn
+      2 Estridor
+      2 Estrogênio
+      2 Estrona
+      2 Estrongiloidíase
+      2 Estupor
+      2 Estupro
+      2 Esôfago de Barrett
+      2 Esôfago em quebra-nozes
+      2 Etanol
+      2 Euforia
+      2 Eutanásia
+      2 Eventos adversos após a vacinação prévia:Cmplx:Pt:Irmão:Set
+      2 Exantema
+      2 Excitação
+      2 Exencefalia
+      2 Exibicionismo
+      2 Exoforia
+      2 Exoftalmia
+      2 Exostose
+      2 Exotropia
+      2 Exsanguinação
+      2 Extrassístole
+      2 Extubação
+      2 FA SerPl-Imp
+      2 FAH gene Mut Anal Sg/T
+      2 FANCC gene Mut Anal Sg/T
+      2 FBN1 gene Mut Anal Sg/T
+      2 FGD1 gene Mut Anal Sg/T
+      2 FGF23 gene Mut Anal Sg/T
+      2 FGFR2 gene Mut Anal Sg/T
+      2 FGFR3 gene Mut Anal Sg/T
+      2 FMR1 gene Mut Anal Sg/T
+      2 FRDA gene Mut Anal Sg/T
+      2 FSHD gene Mut Anal Sg/T
+      2 FSIG Rectum+Colon Study
+      2 Facoemulsificação
+      2 Facomatose
+      2 Fadiga
+      2 Fagocitose
+      2 Falta de ar
+      2 Fantosmia
+      2 Faringectomia
+      2 Faringite
+      2 Fasciculação
+      2 Fasciectomia
+      2 Fasciolopsíase
+      2 Fasciolíase
+      2 Fasciotomia
+      2 Fasciíte plantar
+      2 Fator de Christmas
+      2 Favismo
+      2 Favo
+      2 Febre Q
+      2 Febre de Haverhill
+      2 Febre de Malta
+      2 Febre de Pontiac
+      2 Febre por Coxiella burnetii
+      2 Feminização
+      2 Fenilacetato/Creatinina:SCrto:24H:Urina:Qn
+      2 Fenobarbital cutoff:MCnc:Pt:Urina:Qn:Confirmatório
+      2 Fenômeno de Arthus
+      2 Feocromocitoma
+      2 Ferida
+      2 Ferro
+      2 Fertilização
+      2 Fet positn Palpation
+      2 Fet pres Palpation
+      2 Fetoscopia
+      2 Fibrina
+      2 Fibrinogênio
+      2 Fibrinólise
+      2 Fibroadenoma
+      2 Fibroidectomia
+      2 Fibroma
+      2 Fibromatose
+      2 Fibromialgia
+      2 Fibrose
+      2 Fibrosite
+      2 Fibrossarcoma
+      2 Filariose
+      2 Fimose
+      2 Fisioterapia
+      2 Fitoterapia
+      2 Flacidez da pele da pálpebra
+      2 Flato
+      2 Flatulência
+      2 Flebite
+      2 Flebografia
+      2 Flebolinfedema
+      2 Flebotomia
+      2 Flebotrombose
+      2 Flegmão
+      2 Fluxo pulmonar/Fluxo sistêmico:VRatRto:Pt:Sistema circulatório.XXX:Qn:US.doppler.VTI+Aorta.calculado
+      2 Fluxo pulmonar/Fluxo sistêmico:VRatRto:Pt:Sistema circulatório.XXX:Qn:US.doppler.VTI+LVOT.calculado
+      2 Focomelia
+      2 Fogachos
+      2 Folate+Vit B12 SerSg-Imp
+      2 Foliculite
+      2 Fome
+      2 Foraminotomia
+      2 Formigamento
+      2 Fosfato
+      2 Fosfenos
+      2 Fotocoagulação
+      2 Fotoferese
+      2 Fotofobia
+      2 Fotoquimioterapia
+      2 Fototerapia
+      2 Fototoxicidade
+      2 Fragilidade
+      2 Fratura
+      2 Fratura de Colles
+      2 Fraturas
+      2 Fricção
+      2 Frigidez
+      2 Frio
+      2 Frustração
+      2 Frutosamina
+      2 Frutose
+      2 Fumante
+      2 Fundo tesselado
+      2 Fundoplicatura
+      2 Fungemia
+      2 Funisite
+      2 Furto
+      2 Furunculose
+      2 Furúnculo
+      2 Fístula
+      2 Fósforo
+      2 Fósforo:#N/A:12H:Urina:Qn
+      2 Fúria
+      2 G6PD Phenotyp RBC-Imp
+      2 GAG Pattern Ur-Imp
+      2 GBA gene Mut Anal Sg/T
+      2 GGT diminuída
+      2 GJB1 gene Mut Anal Sg/T
+      2 GJB2 gene Mut Anal Sg/T
+      2 GJB6 gene Mut Anal Sg/T
+      2 GLA gene Mut Anal Sg/T
+      2 GPC3 gene Mut Anal Sg/T
+      2 GR Phenotyp RBC-Imp
+      2 GTT SerPl-Imp
+      2 Galactorreia
+      2 Gangliocitoma
+      2 Ganglioglioma
+      2 Ganglioneuroblastoma
+      2 Ganglioneuroma
+      2 Gangliosidose GM1
+      2 Gangrena
+      2 Gangrena de Fournier
+      2 Gasometria
+      2 Gasometria arterial painel:-:Pt:SgArt:Qn
+      2 Gasometria painel:-:Pt:SgCap:Qn
+      2 Gasometria painel:-:Pt:SgTotal:Qn
+      2 Gasometria venosa painel:-:Pt:SgVen:Qn
+      2 Gastrectomia
+      2 Gastrina
+      2 Gastrina^8ª amostra após administração de XXX:MCnc:Pt:Sor/Plas:Qn
+      2 Gastrina^8ª amostra após administração de XXX:SCnc:Pt:Sor/Plas:Qn
+      2 Gastrinoma
+      2 Gastrite
+      2 Gastrocele
+      2 Gastroenterite
+      2 Gastroenterostomia
+      2 Gastroesofagite por citomegalovírus
+      2 Gastroparesia
+      2 Gastropexia
+      2 Gastroplastia
+      2 Gastroscopia
+      2 Gastrosquise
+      2 Gastrostomia
+      2 Gay
+      2 Gegenhalten
+      2 Geladura
+      2 Gene XXX Mut Anal Sg/T
+      2 Gengivite
+      2 Geofagia
+      2 Germinoma
+      2 Gestação
+      2 Gestose
+      2 Giardíase
+      2 Gigantismo
+      2 Ginecomastia
+      2 Glicemia
+      2 Glicerol:#N/A:Pt:LiqOrg:Qn
+      2 Glicogenose
+      2 Glicolato:#N/A:Pt:LiqOrg:Qn
+      2 Glicose
+      2 Glicose:#N/A:Pt:Agua:Qn
+      2 Glicose^6ª amostra após administração de XXX:MCnc:Pt:Sor/Plas:Qn
+      2 Glicosúria
+      2 Glioblastoma
+      2 Glioma
+      2 Gliose
+      2 Gliossarcoma
+      2 Globulina
+      2 Globulina ligadora de tiroxina
+      2 Globulina ligadora de tiroxina diminuída
+      2 Glomerulonefrite
+      2 Glomerulosclerose
+      2 Glossectomia
+      2 Glossite
+      2 Glossodinia
+      2 Glossoptose
+      2 Glucagonoma
+      2 Glucosilceramida
+      2 Gnatostomíase
+      2 Gonadoblastoma
+      2 Gonadotrofinas
+      2 Gonartrose
+      2 Gonioscopia
+      2 Goniotomia
+      2 Gonorreia
+      2 Granulocitopenia
+      2 Granuloma
+      2 Granuloma de Hodgkin
+      2 Granulomatose de Wegener
+      2 Gravidez de alto risco
+      2 Gripe
+      2 Grávida
+      2 HADHA g.G1528C Mut Anal Sg/T
+      2 HBB gene Mut Anal Sg/T
+      2 HD gene Mut Anal Sg/T
+      2 HDNB Scn Sg-Imp
+      2 HEXA gene Mut Anal Sg/T
+      2 HFE gene Mut Anal Sg/T
+      2 HIV Gentyp Islt
+      2 HIV protease mutações do gene:-:Pt:Isolado:-:Fenotipagem
+      2 HIV-1
+      2 HIV-2
+      2 HIV1 Ser EIA-Imp
+      2 HRAS gene Mut Anal Sg/T
+      2 HVA & Creat Ur-Imp
+      2 Halitose
+      2 Hamartoma
+      2 Hanseníase
+      2 Hemangioblastoma
+      2 Hemangioma
+      2 Hemangiopericitoma
+      2 Hemangiossarcoma
+      2 Hemartrose
+      2 Hematapostema
+      2 Hematocele
+      2 Hematoma
+      2 Hematomielia
+      2 Hematopoese diminuída
+      2 Hematopoiese diminuída
+      2 Hematoquezia
+      2 Hematuria
+      2 Hematócrito
+      2 Hematúria
+      2 Hemeralopia
+      2 Hemianopsia
+      2 Hemibalismo
+      2 Hemicolectomia
+      2 Hemicrania
+      2 Hemimegalencefalia
+      2 Hemimelia
+      2 Hemiparesia
+      2 Hemipelvectomia
+      2 Hemiplegia
+      2 Hemobilia
+      2 Hemocromatose
+      2 Hemocultura
+      2 Hemodiafiltração
+      2 Hemodiluição
+      2 Hemodiálise
+      2 Hemofilia
+      2 Hemofilia A
+      2 Hemofilia B
+      2 Hemofiltração
+      2 Hemoftalmia
+      2 Hemoglobina
+      2 Hemoglobina A2
+      2 Hemoglobina C
+      2 Hemoglobina E
+      2 Hemoglobina F
+      2 Hemoglobina S
+      2 Hemoglobinopatias
+      2 Hemoglobinúria
+      2 Hemoperfusão
+      2 Hemopericárdio
+      2 Hemoperitônio
+      2 Hemopneumoperitônio
+      2 Hemopneumotórax
+      2 Hemorragia
+      2 Hemorrinia
+      2 Hemorroidectomia
+      2 Hemospermia
+      2 Hemossiderose
+      2 Hemostasia
+      2 Hemotórax
+      2 Hemólise
+      2 Hepatectomia
+      2 Hepatite
+      2 Hepatite A
+      2 Hepatite B
+      2 Hepatite C
+      2 Hepatite C vírus Ac faixa padrão:Imp:Pt:Soro:Nom:Imunoblot
+      2 Hepatite D
+      2 Hepatite E
+      2 Hepatite viral
+      2 Hepatoblastoma
+      2 Hepatoma
+      2 Hermafroditismo
+      2 Herniorrafia
+      2 Herpangina
+      2 Heterossexualidade
+      2 Hexosaminidase A & B Sg-Imp
+      2 Hgb Fract Sg Elph Citrate-Imp
+      2 Hgb Fract Sg Elph-Imp
+      2 Hgb Fract Sg HPLC-Imp
+      2 Hgb Fract Sg-Imp
+      2 Hidradenite
+      2 Hidranencefalia
+      2 Hidrartrose
+      2 Hidrocefalia
+      2 Hidrocistoma
+      2 Hidrocodona:MCnc:Pt:Urina:Qn:Confirmatório
+      2 Hidrocortisona
+      2 Hidrofobia
+      2 Hidronefrose
+      2 Hidropericárdio
+      2 Hidropneumotórax
+      2 Hidroterapia
+      2 Hidrotórax
+      2 Hidroxiprolina
+      2 Hidroxocobalamina:#N/A:Pt:LiqOrg:Qn
+      2 Hidroxocobalamina:#N/A:Pt:Urina:Qn
+      2 Hidrâmnios
+      2 Hifema
+      2 Himenolepíase
+      2 Hiperacusia
+      2 Hiperadrenocorticismo
+      2 Hiperalgesia
+      2 Hiperamonemia
+      2 Hiperandrogenismo
+      2 Hiperbilirrubinemia
+      2 Hipercalcemia
+      2 Hipercalciúria
+      2 Hipercapnia
+      2 Hipercementose
+      2 Hipercifose
+      2 Hipercinese
+      2 Hipercitocinemia
+      2 Hipercoagulabilidade
+      2 Hipercolesterolemia
+      2 Hiperemia
+      2 Hiperesplenismo
+      2 Hiperestesia
+      2 Hiperfagia
+      2 Hiperferritinemia
+      2 Hiperfosfatemia
+      2 Hipergamaglobulinemia
+      2 Hiperglicemia
+      2 Hiperidratação
+      2 Hiperidrose
+      2 Hiperimunoglobulinemia
+      2 Hiperinsulinismo
+      2 Hiperlactatemia
+      2 Hiperlipemia
+      2 Hiperlipidemia
+      2 Hiperlipoproteinemia
+      2 Hipermenorreia
+      2 Hipermetropia
+      2 Hipernatremia
+      2 Hipernefroma
+      2 Hiperopia
+      2 Hiperostose
+      2 Hiperoxalúria
+      2 Hiperparatireoidismo
+      2 Hiperpituitarismo
+      2 Hiperplasia
+      2 Hiperpotassemia
+      2 Hiperprolactinemia
+      2 Hipersalivação
+      2 Hipersensibilidade
+      2 Hipersonia
+      2 Hipersonolência
+      2 Hipertelorismo
+      2 Hipertensão
+      2 Hipertermia
+      2 Hipertireoidismo
+      2 Hipertricose
+      2 Hipertrigliceridemia
+      2 Hipertrofia
+      2 Hipertropia
+      2 Hiperuricemia
+      2 Hiperventilação
+      2 Hipervigilância
+      2 Hiperóxia
+      2 Hipnoterapia
+      2 Hipoacusia
+      2 Hipoalbuminemia
+      2 Hipoaldosteronismo
+      2 Hipocalcemia
+      2 Hipocapnia
+      2 Hipocinesia
+      2 Hipocloridria
+      2 Hipocondria
+      2 Hipocortisolemia
+      2 Hipodontia
+      2 Hipoestesia
+      2 Hipoferremia
+      2 Hipoferritinemia
+      2 Hipofisectomia
+      2 Hipofisite
+      2 Hipofosfatasia
+      2 Hipofosfatemia
+      2 Hipogalactia
+      2 Hipogamaglobulinemia
+      2 Hipogeusia
+      2 Hipogonadismo
+      2 Hipolipoproteinemia
+      2 Hipomania
+      2 Hipomenorreia
+      2 Hiponatremia
+      2 Hipoparatireoidismo
+      2 Hipopituitarismo
+      2 Hipopotassemia
+      2 Hipoproteinemia
+      2 Hiporreflexia
+      2 Hiposmia
+      2 Hipospadia
+      2 Hipospadias
+      2 Hipotensão
+      2 Hipoterapia
+      2 Hipotermia
+      2 Hipotireoidismo
+      2 Hipotonia
+      2 Hipotricose
+      2 Hipoventilação
+      2 Hipovitaminose
+      2 Hipovolemia
+      2 Hipoxemia
+      2 Hipsarritmia
+      2 Hipóxia
+      2 Hirsutismo
+      2 Histerectomia
+      2 Histerectomia subtotal
+      2 Histeria
+      2 Histeroscopia
+      2 Histerossalpingografia
+      2 Histerotomia
+      2 Histiocitoma
+      2 Histiocitose
+      2 Histologia
+      2 Histoplasma capsulatum farciminosum pápula de reação ^48 hs após dose de histoplasmina ID:Diam:Pt:Pele:Qn
+      2 Histoplasmose
+      2 Holoprosencefalia
+      2 Homeopatia
+      2 Homicídio
+      2 Homocistinúria
+      2 Homossexual
+      2 Homossexualidade
+      2 Hordéolo
+      2 Hormônio folículo-estimulante
+      2 Hospitalização
+      2 Hostilidade
+      2 Hx of Behavior disorders
+      2 Hx of Neurologic disorders
+      2 Hx of disorders
+      2 Hypertrophy Imp EKG
+      2 Hérnia
+      2 Hérnia de Bochdalek
+      2 IKBKG gene testes para mutação:Ident:Pt:Sg/Tecido:Nom:Genética molecular
+      2 IMPOTENCIA
+      2 IV Conduction Imp EKG
+      2 Icterícia
+      2 Ictiose
+      2 Identificação de Bactéria^^^2:Ident:Pt:Fio:Nom:Cultura de cateter
+      2 Identificação de Bactéria^^^2:Ident:Pt:SgTotal:Nom:Cultura anaeróbica
+      2 Idoso
+      2 IgD
+      2 Ileocolite
+      2 Ileostomia
+      2 Ileíte
+      2 Immunodeficiency Markers XXX-Imp
+      2 Impotência
+      2 Imunização
+      2 Imunizações
+      2 Imunoeletroforese
+      2 Imunofenotipagem
+      2 Imunofluorescência
+      2 Imunoglobulina E
+      2 Imunoglobulina G
+      2 Imunoglobulina M
+      2 Imunoglobulinas
+      2 Imunologia
+      2 Imunossupressão
+      2 Inanição
+      2 Inapetência
+      2 Incesto
+      2 Incidência para idade fetal:Achado:Pt:Acdomen+Feto:Nar:RX
+      2 Incidências GE 4:Achado:Pt:Joelho.direito:Nar:RX
+      2 Incidências:Achado:Pt:Implante de mama.direita:Nar:Mamografia
+      2 Inconsciência
+      2 Indigestão
+      2 Infarto
+      2 Infecção
+      2 Infecção bacteriana aguda da pele e das estruturas cutâneas
+      2 Infecção complicada da pele e das estruturas cutâneas
+      2 Infecção por 2019-nCoV
+      2 Infecção por Acanthamoeba
+      2 Infecção por Aspergillus
+      2 Infecção por Bacillus anthracis
+      2 Infecção por Borrelia recurrentis
+      2 Infecção por Burkholderia cepacia
+      2 Infecção por Burkholderia pseudomallei
+      2 Infecção por C. neoformans
+      2 Infecção por Clonorchis sinensis
+      2 Infecção por Clostridium difficile
+      2 Infecção por Clostridium tetani
+      2 Infecção por Corynebacterium diphtheriae
+      2 Infecção por Cryptococcus gattii
+      2 Infecção por Cryptococcus neoformans
+      2 Infecção por Dientamoeba
+      2 Infecção por Echinococcus granulosus
+      2 Infecção por Ehrlichia chaffeensis
+      2 Infecção por Entamoeba histolytica
+      2 Infecção por Francisella tularensis
+      2 Infecção por Giardia lamblia
+      2 Infecção por HPV
+      2 Infecção por Haemophilus influenzae
+      2 Infecção por Histoplasma capsulatum
+      2 Infecção por Loa loa
+      2 Infecção por Microsporidia
+      2 Infecção por Mycobacterium abscessus
+      2 Infecção por Mycobacterium ulcerans
+      2 Infecção por Neisseria gonorrhoeae
+      2 Infecção por Nocardia asteroides
+      2 Infecção por Paracoccidioides
+      2 Infecção por Pneumocystis carinii
+      2 Infecção por Pneumocystis jirovecii
+      2 Infecção por Pseudomonas aeruginosa
+      2 Infecção por Rickettsia akari
+      2 Infecção por Rickettsia australis
+      2 Infecção por Rickettsia conorii
+      2 Infecção por Rickettsia prowazekii
+      2 Infecção por Rickettsia rickettsii
+      2 Infecção por Rickettsia typhi
+      2 Infecção por SARS-CoV-2
+      2 Infecção por Salmonella typhi
+      2 Infecção por Schistosoma japonicum
+      2 Infecção por Shigella
+      2 Infecção por Staphylococcus aureus
+      2 Infecção por Taenia solium
+      2 Infecção por Toxoplasma gondii
+      2 Infecção por Trichosporon
+      2 Infecção por Trypanosoma cruzi
+      2 Infecção por Yersinia
+      2 Infecção por Yersinia enterocolitica
+      2 Infecção por Yersinia pestis
+      2 Infecções por Bartonella
+      2 Infecções por Blastocystis
+      2 Infecções por Bordetella
+      2 Infecções por Borrelia
+      2 Infecções por Burkholderia
+      2 Infecções por Campylobacter
+      2 Infecções por Erysipelothrix
+      2 Infecções por Escherichia coli
+      2 Infecções por Fusobacterium
+      2 Infecções por Haemophilus
+      2 Infecções por Helicobacter
+      2 Infecções por Klebsiella
+      2 Infecções por Moraxella
+      2 Infecções por Paracoccidioides
+      2 Infecções por Pasteurella
+      2 Infecções por Picornavirus
+      2 Infecções por Pneumocystis
+      2 Infecções por Proteus
+      2 Infecções por Salmonella
+      2 Infecções por Serratia
+      2 Infecções por Vibrio
+      2 Infecções por Yersinia
+      2 Infelicidade
+      2 Infertilidade
+      2 Inflamação
+      2 Influenza
+      2 Inquietação
+      2 Inserção de tubo de timpanostomia
+      2 Insolação
+      2 Insuficiência cardiopulmonar
+      2 Insuficiência hepática
+      2 Insuficiência hepática crônica agudizada
+      2 Insuficiência pré-renal aguda
+      2 Insuficiência renal agravada
+      2 Insuficiência renal aguda
+      2 Insuficiência renal crônica
+      2 Insuficiência respiratória
+      2 Insuficiência respiratória aguda
+      2 Insulina
+      2 Insulina^5 min após administração de XXX:#N/A:Pt:Sor/Plas:Qn
+      2 Insulinoma
+      2 Insulinoterapia
+      2 Insônia
+      2 Interleucina-6
+      2 Interpretation 24H Ur IFE-Imp
+      2 Interpretation CSF IEP-Imp
+      2 Interpretation CSF IFE-Imp
+      2 Interpretation Fld IFE-Imp
+      2 Interpretation SerPl IEP-Imp
+      2 Interpretation SerPl IFE-Imp
+      2 Interpretation Ur IEP-Imp
+      2 Interpretation Ur IFE-Imp
+      2 Intertrigo
+      2 Intoxicação por Salmonella
+      2 Intoxicação por heroína
+      2 Intubação
+      2 Investigação
+      2 Iodo:MCnc:Pt:Urina:Qn
+      2 Iontoforese
+      2 Iridectomia
+      2 Iridociclite
+      2 Irite
+      2 Isoimunização Rh
+      2 Isoimunização Rhesus
+      2 Isosporíase
+      2 Isquemia
+      2 Jejum
+      2 Jejunostomia
+      2 Joanete
+      2 KEL gene Mut Anal Amn
+      2 Karyotyp Sg/T
+      2 Kuru
+      2 Kwashiorkor
+      2 L1CAM gene Mut Anal Sg/T
+      2 LAMA2 gene Mut Anal Sg/T
+      2 LDH Isos SerPl-Imp
+      2 LETARGIA
+      2 LHON Syn gene Mut Anal Sg/T
+      2 LITAF gene Mut Anal Sg/T
+      2 LMNA gene Mut Anal Sg/T
+      2 LP SerPl Elph-Imp
+      2 LP SerPl-Imp
+      2 LUPUS ERITEMATOSO DISSEMINADO
+      2 Labirintite
+      2 Laceração esofágica
+      2 Lactato
+      2 Lamblíase
+      2 Laminoplastia
+      2 Laparoscopia
+      2 Laparotomia
+      2 Laringectomia
+      2 Laringismo
+      2 Laringite
+      2 Laringocele
+      2 Laringoespasmo
+      2 Laringomalácia
+      2 Laringoplastia
+      2 Laringoscopia
+      2 Legionella longbeachae 1 Ac.IgM:ACnc:Pt:Soro:Ord
+      2 Leiomioblastoma
+      2 Leiomioma
+      2 Leiomiossarcoma
+      2 Leishmaniose
+      2 Lentigo
+      2 Lepra
+      2 Leprechaunismo
+      2 Leptospirose
+      2 Lesbianismo
+      2 Lesão
+      2 Lesão da medula espinhal lombar sem lesão dos ossos vertebrais
+      2 Lesão da medula espinhal na cauda equina sem lesão dos ossos vertebrais
+      2 Lesão de Bankart
+      2 Lesão de Hill-Sachs
+      2 Letargia
+      2 Leucemia de Burkitt
+      2 Leucemia mielogênica crônica em fase blástica
+      2 Leucemias
+      2 Leucoaférese
+      2 Leucoaraiose
+      2 Leucocitaférese
+      2 Leucocitopenia
+      2 Leucocitose
+      2 Leucoencefalopatia
+      2 Leucoférese
+      2 Leucopenia
+      2 Leucoplasia
+      2 Leucorreia
+      2 Leucotomia
+      2 Levocardia
+      2 Limits of exam Endoscopy
+      2 Linfadenectomia
+      2 Linfadenite
+      2 Linfadenite aguda
+      2 Linfadenopatia
+      2 Linfangiectasia
+      2 Linfangiografia
+      2 Linfangioleiomiomatose
+      2 Linfangioma
+      2 Linfangiomiomatose
+      2 Linfangiossarcoma
+      2 Linfangite
+      2 Linfedema
+      2 Linfocele
+      2 Linfocitopenia
+      2 Linfocitose
+      2 Linfoma
+      2 Linfoma MALT
+      2 Linfoma de Burkitt
+      2 Linfoma de Hodgkin
+      2 Linfopenia
+      2 Linfócitos
+      2 Lipectomia
+      2 Lipedema
+      2 Lipemia
+      2 Lipidose
+      2 Lipidoses
+      2 Lipoaspiração
+      2 Lipoblastoma
+      2 Lipodistrofia
+      2 Lipolinfedema
+      2 Lipomatose
+      2 Lipossarcoma
+      2 Lipídios
+      2 Lisozima
+      2 Listeria monoCitogenes O1 Ac:Título:Pt:Soro:Qn
+      2 Listeriose
+      2 Litolapaxia
+      2 Litotripsia
+      2 Litíase
+      2 Litígio
+      2 Lobomicose
+      2 Logoterapia
+      2 Lombalgia
+      2 Lordose
+      2 Loíase
+      2 Ludoterapia
+      2 Luto
+      2 Luxação
+      2 MAPT gene Mut Anal Sg/T
+      2 MCOLN1 gene Mut Anal Sg/T
+      2 MEFV gene Mut Anal Sg/T
+      2 MELAS gene Mut Anal Sg/T
+      2 MEN1 gene Mut Anal Sg/T
+      2 MERRF gene Mut Anal Sg/T
+      2 MFN2 gene Mut Anal Sg/T
+      2 MLH1 gene Mut Anal Sg/T
+      2 MM gene Mut Anal Sg/T
+      2 MMD gene Mut Anal Sg/T
+      2 MPZ gene Mut Anal Sg/T
+      2 MSH2 gene Mut Anal Sg/T
+      2 MSH6 gene Mut Anal Sg/T
+      2 MTATP6 gene Mut Anal Sg/T
+      2 MTHFR gene Mut Anal Sg/T
+      2 MTM1 gene Mut Anal Sg/T
+      2 MTTK gene Mut Anal Sg/T
+      2 MUTYH gene Mut Anal Sg/T
+      2 Macrocefalia
+      2 Macroglobulinemia
+      2 Macroglossia
+      2 Macropsia
+      2 Macrostomia
+      2 Maculopatia
+      2 Magnésio
+      2 Magnésio:#N/A:12H:Urina:Qn
+      2 Malacoplasia
+      2 Malformação de Arnold-Chiari
+      2 Malária
+      2 Malária por Plasmodium Vivax
+      2 Mamografia
+      2 Mamoplastia
+      2 Mandibulectomia
+      2 Manganês
+      2 Mania
+      2 Manobra de Valsalva
+      2 Marasmo
+      2 Masoquismo
+      2 Massagem
+      2 Mastalgia
+      2 Mastectomia
+      2 Mastite
+      2 Mastocitoma
+      2 Mastocitose
+      2 Mastodinia
+      2 Mastoidectomia
+      2 Mastoidite
+      2 Mediastinite
+      2 Mediastinoscopia
+      2 Medo
+      2 Medo da morte
+      2 Medo de doenca venerea
+      2 Meduloblastoma
+      2 Megacariócitos
+      2 Megacólon
+      2 Megaesôfago
+      2 Melancolia
+      2 Melanoma
+      2 Melanose
+      2 Melasma
+      2 Melena
+      2 Melioidose
+      2 Melorreostose
+      2 Menarca
+      2 Meningioma
+      2 Meningismo
+      2 Meningite
+      2 Meningite por Haemophilus
+      2 Meningite por Haemophilus influenzae
+      2 Meningite por Listeria
+      2 Meningite por Streptococcus pneumoniae
+      2 Meningocele
+      2 Meningoencefalite
+      2 Meningomielocele
+      2 Meniscectomia
+      2 Meniscite
+      2 Menopausa
+      2 Menorragia
+      2 Menstruações frequentes
+      2 Mentoplastia
+      2 Mericismo
+      2 Mesotelioma
+      2 Mesoterapia
+      2 Metagonimíase
+      2 Metanefrinas/Creatinina:MCrto:24H:Urina:Qn
+      2 Metanefrinas/Creatinina:MCrto:Pt:Urina:Qn
+      2 Metanefrinas/Creatinina:SCrto:24H:Urina:Qn
+      2 Metanefrinas:MCnc:24H:Urina:Qn
+      2 Metanefrinas:MCnc:Pt:Sor/Plas:Qn
+      2 Metanefrinas:MCnc:Pt:Urina:Qn
+      2 Metanefrinas:MRat:24H:Urina:Qn
+      2 Metanefrinas:SCnc:Pt:Sor/Plas:Qn
+      2 Metanefrinas:SCnc:Pt:Urina:Qn
+      2 Metanefrinas:SRat:24H:Urina:Qn
+      2 Metaneph+Normetaneph SerPl-Imp
+      2 Metaneph+Normetaneph Ur-Imp
+      2 Metanol
+      2 Metaplasia
+      2 Metastasectomia
+      2 Metatarsalgia
+      2 Metatarsalgia de Morton
+      2 Metemoglobina
+      2 Metemoglobinemia
+      2 Meteorismo
+      2 Metilfenidato cutoff:MCnc:Pt:Urina:Qn:Confirmatório
+      2 Metrorragia
+      2 Metástase
+      2 Mialgia
+      2 Micotoxicose
+      2 Microcefalia
+      2 Microcéfalo
+      2 Microdeletion synd Sg/T FISH
+      2 Microftalmia
+      2 Microftalmo
+      2 Micrognatia
+      2 Micropsia
+      2 Microscopia
+      2 Microstomia
+      2 Microtia
+      2 Midríase
+      2 Mielite
+      2 Mielografia
+      2 Mielolipoma
+      2 Mielomeningocele
+      2 Mielopatia
+      2 Miliária
+      2 Miocardite
+      2 Miocele
+      2 Mioclonia
+      2 Miofibroma
+      2 Mioglobinúria
+      2 Mioma
+      2 Miomectomia
+      2 Miopatias
+      2 Miopericitoma
+      2 Miopia
+      2 Mioquimia
+      2 Miose
+      2 Miosite
+      2 Miotonia
+      2 Miringoplastia
+      2 Mixedema
+      2 Mixoma
+      2 Miíase
+      2 Mobilização de células-tronco
+      2 Molusco contagioso
+      2 Monilíase
+      2 Mononeurite
+      2 Mononeuropatias
+      2 Mononucleose infecciosa
+      2 Monoplegia
+      2 Monócitos
+      2 Mordedura
+      2 Morfeia
+      2 Morfina-3-Glucorinideo:SCnc:Pt:Sor/Plas:Qn
+      2 Mormo
+      2 Morte
+      2 Mosaicismo
+      2 Moxibustão
+      2 Muco na urina aumentado
+      2 Mucolipidose
+      2 Mucopolissacaridose I
+      2 Mucopolissacaridose II
+      2 Mucopolissacaridose III
+      2 Mucopolissacaridose IV
+      2 Mucopolissacaridose V
+      2 Mucopolissacaridose VI
+      2 Mucopolissacaridose VII
+      2 Mucormicose
+      2 Mucosite
+      2 Mucoviscidose
+      2 Multi cortes^com contraste EV:Achado:Pt:Vasos da coluna.cervical:Nar:RM.angio
+      2 Multimorbidade
+      2 Mutismo
+      2 Myocard Ischemia Imp EKG
+      2 Myocardium Ac pattern Ser-Imp
+      2 NCF2 gene Mut Anal Sg/T
+      2 NEFL gene Mut Anal Sg/T
+      2 NIPBL gene Mut Anal Sg/T
+      2 NOD2 gene Mut Anal Sg/T
+      2 NOMID
+      2 NOTCH3 gene Mut Anal Sg/T
+      2 NPDC gene Mut Anal Sg/T
+      2 NPHS1 gene Mut Anal Fld
+      2 NPHS1 gene Mut Anal Sg/T
+      2 NR0B1 gene Mut Anal Sg/T
+      2 NSTEMI
+      2 NUS
+      2 Naftaleno:MCnc:Pt:Ar:Qn
+      2 Nanismo
+      2 Narcolepsia
+      2 Nasofaringite
+      2 Natimorto
+      2 Naturopatia
+      2 Necrobacilose
+      2 Necrose
+      2 Nefrectomia
+      2 Nefrite
+      2 Nefroblastoma
+      2 Nefrocalcinose
+      2 Nefroesclerose
+      2 Nefrolitíase
+      2 Nefropatia
+      2 Nefropatias
+      2 Nefrose
+      2 Nefrostomia
+      2 Nefroureterectomia
+      2 Negativismo
+      2 Nematódeos
+      2 Neonato
+      2 Neoplasia
+      2 Neoplasia maligna da bexiga
+      2 Neoplasia maligna da mama
+      2 Neoplasia maligna da pele
+      2 Neoplasias
+      2 Neopterina:#N/A:24H:Urina:Qn
+      2 Nervosismo
+      2 Nervoso
+      2 Nesidioblastose
+      2 Neuralgia
+      2 Neuralgia Isquiática
+      2 Neuralgia de Morton
+      2 Neurastenia
+      2 Neurectomia
+      2 Neurilemoma
+      2 Neuroacantocitose
+      2 Neuroblastoma
+      2 Neurocirurgia
+      2 Neurocisticercose
+      2 Neurocitoma
+      2 Neurodermatite
+      2 Neuroendoscopia
+      2 Neurofibroma
+      2 Neurofibromatose
+      2 Neurofibrossarcoma
+      2 Neurofibrossarcomas
+      2 Neuroma
+      2 Neuromiotonia
+      2 Neuroproteção
+      2 Neurose
+      2 Neurossífilis
+      2 Neurotmese
+      2 Neurólise
+      2 Neutropenia
+      2 Neutrófilos
+      2 Nevo
+      2 Nevo de Ota
+      2 Nevo de Spitz
+      2 Nicotinamida
+      2 Nictalopia
+      2 Nictúria
+      2 Nocardiose
+      2 Noctúria
+      2 Noma
+      2 Norepinefrina
+      2 Nystagmus exam Eye-L
+      2 Nystagmus exam Eye-R
+      2 Náusea
+      2 OTC gene Mut Anal Sg/T
+      2 Obesidade
+      2 Ocronose
+      2 Odontalgia
+      2 Odontoma
+      2 Oftalmopatia de Graves
+      2 Oftalmoplegia
+      2 Olho vermelho
+      2 Oligoastenoteratozoospermia
+      2 Oligoclonal Bands CSF Elph-Imp
+      2 Oligoclonal Bands SerPl-Imp
+      2 Oligodendroglioma
+      2 Oligomenorreia
+      2 Oligosaccharide Pattern Ur-Imp
+      2 Oligospermia
+      2 Oligúria
+      2 Oncocercose
+      2 Oncocitoma
+      2 Onfalocele
+      2 Onicocriptose
+      2 Onicofagia
+      2 Onicomicose
+      2 Onicólise
+      2 Ooforectomia
+      2 Ooforite
+      2 Opiates Tested Ur Scn
+      2 Opistorquíase
+      2 Opiáceos
+      2 Orientação para localização e delimitação de tumor^com radionuclídeo EV:Achado:Pt:^Paciente:Nar:Medicina Nuclear
+      2 Ornitose
+      2 Orquialgia
+      2 Orquidopexia
+      2 Orquiectomia
+      2 Orquiopexia
+      2 Orquite
+      2 Osmolalidade
+      2 Osteoartrite
+      2 Osteoartrose
+      2 Osteocalcina
+      2 Osteocondrite
+      2 Osteocondroma
+      2 Osteocondrose
+      2 Osteoma
+      2 Osteomalacia
+      2 Osteomielite
+      2 Osteonecrose
+      2 Osteopenia
+      2 Osteopetrose
+      2 Osteopontina
+      2 Osteoporose difusa
+      2 Osteoprotegerina
+      2 Osteorradionecrose
+      2 Osteosclerose
+      2 Osteossarcoma
+      2 Osteossíntese
+      2 Osteotomia
+      2 Osteíte
+      2 Osteólise
+      2 Otalgia
+      2 Otite
+      2 Otite adesiva
+      2 Otite externa
+      2 Otoesclerose
+      2 Otosclerose
+      2 Otoscopia
+      2 Ototoxicidade
+      2 Outra/neoplasia nao especificada
+      2 Outras neoplasias malignas
+      2 Outros efeitos especificados de temperaturas reduzidas
+      2 Ovariectomia
+      2 Oxalato:#N/A:12H:Urina:Qn
+      2 Oxicefalia
+      2 Oxigenoterapia
+      2 Oximetria
+      2 Oxitocina
+      2 Oxiuríase
+      2 Ozena
+      2 PANK2 gene Mut Anal Sg/T
+      2 PARK2 gene Mut Anal Sg/T
+      2 PARTO PREMATURO
+      2 PAX3 gene Mut Anal Sg/T
+      2 PAcPN1 gene Mut Anal Sg/T
+      2 PCR
+      2 PEComa
+      2 PEO gene Mut Anal Sg/T
+      2 PICADA
+      2 PKD1+PKD2 gene Mut Anal Sg/T
+      2 PKHD1 gene Mut Anal Sg/T
+      2 PNA
+      2 PNP gene Mut Anal Sg/T
+      2 PPT1 gene Mut Anal Sg/T
+      2 PRF1 gene Mut Anal Amn
+      2 PRF1 gene Mut Anal Sg/T
+      2 PRX gene Mut Anal Sg/T
+      2 PSIG.rigid Rectum+Colon Study
+      2 PTCH gene Mut Anal Sg/T
+      2 PTH SerPl-Imp
+      2 PTPN11 gene Mut Anal Sg/T
+      2 PYGM gene Mut Anal Sg/T
+      2 Palidez
+      2 Palidotomia
+      2 Palpation Cervix Study
+      2 Paludismo
+      2 Panarício
+      2 Pancitopenia
+      2 Pancreatectomia
+      2 Pancreatite
+      2 Pancreatoduodenectomia
+      2 Pancreatojejunostomia
+      2 Paniculite
+      2 Panoftalmite
+      2 Panuveíte
+      2 Papiledema
+      2 Papiloma
+      2 Papilomatose
+      2 Paquidermoperiostose
+      2 Paquigiria
+      2 Paquimeningite
+      2 Paracentese
+      2 Paraceratose
+      2 Paracoccidioidomicose
+      2 Parafilia
+      2 Parafimose
+      2 Paraganglioma
+      2 Parageusia
+      2 Paragonimíase
+      2 Paralisia
+      2 Paralisia de Bell
+      2 Paralisia de Erb
+      2 Paralisia de Klumpke
+      2 Parametrite
+      2 Paranoia
+      2 Paraparesia
+      2 Paraplegia
+      2 Parapsoríase
+      2 Parassonias
+      2 Parassuicídio
+      2 Parassístole
+      2 Paratireoidectomia
+      2 Paratormônio sérico diminuído
+      2 Paresia
+      2 Parestesia
+      2 Paridade
+      2 Parkinsonismo
+      2 Parosmia
+      2 Parotidite
+      2 Parto
+      2 Pasteurelose
+      2 Path report.final Dx Spec
+      2 Path report.gross Spec
+      2 Pediculose
+      2 Pedofilia
+      2 Pelagra
+      2 Penfigoide
+      2 Peptídeo C^após refeição:#N/A:Pt:Sor/Plas:Qn
+      2 Peptídeo natriurético tipo B
+      2 Percevejos
+      2 Perda de peso
+      2 Periartrite
+      2 Pericardiectomia
+      2 Pericardiocentese
+      2 Pericardiotomia
+      2 Pericardite
+      2 Pericementite
+      2 Pericoronite
+      2 Periflebite
+      2 Perimenopausa
+      2 Perinefrite
+      2 Periodontite
+      2 Periodontose
+      2 Periostite
+      2 Peritonite
+      2 Perniose
+      2 Pesadelos
+      2 Pessimismo
+      2 Peste
+      2 Petrosite
+      2 Pica
+      2 Picada
+      2 Picada de percevejo
+      2 Picnodisostose
+      2 Piebaldismo
+      2 Pielite
+      2 Pielocaliectasia
+      2 Pielocistite
+      2 Pielograma
+      2 Pielonefrite
+      2 Pielostomia
+      2 Pielotomia
+      2 Piemia
+      2 Pigmentação
+      2 Piloereção
+      2 Piloromiotomia
+      2 Pinealoblastoma
+      2 Pinealoma
+      2 Pineoblastoma
+      2 Pineocitoma
+      2 Pinguécula
+      2 Pioderma
+      2 Piomiosite
+      2 Pionefrose
+      2 Piotórax
+      2 Pirexia
+      2 Pirexia de origem desconhecida
+      2 Piromania
+      2 Pirose
+      2 Piruvato
+      2 Pitiríase
+      2 Piúria
+      2 Plagiocefalia
+      2 Planeamento familiar/esterilizacao
+      2 Planeamento familiar/outros
+      2 Plaquetoferese
+      2 Plasmaferese
+      2 Plasminogênio
+      2 Plasmocitoma
+      2 Platibasia
+      2 Pleocitose
+      2 Pletismografia
+      2 Pleurisia
+      2 Pleurite
+      2 Pleurodese
+      2 Pleuropneumonia
+      2 Pleuroscopia
+      2 Pmkr Imp EKG
+      2 Pneumocistose
+      2 Pneumoconiose
+      2 Pneumoencefalografia
+      2 Pneumomediastino
+      2 Pneumonectomia
+      2 Pneumonia por Pneumocystis
+      2 Pneumonia por Pneumocystis jiroveci
+      2 Pneumonite
+      2 Pneumonólise
+      2 Pneumopatia
+      2 Pneumopericárdio
+      2 Pneumoperitônio
+      2 Pneumorraque
+      2 Pneumorretroperitônio
+      2 Pneumotórax
+      2 Pobreza
+      2 Poliartralgia
+      2 Poliartrite
+      2 Policitemia
+      2 Polidactilia
+      2 Polidipsia
+      2 Polimedicação
+      2 Polimenorreia
+      2 Polimicrogiria
+      2 Polimiosite
+      2 Polineurite
+      2 Polinose
+      2 Poliomielite
+      2 Polirradiculite
+      2 Polirradiculoneurite
+      2 Polirradiculopatia
+      2 Polissindactilia
+      2 Polissonografia
+      2 Polistes spp Ac.IgG4:#N/A:Pt:Soro:Qn
+      2 Poliúria
+      2 Poluição
+      2 Porencefalia
+      2 Poroceratose
+      2 Porphyrins Fract 24H Ur-Imp
+      2 Porphyrins SerPl-Imp
+      2 Porphyrins Stl-Imp
+      2 Porphyrins Ur-Imp
+      2 Portografia
+      2 Posição de Trendelenburg
+      2 Potássio
+      2 Potássio/Creatinina:#N/A:24H:Urina:Qn
+      2 Potássio:#N/A:12H:Urina:Qn
+      2 Pregnanediol^2 dias após alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Pregnanediol^2 dias após dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Pregnanediol^pré alta dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Pregnanediol^pré dose de dexametasona:#N/A:24H:Urina:Qn
+      2 Prematuridade
+      2 Presbiopia
+      2 Presença de eliptocitose eritrocitária
+      2 Preso
+      2 Pressão ajuste máximo:Pres:Pt:Ventilador.alarme:Qn
+      2 Priapismo
+      2 Prisão
+      2 Procedimento de Fontan
+      2 Procedimento de Kasai
+      2 Procedimento de Norwood
+      2 Procrastinação
+      2 Proctite
+      2 Proctocolectomia
+      2 Proctocolite
+      2 Proctoscopia
+      2 Proctossigmoidite
+      2 Proctossigmoidoscopia
+      2 Profilaxia contra úlceras pépticas induzidas por medicamento
+      2 Profilaxia de Pneumocystis jirovecii
+      2 Profilaxia de convulsão
+      2 Progesterona
+      2 Prognatismo
+      2 Progéria
+      2 Proinsulina
+      2 Prolactina
+      2 Prolactinoma
+      2 Prolapso
+      2 Proloterapia
+      2 Propionilcarnitina (C3)/Palmitoilcarnitina (C16):SCrto:Pt:SgPapel:Qn
+      2 Proptose
+      2 Prosopagnosia
+      2 Prostatectomia
+      2 Prostatismo
+      2 Prostatite
+      2 Prot Pattern 24H Ur Elph-Imp
+      2 Prot Pattern CSF Elph-Imp
+      2 Prot Pattern SerPl Elph-Imp
+      2 Prot Pattern SerPl IFE-Imp
+      2 Prot Pattern SerPl-Imp
+      2 Prot Pattern Ur Elph-Imp
+      2 Prot Pattern Ur IFE-Imp
+      2 Prot Pattern XXX IFE-Imp
+      2 Proteinúria
+      2 Proteína
+      2 Proteína C
+      2 Proteína S
+      2 Protrombina
+      2 Prurido
+      2 Prurido localizado
+      2 Prurigo
+      2 Pseudestesia
+      2 Pseudoaldosteronismo
+      2 Pseudoartrose
+      2 Pseudociese
+      2 Pseudocolinesterase
+      2 Pseudodemência
+      2 Pseudofacia
+      2 Pseudogota
+      2 Pseudolinfoma
+      2 Psiconeurose
+      2 Psicoterapia
+      2 Psitacose
+      2 Psoríase
+      2 Pterígio
+      2 Ptialismo
+      2 Puberdade
+      2 Pulpectomia
+      2 Pulpite
+      2 Pulpotomia
+      2 Punção lombar
+      2 Pupila de Adie
+      2 Purinas
+      2 Pé de Madura
+      2 Pênfigo
+      2 Pênis palmatus
+      2 Pólipos
+      2 Púrpura
+      2 Púrpura de Henoch-Schoenlein
+      2 QRS Complex Imp EKG
+      2 Qp/Qs DOP
+      2 Quadrantanopsia
+      2 Quadrantectomia
+      2 Quadriparesia
+      2 Quadriplegia
+      2 Quarentena
+      2 Queilite
+      2 Queimadura
+      2 Queimadura de grau não especificado de dois ou mais dígitos da mão, incluindo polegar
+      2 Queloide
+      2 Querubismo
+      2 Quilomícrons
+      2 Quilose
+      2 Quilotórax
+      2 Quimerismo
+      2 Quimiodectoma
+      2 Quimionucleólise
+      2 Quimioterapia
+      2 Quiropraxia
+      2 Quérion
+      2 RAST
+      2 RB1 gene Mut Anal Sg/T
+      2 RET gene Mut Anal Sg/T
+      2 RETENCAO URINARIA
+      2 RPS6KA3 gene Mut Anal Sg/T
+      2 RS1 gene Mut Anal Sg/T
+      2 Rabdomioma
+      2 Rabdomiossarcoma
+      2 Rabdomiólise
+      2 Radiculite
+      2 Radiculopatia
+      2 Radioimunoterapia
+      2 Radioterapia
+      2 Raio-X
+      2 Raiva
+      2 Raquitismo
+      2 Reação de Arthus
+      2 Reação de luto
+      2 Reflexologia
+      2 Relaxamento
+      2 Relevant H&P Endoscopy
+      2 Remoção de tubo de timpanostomia
+      2 Renina
+      2 Respiração de Cheyne-Stokes
+      2 Respiração difícil
+      2 Respondedor parcial à terapia
+      2 Ressuscitação
+      2 Reticulocitose
+      2 Retinite
+      2 Retinoblastoma
+      2 Retinopatia
+      2 Retinoscopia
+      2 Retinosquise
+      2 Retocele
+      2 Retocolite
+      2 Retrognatia
+      2 Reumatismo
+      2 Revacinação
+      2 Rhythm Seg Imp EKG
+      2 Riboflavina
+      2 Rickettsiose
+      2 Rinite
+      2 Rinofima
+      2 Rinomanometria
+      2 Rinoplastia
+      2 Rinorreia
+      2 Rinoscleroma
+      2 Rinosporidiose
+      2 Ritidectomia
+      2 Rizotomia
+      2 Ronco
+      2 Roncos
+      2 Rosácea
+      2 Rosáceas
+      2 Roubo
+      2 Rouquidão
+      2 Rubor
+      2 Rânula
+      2 SAF
+      2 SDHB gene Mut Anal Sg/T
+      2 SDHC gene Mut Anal Sg/T
+      2 SDHD gene Mut Anal Sg/T
+      2 SERPINA1 gene Mut Anal Sg/T
+      2 SFTPB gene Mut Anal Sg/T
+      2 SFTPC gene Mut Anal Sg/T
+      2 SH2D1A gene Mut Anal Sg/T
+      2 SHOX gene Mut Anal Sg/T
+      2 SIDA
+      2 SLC22A18 gene Mut Anal Sg/T
+      2 SLC26A4 gene Mut Anal Sg/T
+      2 SMN1 gene Mut Anal Sg/T
+      2 SMPD1 gene Mut Anal Sg/T
+      2 SONOLENCIA
+      2 SPA Smn-Imp
+      2 SPAST gene Mut Anal Sg/T
+      2 SPECT
+      2 SPINK1 gene Mut Anal Sg/T
+      2 SPM
+      2 SRIS
+      2 ST-T seg Imp EKG
+      2 STEMI
+      2 Sadismo
+      2 Salicilato
+      2 Salivação
+      2 Salmonelose
+      2 Salpingectomia
+      2 Salpingite
+      2 Salpingografia
+      2 Salpingostomia
+      2 Sangramento
+      2 Sangria
+      2 Sapinho
+      2 Sarcoidose
+      2 Sarcoma
+      2 Sarcoma de Ewing
+      2 Sarcoma de Kaposi
+      2 Sarcopenia
+      2 Sarcosporidiose
+      2 Sardas
+      2 Scomber japonicus Ac.IgG4:#N/A:Pt:Soro:Qn
+      2 Seborreia
+      2 Secreção da mama na mulher
+      2 Secreção de muco
+      2 Seda Ac.IgE.RAST classe:ACnc:Pt:Soro:Ord
+      2 Sedação
+      2 Sede
+      2 Sede excessiva
+      2 Selênio
+      2 Seminoma
+      2 Sensação de calor
+      2 Sensação de frio
+      2 Sepse
+      2 Sepse por Candida
+      2 Sepse por Escherichia
+      2 Septicemia
+      2 Seroma
+      2 Serosite
+      2 Shigella
+      2 Shiguelose
+      2 Sialadenite
+      2 Sialidose
+      2 Sialografia
+      2 Sialolitíase
+      2 Sialorreia
+      2 Sideropenia
+      2 Sigmoidoscopia
+      2 Silicose
+      2 Silicotuberculose
+      2 Simpatectomia
+      2 Sinal de Battle
+      2 Sincinesia
+      2 Sindactilia
+      2 Sinestesia
+      2 Sinfisiotomia
+      2 Sinostose
+      2 Sinovectomia
+      2 Sinovioma
+      2 Sinovite
+      2 Sintoma de abstinência
+      2 Sinusite
+      2 Sinusite maxilar
+      2 Sirenomelia
+      2 Siringoma
+      2 Siringomielia
+      2 Sobremordida
+      2 Sofrimento emocional
+      2 Solidão
+      2 Soluço
+      2 Somatomedina C
+      2 Somatostatinoma
+      2 Somatotrofina
+      2 Somatotrofina^2 hs e 30 min após dose propranolona+glucagon:ACnc:Pt:Sor/Plas:Qn
+      2 Somatotrofina^30 min após dose de arginina:MCnc:Pt:Sor/Plas:Qn
+      2 Somatotrofina^8 hs após administração de XXX:#N/A:Pt:Sor/Plas:Qn
+      2 Somatotropina
+      2 Sonambulismo
+      2 Sonografia
+      2 Sopor
+      2 Streptococcus pneumoniae 51 Ac.IgG^1ª amostra:MCnc:Pt:Soro:Qn
+      2 Streptococcus pneumoniae 51 Ac.IgG^2ª amostra:MCnc:Pt:Soro:Qn
+      2 Streptococcus pneumoniae 56 Ac.IgG^1ª amostra:MCnc:Pt:Soro:Qn
+      2 Streptococcus pneumoniae 56 Ac.IgG^2ª amostra:MCnc:Pt:Soro:Qn
+      2 Sudorese
+      2 Sufocação
+      2 Suicídio
+      2 Sulfemoglobinemia
+      2 Superinfecção
+      2 Superovulação
+      2 Supraglotite
+      2 Surdez
+      2 Surdez neurossensorial
+      2 Surgical drains
+      2 Symptoms 1.5H p Lac PO Patient-Imp
+      2 Symptoms 1H p Lac PO Patient-Imp
+      2 Symptoms 2.5H p Lac PO Patient-Imp
+      2 Symptoms 2H p Lac PO Patient-Imp
+      2 Symptoms 30M p Lac PO Patient-Imp
+      2 Symptoms 3H p Lac PO Patient-Imp
+      2 Symptoms pre Lac PO Patient-Imp
+      2 Sífilis
+      2 Síncope
+      2 Síndrome CHARGE
+      2 Síndrome DIDMOAD
+      2 Síndrome HELLP
+      2 Síndrome da ATM
+      2 Síndrome de Adams-Stokes
+      2 Síndrome de Aicardi
+      2 Síndrome de Alagille
+      2 Síndrome de Aldrich
+      2 Síndrome de Alport
+      2 Síndrome de Alstrom
+      2 Síndrome de Angelman
+      2 Síndrome de Antley-Bixler
+      2 Síndrome de Apert
+      2 Síndrome de Asherman
+      2 Síndrome de Asperger
+      2 Síndrome de Bannayan-Riley-Ruvalcaba
+      2 Síndrome de Bardet-Biedl
+      2 Síndrome de Barre-Lieou
+      2 Síndrome de Barth
+      2 Síndrome de Bartter
+      2 Síndrome de Beckwith-Wiedemann
+      2 Síndrome de Behçet
+      2 Síndrome de Bernard-Soulier
+      2 Síndrome de Bland-White-Garland
+      2 Síndrome de Bloch-Sulzberger
+      2 Síndrome de Bloom
+      2 Síndrome de Bonnevie-Ullrich
+      2 Síndrome de Briquet
+      2 Síndrome de Brock
+      2 Síndrome de Brugada
+      2 Síndrome de Budd-Chiari
+      2 Síndrome de Capgras
+      2 Síndrome de Caplan
+      2 Síndrome de Charles Bonnet
+      2 Síndrome de Chediak-Higashi
+      2 Síndrome de Chiari-Frommel
+      2 Síndrome de Chilaiditi
+      2 Síndrome de Claude
+      2 Síndrome de Clouston
+      2 Síndrome de Cockayne
+      2 Síndrome de Cockett
+      2 Síndrome de Coffin-Lowry
+      2 Síndrome de Cogan
+      2 Síndrome de Conn
+      2 Síndrome de Costello
+      2 Síndrome de Crigler-Najjar
+      2 Síndrome de Crow-Fukase
+      2 Síndrome de Cruveilhier-Baumgarten
+      2 Síndrome de Cushing
+      2 Síndrome de Dandy-Walker
+      2 Síndrome de De Lange
+      2 Síndrome de Dejerine-Roussy
+      2 Síndrome de Denys-Drash
+      2 Síndrome de DiGeorge
+      2 Síndrome de Diógenes
+      2 Síndrome de Donohue
+      2 Síndrome de Doose
+      2 Síndrome de Down
+      2 Síndrome de Duane
+      2 Síndrome de Dubin-Johnson
+      2 Síndrome de Duncan
+      2 Síndrome de Eaton-Lambert
+      2 Síndrome de Ehlers-Danlos
+      2 Síndrome de Eisenmenger
+      2 Síndrome de Fanconi
+      2 Síndrome de Favre-Racouchot
+      2 Síndrome de Felty
+      2 Síndrome de Fisher
+      2 Síndrome de Foster-Kennedy
+      2 Síndrome de Foville
+      2 Síndrome de Fraser
+      2 Síndrome de Frasier
+      2 Síndrome de Frey
+      2 Síndrome de Froehlich
+      2 Síndrome de Gardner
+      2 Síndrome de Gerstmann
+      2 Síndrome de Gianotti-Crosti
+      2 Síndrome de Gitelman
+      2 Síndrome de Goldenhar
+      2 Síndrome de Goodpasture
+      2 Síndrome de Gorlin-Goltz
+      2 Síndrome de Guillain-Barré
+      2 Síndrome de Hamman-Rich
+      2 Síndrome de Heerfordt
+      2 Síndrome de Holmes-Adie
+      2 Síndrome de Horner
+      2 Síndrome de Hunter
+      2 Síndrome de Hurler
+      2 Síndrome de Hurler-Scheie
+      2 Síndrome de Job
+      2 Síndrome de Kallmann
+      2 Síndrome de Kanner
+      2 Síndrome de Kartagener
+      2 Síndrome de Kasabach-Merritt
+      2 Síndrome de Kearns-Sayre
+      2 Síndrome de Kennedy
+      2 Síndrome de Kleine-Levin
+      2 Síndrome de Klinefelter
+      2 Síndrome de Klippel-Feil
+      2 Síndrome de Klippel-Trenaunay-Weber
+      2 Síndrome de Kluver-Bucy
+      2 Síndrome de Korsakoff
+      2 Síndrome de Kounis
+      2 Síndrome de Landau-Kleffner
+      2 Síndrome de Langer-Giedion
+      2 Síndrome de Laron
+      2 Síndrome de Laurence-Moon
+      2 Síndrome de Laurence-Moon-Bardet-Biedl
+      2 Síndrome de Lemierre
+      2 Síndrome de Lennox-Gastaut
+      2 Síndrome de Leriche
+      2 Síndrome de Lesch-Nyhan
+      2 Síndrome de Li-Fraumeni
+      2 Síndrome de Liddle
+      2 Síndrome de Loeffler
+      2 Síndrome de Loeys-Dietz
+      2 Síndrome de Lowe
+      2 Síndrome de Lown-Ganong-Levine
+      2 Síndrome de Lynch
+      2 Síndrome de MacLeod
+      2 Síndrome de Maffucci
+      2 Síndrome de Mallory-Weiss
+      2 Síndrome de Marfan
+      2 Síndrome de Maroteaux-Lamy
+      2 Síndrome de May-Thurner
+      2 Síndrome de Meige
+      2 Síndrome de Meigs
+      2 Síndrome de Melkersson-Rosenthal
+      2 Síndrome de Melnick-Needles
+      2 Síndrome de Menkes
+      2 Síndrome de Miller Fisher
+      2 Síndrome de Miller-Dieker
+      2 Síndrome de Mirizzi
+      2 Síndrome de Mohr
+      2 Síndrome de Morgagni-Stewart-Morel
+      2 Síndrome de Mounier-Kuhn
+      2 Síndrome de Muckle-Wells
+      2 Síndrome de Muir-Torre
+      2 Síndrome de Nelson
+      2 Síndrome de Netherton
+      2 Síndrome de Nicolau
+      2 Síndrome de Noonan
+      2 Síndrome de Ogilvie
+      2 Síndrome de Omenn
+      2 Síndrome de Paget-Schroetter
+      2 Síndrome de Pancoast
+      2 Síndrome de Parinaud
+      2 Síndrome de Parsonage-Turner
+      2 Síndrome de Patau
+      2 Síndrome de Peutz-Jeghers
+      2 Síndrome de Pfeiffer
+      2 Síndrome de Pierre Robin
+      2 Síndrome de Plummer-Vinson
+      2 Síndrome de Poland
+      2 Síndrome de Prader-Willi
+      2 Síndrome de Rasmussen
+      2 Síndrome de Rett
+      2 Síndrome de Reye
+      2 Síndrome de Riley-Day
+      2 Síndrome de Rothmund-Thomson
+      2 Síndrome de Rotor
+      2 Síndrome de Roussy-Levy
+      2 Síndrome de Rubinstein-Taybi
+      2 Síndrome de Sanfilippo
+      2 Síndrome de Scheie
+      2 Síndrome de Schmidt
+      2 Síndrome de Schnitzler
+      2 Síndrome de Schwartz-Bartter
+      2 Síndrome de Sharp
+      2 Síndrome de Sheehan
+      2 Síndrome de Shwachman-Diamond
+      2 Síndrome de Shy-Drager
+      2 Síndrome de Shy-Magee
+      2 Síndrome de Silver-Russell
+      2 Síndrome de Sly
+      2 Síndrome de Smith-Lemli-Opitz
+      2 Síndrome de Smith-Magenis
+      2 Síndrome de Sneddon
+      2 Síndrome de Sotos
+      2 Síndrome de Steele-Richardson-Olszewski
+      2 Síndrome de Stein-Leventhal
+      2 Síndrome de Stevens-Johnson
+      2 Síndrome de Sturge-Weber
+      2 Síndrome de Susac
+      2 Síndrome de Sweet
+      2 Síndrome de Swyer
+      2 Síndrome de Swyer-James
+      2 Síndrome de Tietze
+      2 Síndrome de Tolosa-Hunt
+      2 Síndrome de Tourette
+      2 Síndrome de Turner
+      2 Síndrome de Verner-Morrison
+      2 Síndrome de Vogt-Koyanagi-Harada
+      2 Síndrome de Waardenburg
+      2 Síndrome de Wallenberg
+      2 Síndrome de Waterhouse-Friderichsen
+      2 Síndrome de Weber
+      2 Síndrome de Weill-Marchesani
+      2 Síndrome de Werner
+      2 Síndrome de Wernicke-Korsakoff
+      2 Síndrome de West
+      2 Síndrome de Williams
+      2 Síndrome de Wiskott-Aldrich
+      2 Síndrome de Wissler
+      2 Síndrome de Wissler-Fanconi
+      2 Síndrome de Wolf-Hirschhorn
+      2 Síndrome de Wolff-Parkinson-White
+      2 Síndrome de Wolfram
+      2 Síndrome de Zellweger
+      2 Síndrome de Zollinger-Ellison
+      2 Sódio
+      2 TAC
+      2 TBX5 gene Mut Anal Sg/T
+      2 TDAH
+      2 TGO diminuída
+      2 TGP
+      2 TH gene Mut Anal Sg/T
+      2 TNFRSF1A gene Mut Anal Sg/T
+      2 TPMT gene Mut Anal Sg/T
+      2 TREMOR NERVOSO
+      2 TRPS1 gene Mut Anal Sg/T
+      2 TSC gene Mut Anal Sg/T
+      2 TTR gene Mut Anal Sg/T
+      2 TWIST1 gene Mut Anal Sg/T
+      2 TYR gene Mut Anal Sg/T
+      2 Tabagismo
+      2 Talassemia
+      2 Talassemia alfa
+      2 Talassemia beta
+      2 Talipes
+      2 Taquiarritmia
+      2 Taquicardia
+      2 Taquifilaxia
+      2 Taquipneia
+      2 Tartamudez
+      2 Tatuagem
+      2 Telangiectasia
+      2 Telemedicina
+      2 Tendinite
+      2 Tendinopatia
+      2 Tendinose
+      2 Tenodese
+      2 Tenossinovite
+      2 Tenotomia
+      2 Teníase
+      2 Teratoma
+      2 Termocoagulação
+      2 Termografia
+      2 Termometria
+      2 Terçol
+      2 Terçolho
+      2 Teste de Coombs
+      2 Teste de HIV
+      2 Teste de Quick
+      2 Teste de Schilling
+      2 Teste de Schlichter
+      2 Teste direto de antiglobulina complemento C3d reagente específico:#N/A:Pt:Eritroc:Ord
+      2 Testosterona
+      2 Tetania
+      2 Tetralogia de Fallot
+      2 Tetraplegia
+      2 Tetrasialilgangliosídeo GQ1b Ac.IgM:ACnc:Pt:Soro:Ord
+      2 Therapeutic intervention Endoscopy
+      2 Thiazides Tested Ur Scn
+      2 Tiamina
+      2 Tiflite
+      2 Tifo
+      2 Tilose
+      2 Timectomia
+      2 Timidez
+      2 Timoma
+      2 Timpanocentese
+      2 Timpanometria
+      2 Timpanoplastia
+      2 Tinha
+      2 Tinha ungueal
+      2 Tinido
+      2 Tiques
+      2 Tireoglobulina
+      2 Tireoidectomia
+      2 Tireoidite
+      2 Tireotoxicose
+      2 Tirotrofina
+      2 Tirotropina
+      2 Tirotropina^30 min pré administração de XXX:ACnc:Pt:Sor/Plas:Qn
+      2 Tiroxina
+      2 Tocólise
+      2 Tonsilectomia
+      2 Tonsilite
+      2 Topectomia
+      2 Toracoplastia
+      2 Toracoscopia
+      2 Toracostomia
+      2 Toracotomia
+      2 Torcicolo
+      2 Torpor
+      2 Torulose
+      2 Tosse convulsa
+      2 Tosse seca persistente
+      2 Toxemia
+      2 Toxocaríase
+      2 Trabeculectomia
+      2 Trabeculoplastia
+      2 Transaminases
+      2 Transexualismo
+      2 Transferrina
+      2 Transgênero
+      2 Transiluminação
+      2 Transplante
+      2 Transtorno de aprendizagem
+      2 Transvestismo
+      2 Traquelectomia
+      2 Traqueobroncomegalia
+      2 Traqueomalácia
+      2 Traqueostomia
+      2 Traqueíte
+      2 Traumatismo
+      2 Tração
+      2 Tremedeira
+      2 Triagem do segundo semestre de maternidade penta painel:-:Pt:Sor/Plas:-
+      2 Tricofitose
+      2 Tricomoníase
+      2 Tricostrongilose
+      2 Tricotilomania
+      2 Tricuríase
+      2 Triglicerídeos
+      2 Triglicérides:SCnc:Pt:Sor/Plas:Qn
+      2 Trilogia de Fallot
+      2 Tripanossomíase
+      2 Triptase
+      2 Triquinose
+      2 Triquíase
+      2 Trissomia 13
+      2 Tritanopia
+      2 Trombastenia
+      2 Trombectomia
+      2 Trombina
+      2 Trombo
+      2 Trombocitemia
+      2 Trombocitopatia
+      2 Trombocitopenia
+      2 Trombocitopenia induzida por heparina mimetizando distúrbio tromboembólico
+      2 Trombocitose
+      2 Tromboelastografia
+      2 Tromboembolismo
+      2 Trombofilia
+      2 Tromboflebite
+      2 Trombopenia
+      2 Tromboplastina
+      2 Trombose
+      2 Tropomiosina Ac.IgE:#N/A:Pt:Soro:Qn
+      2 Troponina
+      2 Troponina C
+      2 Troponina I
+      2 Troponina T
+      2 Tuberculide
+      2 Tuberculose
+      2 Tularemia
+      2 Tumor
+      2 Tumor de Brenner
+      2 Tumor de Burkitt
+      2 Tumor de Buschke-Lowenstein
+      2 Tumor de Ewing
+      2 Tumor de Grawitz
+      2 Tumor de Klatskin
+      2 Tumor de Krukenberg
+      2 Tumor de Warthin
+      2 Tumor de Wilms
+      2 Tungíase
+      2 Tédio
+      2 Tétano
+      2 U1 Ribonucleoproteína núcleo pequeno Ac.IgG:ACnc:Pt:Soro:Ord
+      2 UGT1A1 gene Mut Anal Sg/T
+      2 ULCERA PEPTICA HEMORRAGICA
+      2 US Cent CV Study
+      2 Ubiquinona
+      2 Ultrafiltração
+      2 Ultrassonografia
+      2 Uranium Dose Assessment Ur-Imp
+      2 Urato
+      2 Urato:#N/A:12H:Urina:Qn
+      2 Ureia
+      2 Ureia sérica diminuída
+      2 Uremia
+      2 Ureterocele
+      2 Ureterolitíase
+      2 Ureteroscopia
+      2 Ureterostomia
+      2 Uretrite
+      2 Urina turva
+      2 Urinoma
+      2 Urinálise
+      2 Urobilinogênio
+      2 Urografia
+      2 Urograma
+      2 Urolitíase
+      2 Urticária
+      2 Uréia:#N/A:12H:Urina:Qn
+      2 Uveíte
+      2 VHL gene Mut Anal Sg/T
+      2 VLCFA Pattern SerPl-Imp
+      2 VTI 2 DOP
+      2 VTI DOP
+      2 VWF gene Mut Anal Sg/T
+      2 Vacina contra HPV
+      2 Vacinação
+      2 Vacínia
+      2 Vaginismo
+      2 Vaginite
+      2 Vaginite por Trichomonas
+      2 Vagotomia
+      2 Varicocele
+      2 Varíola
+      2 Vasculite
+      2 Vasculite por IgA
+      2 Vasectomia
+      2 Vasoconstrição
+      2 Vasodilatação
+      2 Vasodilatação cutânea
+      2 Vasopressina
+      2 Vasovasostomia
+      2 Vazão de líquido.urina:Volume:Pt:Trato urinário:Qn
+      2 Venografia
+      2 Ventricular morph Imp EKG
+      2 Ventriculostomia
+      2 Verrugas
+      2 Vertebroplastia
+      2 Vertigem
+      2 Vesicostomia
+      2 Vespula spp Ac.IgG4:#N/A:Pt:Soro:Qn
+      2 Vestibuloplastia
+      2 Vesícula
+      2 Vigília
+      2 Violência
+      2 Vipoma
+      2 Viremia
+      2 Virilismo
+      2 Virilização
+      2 Visceroptose
+      2 Viscosidade
+      2 Viscossuplementação
+      2 Vitamina B1
+      2 Vitamina B12
+      2 Vitamina B2
+      2 Vitamina B3
+      2 Vitamina B6
+      2 Vitamina C
+      2 Vitamina D
+      2 Vitamina E
+      2 Vitamina K
+      2 Vitiligo
+      2 Vitrectomia
+      2 Voyeurismo
+      2 Vulvectomia
+      2 Vulvite
+      2 Vulvodinia
+      2 Vulvovaginite
+      2 Vômito
+      2 WFS1 gene Mut Anal Sg/T
+      2 Xantoma
+      2 Xantomatose
+      2 Xeroftalmia
+      2 Xerostomia
+      2 Xylose Acsorption Ur+SerPl-Imp
+      2 Zigomicose
+      2 Zinco
+      2 Zona
+      2 eixo Imp EKG
+      2 mtDNA Mut Anal Sg/T
+      2 pedra Analysis IR-Imp
+      2 pedra Analysis-Imp
+      2 Ácido úrico sérico
+      2 Ácidos Graxos:Imp:Pt:Sor/Plas:Nom
+      2 Êmbolo
+      2 Êmese
+      2 Íleo
+      2 Úlcera
+      2 Úlcera de Buruli
+      2 Úlcera de Curling

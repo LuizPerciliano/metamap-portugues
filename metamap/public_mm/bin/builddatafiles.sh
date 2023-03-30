@@ -80,7 +80,7 @@ for directory in $BASEDIR/DB/*; do
 done
 DB_DEFAULT_DIR=${resourcedir[$index]}
 echo "Use which Data Set directory? [default: $index) $DB_DEFAULT_DIR]"
-DB_SELECT=""
+read DB_SELECT
 if [ "$DB_SELECT" = "" ]; then
     DFB_DBDIR=$DB_DEFAULT_DIR
 else
@@ -130,7 +130,7 @@ for file in $BASEDIR/lexicon/data/lexiconStatic*; do
 done
 LEXICON_FLAT_FILE=${lexiconflatfile[$index]}
 echo "Use which Lexicon file? [default: $index) $LEXICON_FLAT_FILE]"
-LEX_SELECT=""
+read LEX_SELECT
 if [ "$LEX_SELECT" = "" ]; then
     LEXICON_FLAT_FILE=${lexiconflatfile[$index]}
 else
@@ -156,7 +156,7 @@ RES_DEFAULT_DIR=${resourcedir[$index]}
 	       
 echo ""
 echo "Use which dfbuilder resource directory? [default: $index) $RES_DEFAULT_DIR]"
-RES_SELECT=""
+read RES_SELECT
 if [ "$RES_SELECT" = "" ]; then
     DFB_RESDIR=$RES_DEFAULT_DIR
 else

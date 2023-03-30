@@ -1,0 +1,11 @@
+      8 <det>
+      8 <pron>
+     14 <modal>
+     16 <conj>
+     43 <prep>
+     73 <aux>
+  61035 <all>
+ 162811 <adv>
+ 167549 <adj>
+ 271599 <verb>
+ 272648 <noun>

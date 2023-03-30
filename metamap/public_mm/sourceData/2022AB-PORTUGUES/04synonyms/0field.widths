@@ -1,0 +1,20 @@
+
+
+syns.txt: Col 1 (word)
+Maximum line length: 72
+adrenocorticotropic hormone-independent macronodular adrenal hyperplasia
+
+
+syns.txt: Col 2 (wcat)
+Maximum line length: 8
+c0000726
+
+
+syns.txt: Col 3 (syn)
+Maximum line length: 72
+adrenocorticotropic hormone-independent macronodular adrenal hyperplasia
+
+
+syns.txt: Col 4 (scat)
+Maximum line length: 4
+1024
